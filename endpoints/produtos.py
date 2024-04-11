@@ -18,14 +18,14 @@ def get_session(): #Função para pegar a sessão, e abrir e fechar o banco de d
 @router.get("/produtos")
 def getItems(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Pegando os valores do banco de dados, Depends do get_session. E verificando se o usuário está logado, com o get_current_user
     items = session.query(models.Produtos).all()
-    return {f"Pegando todos os itens para você, {user.username}", items}
+    return f"Pegando todos os itens para você, {user.username}", items
 
 #Aqui a gente chama a classe responsável pelos valores que vão ser necessitados aqui, e chamamos eles para passarem os valores e serem encaminhados para o banco de dados
 @router.get("/produtos/{id}") #Router para trazer as informações de acordo com o id
 def getItem(id:int, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
     item = session.query(models.Produtos).get(id) #Para pegar apenas o valor que for representado pelo id
     #return fakeDataBase[id] #Retornando o valor do dicionário, de acordo com o ID que ele digitar
-    return {f"Pegando o produto de id:{id} para você, {user.username}", item}
+    return f"Pegando o produto de id:{id} para você, {user.username}", item ###Arrumar os retorno para esse jeito, dos outros vai dar errado
 
 ###################################################################################################################################################
  #1 tipo de fazer um post, mas apenas é recomendado se for passar 1 ou poucos valores como é o exemplo... caso contrário é melhor fazer de outra forma como o pydantic 

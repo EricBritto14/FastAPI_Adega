@@ -17,19 +17,12 @@ class Produtos(Base):
     #     return "Criado o", self.nome
 
 class Cadastro_Users(Base):
-    __tablename__ = 'usuarios'
+    __tablename__ = 'all_users'
     idUsuario: int = Column(Integer, primary_key=True, unique=True, autoincrement=True)
     username: String = Column(String(200), nullable=False, unique=True)
     email: String = Column(String(200), nullable=False, unique=True)
     senha: String = Column(String(200), nullable=False)
     is_admin: bool = Column(Boolean, default=False)
 
-class Cadastro_Admins(Base):
-    __tablename__ = 'admins'
-    idAdmin: int = Column(Integer, primary_key=True, unique=True, autoincrement=True)
-    username: String = Column(String(200), nullable=False, unique=True)
-    email: String = Column(String(200), nullable=False, unique=True)
-    senha: String = Column(String(200), nullable=False)
-    is_admin: bool = Column(Boolean, default=True) #Admin cadastra admin, 
 
 

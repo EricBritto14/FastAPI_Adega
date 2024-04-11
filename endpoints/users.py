@@ -50,20 +50,20 @@ def getItem(id:int, session: Session = Depends(get_session), user: Cadastro_User
 #2 Segundo jeito de fazer e o melhor para vários valores, seria com o pydantic, para passar mais valores e informações, como strings, ints e etc
 #Aqui a gente chama a classe responsável pelos valores que vão ser necessitados aqui, e chamamos eles para passarem os valores e serem encaminhados para o banco de dados
 @router.post("/usuarios/adicionar")
-def addItem(item:Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
-    if not user.is_admin:
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Você não tem permissão para adicionar usuários!"
-        )
+def addItem(item:Cadastro, session: Session = Depends(get_session)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+    # if not user.is_admin:     #, user: Cadastro_Users = Depends(get_current_user)
+    #     raise HTTPException(
+    #         status_code=status.HTTP_403_FORBIDDEN,
+    #         detail="Você não tem permissão para adicionar usuários!"
+    #     )
     #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
-    item = Cadastro_Users(username = item.username, email = item.email, senha = get_password_hash(item.senha))
+    item = Cadastro_Users(username = item.username, email = item.email, senha = get_password_hash(item.senha), is_admin = item.is_admin)
     session.add(item) #Adicionando no banco
     session.commit()  #comitando a mudança
     session.refresh(item) #Dando um refresh para atualizar o banco
     #fakeDataBase[newId] = {"task":item.task, "valor":item.value} #Indicando que no fakedatabase no novo id, seja adicionado task + o valor que for passado
     #return fakeDataBase
-    return {f"Olá {user.username}, adicionando o usuário: {item}"}
+    return {f"Olá adicionando o usuário: {item}"}
 
 ####################################################################################################################################################
 #3 Seria um jeito criando uma requisição com o próprio Body (mas tem muitos problemas desse jeito e não é mto recomendado)

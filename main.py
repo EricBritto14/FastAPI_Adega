@@ -1,6 +1,6 @@
-from fastapi import FastAPI, Depends, HTTPException, Response
+from fastapi import FastAPI, Depends, HTTPException #, Response
 from sqlalchemy import select
-from endpoints import loginn, produtos, users, admins
+from endpoints import loginn, produtos, users #, admins
 import schemas, models
 from endpoints.loginn import *
 from schemas import *
@@ -25,7 +25,7 @@ def get_session(): #Função para pegar a sessão, e abrir e fechar o banco de d
 app = FastAPI(title="API Santa-Dose") #Title para dar nome à api
 app.include_router(produtos.router, tags=["Produtos"])
 app.include_router(users.router, tags=["Usuários"])
-app.include_router(admins.router, tags=["Admins"])
+# app.include_router(admins.router, tags=["Admins"])
 app.include_router(loginn.router, tags=["Login"])
 app.add_middleware(BaseHTTPMiddleware, dispatch=log_middleware) #Jeito certo de registar o middleware no app, para conseguir criar uma classe middleware e só puxar pra cá
 logger.info('Starting API...')
@@ -45,19 +45,21 @@ def login_for_access_token(
     form_data: OAuth2PasswordRequestForm = Depends(),
     session: Session = Depends(get_session),
 ):
-    user = session.scalar(select(Cadastro_Users).where(Cadastro_Users.username == form_data.username))
+    try:
+        user = session.scalar(select(Cadastro_Users).where(Cadastro_Users.username == form_data.username))
+        if not user:
+            raise HTTPException(
+                status_code=400, detail='Usuário ou senha incorretos!'
+            )
 
-    if not user:
-        raise HTTPException(
-            status_code=400, detail='Usuário ou senha incorretos!'
-        )
+        if not verify_password(form_data.password, user.senha):
+            raise HTTPException(
+                status_code=400, detail='Senha incorreta!'
+            )
 
-    if not verify_password(form_data.password, user.senha):
-        raise HTTPException(
-            status_code=400, detail='Senha incorreta!'
-        )
-
-    access_token = create_access_token(data={'sub': user.username})
+        access_token = create_access_token(data={'sub': user.username})
+    except:
+        access_token = "Erro ao validar o usuário"
 
     return {'access_token': access_token, 'token_type': 'bearer'}
 

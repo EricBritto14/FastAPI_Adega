@@ -28,6 +28,7 @@ def get_session(): #Função para pegar a sessão, e abrir e fechar o banco de d
 class DBManager:
     @staticmethod
     def get_user(db: Session, username: str): #Get_User, passando o bacno de dados e o nome de usuário
+        print(db.query(Cadastro_Users).filter(Cadastro_Users.username == username).first())
         return db.query(Cadastro_Users).filter(Cadastro_Users.username == username).first() #passando o banco, e o filtro, igualando o username que for passado pelo que está no banco, assim fazendo a procura
     
     @staticmethod
@@ -123,12 +124,11 @@ def protected_post_route(user: Cadastro_Users = Depends(get_current_user)): #Exi
     #Somente administradores podem acessar esta rota, e receber este retorno
     return {"message": f"Bem vindo administrador, {user.username}!!"}
 
-
-# Rota para criar o primeiro usuário
+#Rota para criar o primeiro usuário
 # @router.post("/init_user")
 # def create_initial_user(db: Session = Depends(get_session)):
 #     # Verifica se já existe algum usuário no banco de dados
-#     existing_user = db.query(User).first()
+#     existing_user = db.query(Cadastro_Admins).first()
 #     if existing_user:
 #         raise HTTPException(
 #             status_code=status.HTTP_400_BAD_REQUEST,
@@ -136,10 +136,11 @@ def protected_post_route(user: Cadastro_Users = Depends(get_current_user)): #Exi
 #         )
 
 #     # Cria o primeiro usuário
-#     initial_user = User(
-#         username="admin",
-#         hashed_password=get_password_hash("adminpassword"),
-#         full_name="Administrator"
+#     initial_user = Cadastro_Admins(
+#         username="eric2222",
+#         email="Eric.Britto222@gmail.com",
+#         senha=get_password_hash("E40024041"),
+#         is_admin=TRUE
 #     )
 #     db.add(initial_user)
 #     db.commit()
