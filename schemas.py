@@ -12,11 +12,19 @@ class Produtos(BaseModel):
    data_cadastro:str
 
 class Cadastro(BaseModel):
-   nome:str
+   username:str
    email:str
    senha:str
 
 class Admins(BaseModel):
-   nome:str
+   username:str
    email:str
    senha:str
+   is_admin:bool
+
+class Token(BaseModel): #Realomente necessário para o Login, usado no main.py com o /token
+    access_token: str
+    token_type: str
+
+class TokenData(BaseModel): #Realmente necessário para o login, usado no login.py com o /login mesmo
+   username: str | None = None

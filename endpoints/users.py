@@ -1,4 +1,8 @@
 import models, schemas
+from endpoints.loginn import *
+from models import *
+from schemas import *
+# from login import *
 from database import SessionLocal
 from sqlalchemy.orm import Session
 from fastapi import Depends, APIRouter
@@ -13,16 +17,26 @@ def get_session(): #Função para pegar a sessão, e abrir e fechar o banco de d
         session.close()
 
 @router.get("/usuarios")
-def getItems(session: Session = Depends(get_session)): #Pegando os valores do banco de dados, Depends do get_session
+def getItems(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Pegando os valores do banco de dados, Depends do get_session
+    if not user.is_admin:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Você não tem permissão para visualizar todos os usuários!"
+        )
     items = session.query(models.Cadastro_Users).all()
-    return items
+    return {f"Olá, {user.username}, aqui estão todos os usuários! {items}"}
 
 #Aqui a gente chama a classe responsável pelos valores que vão ser necessitados aqui, e chamamos eles para passarem os valores e serem encaminhados para o banco de dados
 @router.get("/usuarios/{id}") #Router para trazer as informações de acordo com o id
-def getItem(id:int, session: Session = Depends(get_session)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
+def getItem(id:int, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
+    if not user.is_admin:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Você não tem permissão para visualizar o usuário {id}!"
+        )
     item = session.query(models.Cadastro_Users).get(id) #Para pegar apenas o valor que for representado pelo id
     #return fakeDataBase[id] #Retornando o valor do dicionário, de acordo com o ID que ele digitar
-    return item
+    return {f"Olá, {user.username}, aqui está o usuário de id:{id} - {item}"}
 
 ###################################################################################################################################################
  #1 tipo de fazer um post, mas apenas é recomendado se for passar 1 ou poucos valores como é o exemplo... caso contrário é melhor fazer de outra forma como o pydantic 
@@ -36,15 +50,20 @@ def getItem(id:int, session: Session = Depends(get_session)): #Criando um getIte
 #2 Segundo jeito de fazer e o melhor para vários valores, seria com o pydantic, para passar mais valores e informações, como strings, ints e etc
 #Aqui a gente chama a classe responsável pelos valores que vão ser necessitados aqui, e chamamos eles para passarem os valores e serem encaminhados para o banco de dados
 @router.post("/usuarios/adicionar")
-def addItem(item:schemas.Cadastro, session: Session = Depends(get_session)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+def addItem(item:Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+    if not user.is_admin:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Você não tem permissão para adicionar usuários!"
+        )
     #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
-    item = models.Cadastro_Users(nome = item.nome, email = item.email, senha = item.senha)
+    item = Cadastro_Users(username = item.username, email = item.email, senha = get_password_hash(item.senha))
     session.add(item) #Adicionando no banco
     session.commit()  #comitando a mudança
     session.refresh(item) #Dando um refresh para atualizar o banco
     #fakeDataBase[newId] = {"task":item.task, "valor":item.value} #Indicando que no fakedatabase no novo id, seja adicionado task + o valor que for passado
     #return fakeDataBase
-    return item
+    return {f"Olá {user.username}, adicionando o usuário: {item}"}
 
 ####################################################################################################################################################
 #3 Seria um jeito criando uma requisição com o próprio Body (mas tem muitos problemas desse jeito e não é mto recomendado)
@@ -56,23 +75,27 @@ def addItem(item:schemas.Cadastro, session: Session = Depends(get_session)): #Aq
 
 #Atualizando valores
 @router.put("/usuarios/atualizar/{id}")
-def updateItem(id:int, item:schemas.Cadastro, session: Session = Depends(get_session)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+def updateItem(id:int, item:schemas.Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
     itemObject = session.query(models.Cadastro_Users).get(id) #Pegando o valor que foi passado pelo int, de qual objeto salvo é
     itemObject.nome, itemObject.email, itemObject.senha = item.nome, item.email, item.senha #atualizando com esses valores novos 
     session.commit() #comitando a mudança
     #fakeDataBase[newId] = {"task":item.task, "valor":item.value} #Indicando que no fakedatabase no novo id, seja adicionado task + o valor que for passado
     #return fakeDataBase
-    return itemObject
+    return {f"Olá {user.username}, o usuário desejado foi atualizado para {itemObject}"}
 
 #Deletando valores
 @router.delete("/usuarios/delete/{id}")
-def deleteItem(id:int, session: Session = Depends(get_session)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+def deleteItem(id:int, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+    if not user.is_admin:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Você não tem permissão para excluir usuários!"
+        )
     #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
     itemObject = session.query(models.Cadastro_Users).get(id) #Pegando o valor que foi passado pelo int, de qual objeto salvo é
     session.delete(itemObject) #comitando a mudança
     session.commit() #Comitando as mudanças
     session.close() #Fechando o banco
-    mensagem = 'O item {} foi deletado'.format(id)
-    return  mensagem, itemObject
+    return {f"Olá {user.username}, o usuário {itemObject} foi excluido!"}
     

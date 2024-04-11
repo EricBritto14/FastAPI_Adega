@@ -1,0 +1,4 @@
+[console_scripts]
+editlatest = logtail.cli:entry_point
+logtail = logtail.cli:entry_point
+

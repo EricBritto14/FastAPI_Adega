@@ -1,9 +1,13 @@
-from fastapi import FastAPI, Depends, Response
-import schemas 
-import models 
-from endpoints import produtos, users, admins
+from fastapi import FastAPI, Depends, HTTPException, Response
+from sqlalchemy import select
+from endpoints import loginn, produtos, users, admins
+import schemas, models
+from endpoints.loginn import *
+from schemas import *
+from models import *
 from logger import logger
 from starlette.middleware.base import BaseHTTPMiddleware
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from loggs import *
 from loggs.middleware import *
 from database import Base, engine, SessionLocal
@@ -22,14 +26,40 @@ app = FastAPI(title="API Santa-Dose") #Title para dar nome à api
 app.include_router(produtos.router, tags=["Produtos"])
 app.include_router(users.router, tags=["Usuários"])
 app.include_router(admins.router, tags=["Admins"])
+app.include_router(loginn.router, tags=["Login"])
 app.add_middleware(BaseHTTPMiddleware, dispatch=log_middleware) #Jeito certo de registar o middleware no app, para conseguir criar uma classe middleware e só puxar pra cá
 logger.info('Starting API...')
 
 @app.get("/")
 def getItems(session: Session = Depends(get_session)): #Pegando os valores do banco de dados, Depends do get_session
-    items = session.query(models.Produtos).all()
+    items = session.query(Produtos).all()
     return items
 
+@app.get("/usuarios/teste")
+def getItemss(session: Session = Depends(get_session)):
+    usuarios = session.query(Cadastro_Users).all()
+    return usuarios
+
+@app.post('/token', response_model=Token)
+def login_for_access_token(
+    form_data: OAuth2PasswordRequestForm = Depends(),
+    session: Session = Depends(get_session),
+):
+    user = session.scalar(select(Cadastro_Users).where(Cadastro_Users.username == form_data.username))
+
+    if not user:
+        raise HTTPException(
+            status_code=400, detail='Usuário ou senha incorretos!'
+        )
+
+    if not verify_password(form_data.password, user.senha):
+        raise HTTPException(
+            status_code=400, detail='Senha incorreta!'
+        )
+
+    access_token = create_access_token(data={'sub': user.username})
+
+    return {'access_token': access_token, 'token_type': 'bearer'}
 
 
 #Aqui a gente chama a classe responsável pelos valores que vão ser necessitados aqui, e chamamos eles para passarem os valores e serem encaminhados para o banco de dados
