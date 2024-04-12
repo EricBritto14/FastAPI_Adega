@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+# from datetime import datetime, timedelta
 from fastapi import APIRouter, HTTPException, Depends, Request, Response, status, Cookie
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy import create_engine, Column, Integer, String, select
@@ -28,7 +28,6 @@ def get_session(): #Função para pegar a sessão, e abrir e fechar o banco de d
 class DBManager:
     @staticmethod
     def get_user(db: Session, username: str): #Get_User, passando o bacno de dados e o nome de usuário
-        print(db.query(Cadastro_Users).filter(Cadastro_Users.username == username).first())
         return db.query(Cadastro_Users).filter(Cadastro_Users.username == username).first() #passando o banco, e o filtro, igualando o username que for passado pelo que está no banco, assim fazendo a procura
     
     @staticmethod

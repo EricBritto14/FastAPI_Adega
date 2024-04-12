@@ -2,7 +2,6 @@ import models, schemas
 from database import SessionLocal
 from sqlalchemy.orm import Session
 from fastapi import Depends, APIRouter #APIRouter para fazer as rotas
-import endpoints.loginn
 from endpoints.loginn import *
 
 router = APIRouter() #Criando o router para por no lugar do @app.get, vai virar router.get
@@ -25,7 +24,7 @@ def getItems(session: Session = Depends(get_session), user: Cadastro_Users = Dep
 def getItem(id:int, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
     item = session.query(models.Produtos).get(id) #Para pegar apenas o valor que for representado pelo id
     #return fakeDataBase[id] #Retornando o valor do dicionário, de acordo com o ID que ele digitar
-    return f"Pegando o produto de id:{id} para você, {user.username}", item ###Arrumar os retorno para esse jeito, dos outros vai dar errado
+    return f"Pegando o produto de id:{id} para você, {user.username}", item
 
 ###################################################################################################################################################
  #1 tipo de fazer um post, mas apenas é recomendado se for passar 1 ou poucos valores como é o exemplo... caso contrário é melhor fazer de outra forma como o pydantic 
@@ -52,7 +51,7 @@ def addItem(item:schemas.Produtos, session: Session = Depends(get_session), user
     session.refresh(item) #Dando um refresh para atualizar o banco
     #fakeDataBase[newId] = {"task":item.task, "valor":item.value} #Indicando que no fakedatabase no novo id, seja adicionado task + o valor que for passado
     #return fakeDataBase
-    return {f"Olá, {user.username}, o {item} foi adicionado!"}
+    return f"Olá, {user.username}, o produto desejado foi adicionado!", item
 
 ####################################################################################################################################################
 #3 Seria um jeito criando uma requisição com o próprio Body (mas tem muitos problemas desse jeito e não é mto recomendado)
@@ -71,7 +70,7 @@ def updateItem(id:int, item:schemas.Produtos, session: Session = Depends(get_ses
     session.commit() #comitando a mudança
     #fakeDataBase[newId] = {"task":item.task, "valor":item.value} #Indicando que no fakedatabase no novo id, seja adicionado task + o valor que for passado
     #return fakeDataBase
-    return {f"Atualizando o produto, {user.username}. Para: {itemObject}"}
+    return f"Atualizando o produto de id:{id}, {user.username}. Para:", itemObject
 
 #Deletando valores
 @router.delete("/produtos/delete/{id}")
@@ -86,5 +85,5 @@ def deleteItem(id:int, session: Session = Depends(get_session), user: Cadastro_U
     session.delete(itemObject) #comitando a mudança
     session.commit() #Comitando as mudanças
     session.close() #Fechando o banco
-    return {f"Olá {user.username}, o item {id} foi deletado!"}
+    return f"Olá {user.username}, o item {id} foi deletado! Produto:", itemObject
     
