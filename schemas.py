@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-
+from datetime import date
 
 #Classe que vamos criar o que queremos que o usuário passe de valores, para colocar no banco de dados
 class Produtos(BaseModel):
@@ -9,8 +9,14 @@ class Produtos(BaseModel):
    quantidade:int
    tamanho:str
    data_validade:str 
-   data_cadastro:str
+   # data_cadastro:str 
 
+class AttProdutos(BaseModel):
+   tipo:str  
+   valor:float
+   quantidade:int
+   data_validade:str 
+   
 class Cadastro(BaseModel):
    username:str
    email:str

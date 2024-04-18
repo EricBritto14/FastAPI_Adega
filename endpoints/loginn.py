@@ -10,6 +10,7 @@ from database import engine, Base, SessionLocal
 import jwt
 from jwt import encode, decode, DecodeError
 from schemas import *
+import re
 
 #Se der error no jwt encode como resolver: https://stackoverflow.com/questions/33198428/jwt-module-object-has-no-attribute-encode
 #https://www.youtube.com/watch?v=5GxQ1rLTwaU - Autenticação com token
@@ -47,7 +48,7 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 #Função para criar um hash de senha(incriptografar a senha)
 def get_password_hash(password):
-    return CryptContext(schemes=["bcrypt"]).hash(password)
+        return CryptContext(schemes=["bcrypt"]).hash(password)
 
 def verify_password(plain_password: str, hashed_password: str):
     return pwd_context.verify(plain_password, hashed_password) #Verificando a senha que foi passada, e a que foi incriptografada

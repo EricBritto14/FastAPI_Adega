@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, Boolean
 from database import Base
+from datetime import date
 
 #Classe que cria a table no banco de dados, e coloca que valores que serão armazenados
 class Produtos(Base):

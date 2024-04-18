@@ -2,6 +2,8 @@ from fastapi import Request, Response
 from .logger import logger
 #import time
 
+#Ver o log, pq sempre da 200 e não é sempre.
+
 #@app.middleware("http") #Middleware serve para fazer realmente esse log, e serve essencialmente para rodar em todos os requests que forem feitos
 async def log_middleware(request: Request, call_next, httpteste: Response = None): #Criando os "props" padrão para o log_middleware
     #start = time.time() #Se quiser saber o tempo que começou o processo para depois lá embaixo calcular o tempo que acabou na hora de retornar pro usuário, pra mostrar pra ele quanto q demorou (mas achei sem necessidade)
