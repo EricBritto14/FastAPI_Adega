@@ -96,6 +96,7 @@ def updateItem(id:int, item:schemas.AttProdutos, session: Session = Depends(get_
         if not itemObject.tipo in ('doces', 'alcoólicas', 'não alcoólicas'):
             raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
+        
         validar_data(itemObject.data_validade)
         
         # if not re.search("[0-9][ml][l]", itemObject.tamanho):

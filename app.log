@@ -5206,3 +5206,70 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2024-04-18 15:09:00,894 - INFO - Starting API...
 2024-04-18 15:09:18,349 - INFO - Starting API...
 2024-04-18 15:09:21,762 - INFO - Starting API...
+2024-04-19 14:08:12,701 - INFO - Starting API...
+2024-04-19 14:11:00,834 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:11:01,004 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:11:10,344 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-19 14:11:10,690 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40204041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:11:21,577 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro nao cadastrado, mas deu erro'}
+2024-04-19 14:11:54,408 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40204041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:11:57,181 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro nao cadastrado, mas deu erro'}
+2024-04-19 14:12:02,772 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40204041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:12:03,958 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro nao cadastrado, mas deu erro'}
+2024-04-19 14:12:10,826 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40204041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:12:12,525 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro nao cadastrado, mas deu erro'}
+2024-04-19 14:12:17,813 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40204041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:12:19,128 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro nao cadastrado, mas deu erro'}
+2024-04-19 14:12:24,434 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40204041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:12:25,511 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro nao cadastrado, mas deu erro'}
+2024-04-19 14:12:30,534 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40204041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:12:32,553 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro nao cadastrado, mas deu erro'}
+2024-04-19 14:12:39,126 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E4020041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:12:40,450 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro nao cadastrado, mas deu erro'}
+2024-04-19 14:12:40,956 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro nao cadastrado, mas deu erro'}
+2024-04-19 14:12:41,104 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro nao cadastrado, mas deu erro'}
+2024-04-19 14:12:41,507 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro nao cadastrado, mas deu erro'}
+2024-04-19 14:12:41,632 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro nao cadastrado, mas deu erro'}
+2024-04-19 14:12:53,964 - INFO - Starting API...
+2024-04-19 14:12:54,067 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:12:54,216 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:12:58,013 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-19 14:12:58,285 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:13:06,989 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:13:10,492 - INFO - {'url': '/produtos/delete/20', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro nao cadastrado, mas deu erro'}
+2024-04-19 14:13:49,539 - INFO - Starting API...
+2024-04-19 14:14:03,104 - INFO - Starting API...
+2024-04-19 14:14:09,530 - INFO - Starting API...
+2024-04-19 14:14:11,782 - INFO - Starting API...
+2024-04-19 14:14:24,038 - INFO - Starting API...
+2024-04-19 14:24:23,862 - INFO - Starting API...
+2024-04-19 14:24:29,632 - INFO - Starting API...
+2024-04-19 14:24:40,976 - INFO - Starting API...
+2024-04-19 14:24:43,557 - INFO - Starting API...
+2024-04-19 14:25:24,243 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-19 14:25:24,383 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 07:57:04,518 - INFO - Starting API...
+2024-04-22 08:35:33,985 - INFO - Starting API...
+2024-04-22 08:35:43,563 - INFO - {'url': '/', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 08:35:47,194 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 08:35:47,346 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 08:35:52,400 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 08:35:53,126 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 08:42:45,832 - INFO - {'url': '/produtos/delete/30', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 08:43:05,177 - INFO - {'url': '/produtos/delete/30', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 08:43:36,263 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "string",\n  "tipo": "string",\n  "valor": 0,\n  "quantidade": 0,\n  "tamanho": "string",\n  "data_validade": "string"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
