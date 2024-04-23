@@ -23,8 +23,6 @@ def validar_data(data_val):
     try:
         data_hoje = date.today()
         data_valF1 = datetime.strptime(data_val, '%d/%m/%Y').date()
-        print("Data de hoje como tá: ", data_hoje)
-        print("Data validada como tá: ", data_valF1)
             #data_valF = data_valF1.strftime('%d/%m/%Y')
         if not data_valF1 < data_hoje:
             return data_valF1.strftime('%d/%m/%Y')
@@ -46,12 +44,12 @@ def getItems(session: Session = Depends(get_session), user: Cadastro_Users = Dep
 
 
 #Aqui a gente chama a classe responsável pelos valores que vão ser necessitados aqui, e chamamos eles para passarem os valores e serem encaminhados para o banco de dados
-@router.get("/produtos/{id}") #Router para trazer as informações de acordo com o id
-def getItem(id:int, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
+@router.get("/produtos/{nome}") #Router para trazer as informações de acordo com o id
+def getItem(nome:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
     try:
-        item = session.query(models.Produtos).get(id) #Para pegar apenas o valor que for representado pelo id
+        item = session.query(models.Produtos).filter_by(nome=nome.capitalize()).first() 
         #return fakeDataBase[id] #Retornando o valor do dicionário, de acordo com o ID que ele digitar
-        return f"Pegando o produto de id:{id} para você, {user.username}", item
+        return f"Pegando o produto de nome:{nome} para você, {user.username}", item
     except Exception as e:
         print("Erro: ", str(e))
         raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Erro no servidor")
@@ -64,10 +62,10 @@ def addItem(item:schemas.Produtos, session: Session = Depends(get_session), user
             detail="Você não tem permissão para adicionar produtos!"
         )
     try:
-        #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
-        item = models.Produtos(nome = item.nome, tipo = item.tipo.lower(), valor = item.valor, quantidade = item.quantidade, tamanho = item.tamanho.lower(), data_validade = item.data_validade, data_cadastro = data_formatada)
+        #capitalize é para colocar a primeira letra maiscula e o resto minuscula
+        item = models.Produtos(nome = item.nome.capitalize(), tipo = item.tipo.capitalize(), valor = item.valor, quantidade = item.quantidade, tamanho = item.tamanho.lower(), data_validade = item.data_validade, data_cadastro = data_formatada)
 
-        if not item.tipo in ('doces', 'alcoólicas', 'não alcoólicas'):
+        if not item.tipo in ('Doces', 'Alcoólicas', 'Não alcoólicas'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
         validar_data(item.data_validade)
@@ -86,15 +84,18 @@ def addItem(item:schemas.Produtos, session: Session = Depends(get_session), user
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
 
 #Atualizando valores
-@router.put("/produtos/atualizar/{id}")
-def updateItem(id:int, item:schemas.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+#@router.put("/produtos/atualizar/{id}")
+#itemObject = session.query(models.Produtos).get(id) #Mudanças para pegar pelo id não pelo nome
+@router.put("/produtos/atualizar/{nome}") #Tentar pegar pelo nome, não pelo id
+def updateItem(nome:str, item:schemas.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     try:
         #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
-        itemObject = session.query(models.Produtos).get(id) #Pegando o valor que foi passado pelo int, de qual objeto salvo é
-        itemObject.tipo, itemObject.valor, itemObject.quantidade, itemObject.data_validade, itemObject.data_cadastro = item.tipo, item.valor, item.quantidade, item.data_validade, data_formatada #atualizando com esses valores novos 
-        
-        if not itemObject.tipo in ('doces', 'alcoólicas', 'não alcoólicas'):
-            raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
+        # item = session.query(models.Produtos).filter_by(nome=nome.capitalize()).first() 
+        itemObject = session.query(models.Produtos).filter_by(nome=nome.capitalize()).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
+        itemObject.tipo, itemObject.valor, itemObject.quantidade, itemObject.data_validade, itemObject.data_cadastro = item.tipo.capitalize(), item.valor, item.quantidade, item.data_validade, data_formatada #atualizando com esses valores novos 
+
+        if not itemObject.tipo in ('Doces', 'Alcoólicas', 'Não alcoólicas'):
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
         
         validar_data(itemObject.data_validade)
@@ -106,9 +107,9 @@ def updateItem(id:int, item:schemas.AttProdutos, session: Session = Depends(get_
         #fakeDataBase[newId] = {"task":item.task, "valor":item.value} #Indicando que no fakedatabase no novo id, seja adicionado task + o valor que for passado
         #return fakeDataBase
         if item.quantidade <= 10:
-            return f"Atualizando o produto de id:{id}, {user.username}. Para: ", itemObject, f"Atenção {user.username} o produto {itemObject.nome} chegou na quantidade mínima 10! Agora está em {item.quantidade}, fica esperto!"
+            return f"Atualizando o produto de nome:{nome}, {user.username}. Para: ", itemObject, f"Atenção {user.username} o produto {itemObject.nome} chegou na quantidade mínima 10! Agora está em {item.quantidade}, fica esperto!"
         else:
-            return f"Atualizando o produto de id:{id}, {user.username}. Para: ", itemObject
+            return f"Atualizando o produto de nome:{nome}, {user.username}. Para: ", itemObject
         
     except Exception as e:
         if "UNIQUE constraint failed" in str(e):
@@ -116,8 +117,8 @@ def updateItem(id:int, item:schemas.AttProdutos, session: Session = Depends(get_
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
 
 #Deletando valores
-@router.delete("/produtos/delete/{id}")
-def deleteItem(id:int, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+@router.delete("/produtos/delete/{nome}")
+def deleteItem(nome:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     if not user.is_admin:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
@@ -125,11 +126,11 @@ def deleteItem(id:int, session: Session = Depends(get_session), user: Cadastro_U
         )
     try:
         #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
-        itemObject = session.query(models.Produtos).get(id) #Pegando o valor que foi passado pelo int, de qual objeto salvo é
+        itemObject = session.query(models.Produtos).filter_by(nome=nome.capitalize()).first() #Pegando o valor que foi passado pelo nome, e procurando no bnaco pra ver se existe algo com esse nome
+        id = itemObject.idProduto
         session.delete(itemObject) #comitando a mudança
         session.commit() #Comitando as mudanças
         session.close() #Fechando o banco
-        return f"Olá {user.username}, o item {id} foi deletado! Produto:", itemObject
+        return f"Olá {user.username}, o item {nome} e id {id}, foi deletado! Produto:", itemObject
     except Exception as e:
-        print("Erro: ", e)
-        raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Erro no servidor")
+        raise HTTPException(status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Produto {nome}, não encontrado")

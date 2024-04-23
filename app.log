@@ -5273,3 +5273,815 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2024-04-22 08:42:45,832 - INFO - {'url': '/produtos/delete/30', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
 2024-04-22 08:43:05,177 - INFO - {'url': '/produtos/delete/30', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
 2024-04-22 08:43:36,263 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "string",\n  "tipo": "string",\n  "valor": 0,\n  "quantidade": 0,\n  "tamanho": "string",\n  "data_validade": "string"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 08:46:41,732 - INFO - Starting API...
+2024-04-22 09:42:28,789 - INFO - Starting API...
+2024-04-22 09:44:50,406 - INFO - Starting API...
+2024-04-22 09:44:53,253 - INFO - Starting API...
+2024-04-22 09:44:57,187 - INFO - Starting API...
+2024-04-22 09:50:13,354 - INFO - Starting API...
+2024-04-22 09:50:13,375 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 09:50:13,376 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 09:50:13,377 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 09:50:13,768 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 09:50:34,931 - INFO - Starting API...
+2024-04-22 09:53:15,676 - INFO - Starting API...
+2024-04-22 09:53:18,346 - INFO - Starting API...
+2024-04-22 09:53:27,816 - INFO - Starting API...
+2024-04-22 09:53:32,089 - INFO - Starting API...
+2024-04-22 09:53:43,228 - INFO - Starting API...
+2024-04-22 09:56:39,270 - INFO - Starting API...
+2024-04-22 09:56:48,841 - INFO - Starting API...
+2024-04-22 09:56:51,302 - INFO - Starting API...
+2024-04-22 10:00:29,422 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 10:00:29,547 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 10:00:35,618 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 10:00:36,341 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 10:01:01,887 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "garrafa",\n  "tipo": "doces",\n  "valor": 30,\n  "quantidade": 20,\n  "tamanho": "1ml",\n  "data_validade": "23/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 10:01:10,923 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "garrafa",\n  "tipo": "doce",\n  "valor": 30,\n  "quantidade": 20,\n  "tamanho": "1ml",\n  "data_validade": "23/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 10:01:36,936 - INFO - Starting API...
+2024-04-22 10:01:41,660 - INFO - Starting API...
+2024-04-22 10:01:55,687 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 10:01:55,853 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 10:02:01,145 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 10:02:01,773 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 10:02:29,829 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "garrafa",\n  "tipo": "doces",\n  "valor": 30,\n  "quantidade": 20,\n  "tamanho": "1ml",\n  "data_validade": "22/04/2024"\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 10:16:37,337 - INFO - Starting API...
+2024-04-22 10:28:24,084 - INFO - Starting API...
+2024-04-22 10:28:57,568 - INFO - Starting API...
+2024-04-22 10:28:59,288 - INFO - Starting API...
+2024-04-22 10:29:01,277 - INFO - Starting API...
+2024-04-22 10:30:04,842 - INFO - Starting API...
+2024-04-22 10:30:04,930 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 10:30:05,184 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 10:33:14,336 - INFO - Starting API...
+2024-04-22 10:33:22,898 - INFO - Starting API...
+2024-04-22 10:33:39,491 - INFO - Starting API...
+2024-04-22 10:33:52,996 - INFO - Starting API...
+2024-04-22 10:33:56,384 - INFO - Starting API...
+2024-04-22 10:34:05,986 - INFO - Starting API...
+2024-04-22 10:52:12,969 - INFO - Starting API...
+2024-04-22 10:52:17,153 - INFO - Starting API...
+2024-04-22 10:52:39,306 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 10:52:39,478 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 10:52:44,747 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 10:52:45,475 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 10:53:24,973 - INFO - {'url': '/produtos/delete/Ride', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 10:53:37,653 - INFO - {'url': '/produtos/delete/skol', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 10:53:42,134 - INFO - {'url': '/produtos/delete/Skol', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 10:54:17,260 - INFO - Starting API...
+2024-04-22 10:54:24,106 - INFO - Starting API...
+2024-04-22 10:54:38,627 - INFO - Starting API...
+2024-04-22 10:55:01,354 - INFO - Starting API...
+2024-04-22 10:55:04,658 - INFO - Starting API...
+2024-04-22 10:55:11,017 - INFO - Starting API...
+2024-04-22 10:55:15,687 - INFO - Starting API...
+2024-04-22 10:55:33,311 - INFO - Starting API...
+2024-04-22 10:55:35,879 - INFO - Starting API...
+2024-04-22 10:55:39,084 - INFO - Starting API...
+2024-04-22 10:55:42,442 - INFO - Starting API...
+2024-04-22 11:03:02,820 - INFO - Starting API...
+2024-04-22 11:03:09,107 - INFO - Starting API...
+2024-04-22 11:08:11,480 - INFO - Starting API...
+2024-04-22 11:08:58,123 - INFO - Starting API...
+2024-04-22 11:09:03,417 - INFO - Starting API...
+2024-04-22 13:50:47,217 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 13:50:47,375 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 13:50:53,574 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 13:50:53,902 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 13:51:40,687 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "adaptador",\n  "tipo": "alcoolicas",\n  "valor": 50,\n  "quantidade": 20,\n  "tamanho": "1",\n  "data_validade": "20/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 13:51:47,257 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "adaptador",\n  "tipo": "alcoólicas",\n  "valor": 50,\n  "quantidade": 20,\n  "tamanho": "1",\n  "data_validade": "20/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 13:51:57,277 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "adaptador",\n  "tipo": "alcoólicas",\n  "valor": 50,\n  "quantidade": 20,\n  "tamanho": "1",\n  "data_validade": "30/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 13:52:13,173 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "adaptador",\n  "tipo": "alcoólicas",\n  "valor": 50,\n  "quantidade": 20,\n  "tamanho": "1ML",\n  "data_validade": "30/04/2024"\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 13:53:05,753 - INFO - {'url': '/produtos/atualizar/ADAPTADOR', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 60,\n  "quantidade": 40,\n  "data_validade": "20/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 13:54:38,736 - INFO - {'url': '/produtos/atualizar/Adaptador', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 60,\n  "quantidade": 40,\n  "data_validade": "20/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 14:01:02,112 - INFO - Starting API...
+2024-04-22 14:01:04,021 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:01:04,150 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:01:09,400 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:01:09,692 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:01:33,734 - INFO - {'url': '/produtos/atualizar/Adaptador', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 60,\n  "quantidade": 340,\n  "data_validade": "20/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 14:01:59,680 - INFO - Starting API...
+2024-04-22 14:02:06,210 - INFO - Starting API...
+2024-04-22 14:02:18,898 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:02:22,056 - INFO - Starting API...
+2024-04-22 14:02:22,090 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:02:27,333 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:02:27,640 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:02:34,335 - INFO - {'url': '/produtos/Adaptador', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:03:06,316 - INFO - Starting API...
+2024-04-22 14:03:09,713 - INFO - Starting API...
+2024-04-22 14:03:09,738 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:03:09,884 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:03:15,302 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:03:15,623 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:03:24,948 - INFO - {'url': '/produtos/Adaptador', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 14:03:50,463 - INFO - Starting API...
+2024-04-22 14:03:50,531 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:03:50,841 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:03:55,082 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:03:55,367 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:10:03,800 - INFO - Starting API...
+2024-04-22 14:10:09,181 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:10:09,312 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:10:17,449 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:10:17,727 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:10:25,632 - INFO - {'url': '/produtos/Adaptador', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 14:10:41,757 - INFO - {'url': '/produtos', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:11:04,635 - INFO - {'url': '/produtos/Adaptador', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 14:12:01,248 - INFO - Starting API...
+2024-04-22 14:12:05,109 - INFO - Starting API...
+2024-04-22 14:12:07,261 - INFO - Starting API...
+2024-04-22 14:12:09,796 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:12:09,929 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:12:14,264 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:12:14,587 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:12:57,522 - INFO - Starting API...
+2024-04-22 14:13:16,111 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:13:16,264 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:13:22,180 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:13:22,483 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40204041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:13:29,019 - INFO - {'url': '/produtos/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 401 (Erro na autenticacao)'}
+2024-04-22 14:13:37,403 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:13:39,032 - INFO - {'url': '/produtos/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 14:14:51,631 - INFO - Starting API...
+2024-04-22 14:15:12,115 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:15:12,270 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:15:16,816 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:15:17,106 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:26:40,843 - INFO - Starting API...
+2024-04-22 14:26:42,108 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:26:42,265 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:26:55,268 - INFO - {'url': '/produtos/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 401 (Erro na autenticacao)'}
+2024-04-22 14:27:06,574 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:27:06,889 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:27:33,735 - INFO - Starting API...
+2024-04-22 14:27:36,867 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:27:37,002 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:27:42,354 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:27:42,656 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40204041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:27:49,592 - INFO - {'url': '/produtos/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 401 (Erro na autenticacao)'}
+2024-04-22 14:27:58,297 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:46:07,502 - INFO - Starting API...
+2024-04-22 14:46:15,759 - INFO - Starting API...
+2024-04-22 14:46:16,454 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:46:16,599 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:46:22,615 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:46:23,004 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:46:52,178 - INFO - Starting API...
+2024-04-22 14:46:55,796 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:46:55,930 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:47:00,385 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:47:00,702 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:47:03,769 - INFO - {'url': '/produtos/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 14:47:57,772 - INFO - Starting API...
+2024-04-22 14:48:01,420 - INFO - Starting API...
+2024-04-22 14:48:02,966 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:48:03,108 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:48:07,213 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:48:07,680 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:48:10,453 - INFO - {'url': '/produtos/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 14:48:56,841 - INFO - Starting API...
+2024-04-22 14:48:59,977 - INFO - Starting API...
+2024-04-22 14:49:06,503 - INFO - Starting API...
+2024-04-22 14:49:08,049 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:49:08,201 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:49:12,937 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:49:13,257 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:49:16,288 - INFO - {'url': '/produtos/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 14:49:30,075 - INFO - Starting API...
+2024-04-22 14:49:40,197 - INFO - Starting API...
+2024-04-22 14:49:50,252 - INFO - Starting API...
+2024-04-22 14:49:52,704 - INFO - Starting API...
+2024-04-22 14:50:07,159 - INFO - Starting API...
+2024-04-22 14:50:09,824 - INFO - Starting API...
+2024-04-22 14:50:09,847 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:50:10,000 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:51:11,873 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:51:12,240 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:51:44,861 - INFO - Starting API...
+2024-04-22 14:51:47,855 - INFO - Starting API...
+2024-04-22 14:53:06,667 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:53:06,796 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:53:12,224 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:53:12,537 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:54:20,028 - INFO - Starting API...
+2024-04-22 14:54:22,049 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:54:22,206 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:54:26,444 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:54:26,998 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:54:32,611 - INFO - {'url': '/produtos/Adaptador', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 14:54:46,286 - INFO - Starting API...
+2024-04-22 14:54:46,352 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:54:46,601 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:54:50,701 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:54:50,999 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:54:57,386 - INFO - {'url': '/produtos/Adaptador', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 14:55:11,244 - INFO - Starting API...
+2024-04-22 14:55:17,656 - INFO - Starting API...
+2024-04-22 14:55:24,013 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:55:24,146 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:55:30,686 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=Admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:55:36,234 - INFO - {'url': '/produtos/Adaptador', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 401 (Erro na autenticacao)'}
+2024-04-22 14:55:43,262 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:55:43,572 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:55:45,464 - INFO - {'url': '/produtos/Adaptador', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 14:57:32,580 - INFO - Starting API...
+2024-04-22 14:57:46,193 - INFO - Starting API...
+2024-04-22 14:57:48,806 - INFO - Starting API...
+2024-04-22 14:57:48,959 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:57:49,130 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:57:54,115 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:57:54,438 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:57:59,895 - INFO - {'url': '/produtos/Adaptador', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 14:58:21,984 - INFO - Starting API...
+2024-04-22 14:58:58,053 - INFO - Starting API...
+2024-04-22 14:59:02,357 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:59:02,496 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:59:08,654 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 14:59:09,129 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 14:59:14,826 - INFO - {'url': '/produtos/Adaptador', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 15:36:59,693 - INFO - {'url': '/produtos/adaptador', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 15:37:49,352 - INFO - Starting API...
+2024-04-22 15:37:49,411 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 15:37:49,697 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 15:37:54,064 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 15:37:54,793 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 15:38:15,669 - INFO - {'url': '/produtos/atualizar/ADAPTADOR', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 50,\n  "quantidade": 60,\n  "data_validade": "20/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 15:38:29,111 - INFO - {'url': '/produtos/atualizar/Adaptador', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 50,\n  "quantidade": 60,\n  "data_validade": "20/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 16:04:23,838 - INFO - Starting API...
+2024-04-22 16:04:26,431 - INFO - Starting API...
+2024-04-22 16:05:13,582 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:05:13,748 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:05:18,256 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 16:05:18,966 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:05:38,232 - INFO - {'url': '/produtos/atualizar/Adaptador', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 230,\n  "quantidade": 50,\n  "data_validade": "20/04/2004"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 16:07:55,554 - INFO - Starting API...
+2024-04-22 16:08:07,814 - INFO - Starting API...
+2024-04-22 16:08:14,546 - INFO - Starting API...
+2024-04-22 16:09:28,452 - INFO - Starting API...
+2024-04-22 16:09:32,163 - INFO - Starting API...
+2024-04-22 16:09:37,063 - INFO - Starting API...
+2024-04-22 16:09:37,129 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:09:37,299 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:09:41,623 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 16:09:42,288 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:10:00,460 - INFO - {'url': '/produtos/atualizar/Adaptador', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 60,\n  "quantidade": 50,\n  "data_validade": "20/04/2004"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 16:10:20,296 - INFO - Starting API...
+2024-04-22 16:10:22,573 - INFO - Starting API...
+2024-04-22 16:10:29,391 - INFO - Starting API...
+2024-04-22 16:10:43,062 - INFO - Starting API...
+2024-04-22 16:10:43,113 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:10:43,260 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:10:49,366 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 16:10:50,069 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:11:07,113 - INFO - {'url': '/produtos/atualizar/Adaptador', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 60,\n  "quantidade": 50,\n  "data_validade": "20/04/2004"\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:11:36,845 - INFO - Starting API...
+2024-04-22 16:11:49,200 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:11:49,379 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:11:53,959 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 16:11:54,688 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:12:14,911 - INFO - {'url': '/produtos/atualizar/Adaptador', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 70,\n  "quantidade": 50,\n  "data_validade": "20/04/2004"\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:15:11,259 - INFO - Starting API...
+2024-04-22 16:15:17,396 - INFO - Starting API...
+2024-04-22 16:15:17,442 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:15:17,586 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:15:25,336 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 16:15:26,036 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:15:48,902 - INFO - {'url': '/produtos/atualizar/Adaptador', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 870,\n  "quantidade": 70,\n  "data_validade": "20/04/2004"\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:16:27,255 - INFO - Starting API...
+2024-04-22 16:16:27,325 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:16:27,512 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:16:33,028 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 16:16:33,826 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:16:51,570 - INFO - {'url': '/produtos/atualizar/Adaptador', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 60,\n  "quantidade": 50,\n  "data_validade": "20/04/2004"\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:17:20,574 - INFO - Starting API...
+2024-04-22 16:17:28,319 - INFO - Starting API...
+2024-04-22 16:17:31,661 - INFO - Starting API...
+2024-04-22 16:17:37,917 - INFO - Starting API...
+2024-04-22 16:17:41,887 - INFO - Starting API...
+2024-04-22 16:17:46,832 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:17:46,998 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:17:51,286 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 16:17:51,978 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:18:06,777 - INFO - {'url': '/produtos/atualizar/Adaptador', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 06,\n  "quantidade": 60,\n  "data_validade": "20/04/2004"\n}', 'status': 'Erro 422 (Erro ao tentar cadastrar e passou tudo errado)'}
+2024-04-22 16:18:31,131 - INFO - {'url': '/produtos/atualizar/Adaptador', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 50,\n  "quantidade": 60,\n  "data_validade": "20/04/2004"\n}', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 16:20:25,385 - INFO - Starting API...
+2024-04-22 16:20:29,927 - INFO - Starting API...
+2024-04-22 16:20:36,522 - INFO - Starting API...
+2024-04-22 16:22:40,978 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "tampa",\n  "tipo": "doce",\n  "valor": 60,\n  "quantidade": 50,\n  "tamanho": "1",\n  "data_validade": "22/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 16:23:02,882 - INFO - Starting API...
+2024-04-22 16:23:07,436 - INFO - Starting API...
+2024-04-22 16:23:10,087 - INFO - Starting API...
+2024-04-22 16:23:10,114 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:23:10,281 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:23:15,450 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 16:23:16,193 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:23:34,489 - INFO - {'url': '/produtos/atualizar/Adaptador', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 60,\n  "quantidade": 40,\n  "data_validade": "20/04/2004"\n}', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 16:24:02,138 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:24:04,865 - INFO - Starting API...
+2024-04-22 16:24:04,901 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:24:09,556 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 16:24:10,257 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:24:29,442 - INFO - {'url': '/produtos/atualizar/Adaptador', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 60,\n  "quantidade": 50,\n  "data_validade": "20/04/2024"\n}', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 16:25:05,069 - INFO - Starting API...
+2024-04-22 16:25:07,744 - INFO - Starting API...
+2024-04-22 16:25:09,682 - INFO - Starting API...
+2024-04-22 16:25:10,195 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:25:10,326 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:25:15,285 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 16:25:15,982 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40204041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:25:35,039 - INFO - {'url': '/produtos/atualizar/AdaptadoR', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 60,\n  "quantidade": 50,\n  "data_validade": "20/04/2024"\n}', 'status': 'Codigo 401 (Erro na autenticacao)'}
+2024-04-22 16:25:43,673 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:25:45,699 - INFO - {'url': '/produtos/atualizar/AdaptadoR', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 60,\n  "quantidade": 50,\n  "data_validade": "20/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 16:25:56,681 - INFO - {'url': '/produtos/atualizar/AdaptadoR', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doces",\n  "valor": 60,\n  "quantidade": 50,\n  "data_validade": "20/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 16:26:03,554 - INFO - {'url': '/produtos/atualizar/AdaptadoR', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doces",\n  "valor": 60,\n  "quantidade": 50,\n  "data_validade": "20/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 16:26:12,208 - INFO - {'url': '/produtos/atualizar/AdaptadoR', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "Doces",\n  "valor": 60,\n  "quantidade": 50,\n  "data_validade": "20/04/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 16:26:48,618 - INFO - Starting API...
+2024-04-22 16:26:48,665 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:26:48,807 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:26:53,558 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 16:26:54,257 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:27:11,520 - INFO - {'url': '/produtos/atualizar/AdaptadoR', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doce",\n  "valor": 60,\n  "quantidade": 50,\n  "data_validade": "20/04/2004"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 16:27:15,390 - INFO - {'url': '/produtos/atualizar/AdaptadoR', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doces",\n  "valor": 60,\n  "quantidade": 50,\n  "data_validade": "20/04/2004"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 16:27:51,280 - INFO - {'url': '/produtos/atualizar/AdaptadoR', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "tipo": "doces",\n  "valor": 60,\n  "quantidade": 5,\n  "data_validade": "20/04/2034"\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:53:22,971 - INFO - Starting API...
+2024-04-22 16:53:25,165 - INFO - Starting API...
+2024-04-22 16:53:27,250 - INFO - Starting API...
+2024-04-22 16:53:33,442 - INFO - Starting API...
+2024-04-22 16:53:57,609 - INFO - {'url': '/produtos/delete/adaptador', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:54:01,237 - INFO - {'url': '/produtos/delete/adaptador', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 500 (Erro no servidor)'}
+2024-04-22 16:54:14,810 - INFO - Starting API...
+2024-04-22 16:54:19,340 - INFO - Starting API...
+2024-04-22 16:58:57,663 - INFO - Starting API...
+2024-04-22 16:59:01,384 - INFO - Starting API...
+2024-04-22 16:59:08,223 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:59:08,365 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:59:14,574 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 16:59:15,256 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:59:22,302 - INFO - {'url': '/usuarios/admin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-22 16:59:51,422 - INFO - Starting API...
+2024-04-22 16:59:54,879 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 16:59:55,033 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:00:01,391 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 17:00:02,064 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40204041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:00:59,854 - INFO - {'url': '/usuarios/admin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 401 (Erro na autenticacao)'}
+2024-04-22 17:01:10,266 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:01:12,654 - INFO - {'url': '/usuarios/admin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:02:30,369 - INFO - {'url': '/usuarios', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:02:47,982 - INFO - {'url': '/usuarios/Fernando Alvarenga', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:04:50,457 - INFO - Starting API...
+2024-04-22 17:04:58,439 - INFO - Starting API...
+2024-04-22 17:04:58,503 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:04:58,658 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:05:04,078 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 17:05:04,790 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40204041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:05:11,868 - INFO - {'url': '/usuarios/admin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 401 (Erro na autenticacao)'}
+2024-04-22 17:05:20,298 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40204041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:05:22,627 - INFO - {'url': '/usuarios/admin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 401 (Erro na autenticacao)'}
+2024-04-22 17:05:28,748 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:05:30,448 - INFO - {'url': '/usuarios/admin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:05:53,721 - INFO - {'url': '/usuarios', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:06:10,653 - INFO - {'url': '/usuarios/verdade', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:06:32,562 - INFO - Starting API...
+2024-04-22 17:06:34,930 - INFO - Starting API...
+2024-04-22 17:06:47,510 - INFO - Starting API...
+2024-04-22 17:07:01,478 - INFO - Starting API...
+2024-04-22 17:07:24,834 - INFO - Starting API...
+2024-04-22 17:07:30,710 - INFO - Starting API...
+2024-04-22 17:07:34,940 - INFO - Starting API...
+2024-04-22 17:07:34,964 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:07:35,103 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:07:41,676 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 17:07:42,384 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:07:51,014 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:08:15,428 - INFO - Starting API...
+2024-04-22 17:08:17,590 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:08:17,741 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:08:22,852 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 17:08:23,554 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:08:29,661 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:08:53,103 - INFO - Starting API...
+2024-04-22 17:09:01,295 - INFO - Starting API...
+2024-04-22 17:09:03,816 - INFO - Starting API...
+2024-04-22 17:09:06,162 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:09:06,312 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:09:12,132 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-22 17:09:12,894 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:09:18,680 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-22 17:10:11,876 - INFO - Starting API...
+2024-04-23 08:11:01,397 - INFO - Starting API...
+2024-04-23 08:11:04,824 - INFO - Starting API...
+2024-04-23 08:11:10,738 - INFO - Starting API...
+2024-04-23 08:11:13,078 - INFO - Starting API...
+2024-04-23 08:11:31,395 - INFO - Starting API...
+2024-04-23 08:11:44,422 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:11:44,581 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:11:50,952 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:11:51,695 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:12:06,973 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:13:30,227 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:13:33,376 - INFO - Starting API...
+2024-04-23 08:13:33,408 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:13:38,328 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:13:39,031 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:13:50,365 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:14:09,498 - INFO - Starting API...
+2024-04-23 08:14:09,527 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:14:09,683 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:14:14,800 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:14:15,438 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:14:20,743 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:23:00,805 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:23:05,573 - INFO - Starting API...
+2024-04-23 08:23:05,652 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:23:10,922 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:23:11,644 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:23:20,697 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:23:44,670 - INFO - Starting API...
+2024-04-23 08:23:47,862 - INFO - Starting API...
+2024-04-23 08:23:47,896 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:23:48,069 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:23:52,163 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:23:52,879 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:23:58,610 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:24:14,471 - INFO - Starting API...
+2024-04-23 08:24:15,836 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:24:15,995 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:24:23,338 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:24:24,033 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:24:33,220 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:25:07,325 - INFO - Starting API...
+2024-04-23 08:25:11,979 - INFO - Starting API...
+2024-04-23 08:25:12,031 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:25:12,238 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:25:16,100 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:25:16,782 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:25:22,407 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:25:35,070 - INFO - Starting API...
+2024-04-23 08:25:35,110 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:25:35,359 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:25:39,818 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:25:40,515 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:25:45,924 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:26:02,767 - INFO - Starting API...
+2024-04-23 08:26:08,554 - INFO - Starting API...
+2024-04-23 08:26:08,618 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:26:08,814 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:26:13,069 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:26:13,763 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:26:19,392 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:26:34,713 - INFO - Starting API...
+2024-04-23 08:26:34,770 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:26:34,959 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:26:40,217 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:26:40,936 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:26:48,590 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:27:03,283 - INFO - Starting API...
+2024-04-23 08:27:29,375 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:27:32,304 - INFO - Starting API...
+2024-04-23 08:27:32,335 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:27:36,514 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=Admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:27:43,430 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 401 (Erro na autenticacao)'}
+2024-04-23 08:27:50,340 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:27:51,042 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:27:53,394 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-23 08:28:03,489 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:34:05,173 - INFO - Starting API...
+2024-04-23 08:34:36,586 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:34:36,753 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:34:41,832 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:34:42,541 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:35:02,015 - INFO - {'url': '/usuarios/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "username": "tonight",\n  "email": "tonight@gmail.com",\n  "senha": "123124123",\n  "is_admin": false\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-23 08:35:09,446 - INFO - {'url': '/usuarios/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "username": "tonight",\n  "email": "tonight@gmail.com",\n  "senha": "E123124123",\n  "is_admin": false\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-23 08:35:13,742 - INFO - {'url': '/usuarios/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "username": "tonight",\n  "email": "tonight@gmail.com",\n  "senha": "E123124123e",\n  "is_admin": false\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-23 08:35:22,662 - INFO - {'url': '/usuarios/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "username": "tonight",\n  "email": "tonight@gmail.com",\n  "senha": "E123124123e&",\n  "is_admin": false\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:35:37,925 - INFO - {'url': '/usuarios/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "username": "tonight is",\n  "email": "tonightis@gmail.com",\n  "senha": "E123124123e&",\n  "is_admin": false\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:40:24,892 - INFO - {'url': '/usuarios/atualizar/tonight', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "username": "tonight2",\n  "email": "tonight22",\n  "senha": "E40024041e&",\n  "is_admin": false\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-23 08:40:36,488 - INFO - Starting API...
+2024-04-23 08:40:40,795 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:40:40,950 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:40:45,933 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:40:46,623 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:41:26,701 - INFO - Starting API...
+2024-04-23 08:41:26,746 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:41:26,931 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:41:30,927 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:41:31,649 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:41:53,485 - INFO - {'url': '/usuarios/atualizar/tonight', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "username": "tonight2",\n  "email": "tonight@gmail.com",\n  "senha": "E40024041e&",\n  "is_admin": false\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:44:45,908 - INFO - Starting API...
+2024-04-23 08:44:52,072 - INFO - Starting API...
+2024-04-23 08:45:01,724 - INFO - Starting API...
+2024-04-23 08:45:17,332 - INFO - Starting API...
+2024-04-23 08:45:23,284 - INFO - Starting API...
+2024-04-23 08:45:29,527 - INFO - Starting API...
+2024-04-23 08:45:35,236 - INFO - Starting API...
+2024-04-23 08:45:41,870 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:45:42,045 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:45:45,927 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:45:46,593 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:45:57,263 - INFO - {'url': '/usuarios/delete/tonight2', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:46:03,345 - INFO - {'url': '/usuarios/delete/tonight', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-23 08:46:52,954 - INFO - Starting API...
+2024-04-23 08:46:57,152 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-04-23 08:47:40,490 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-04-23 08:47:41,215 - INFO - {'url': '/usuarios/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "username": "tonight",\n  "email": "tonight@gmail.com",\n  "senha": "E40024041e&",\n  "is_admin": false\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:47:48,086 - INFO - {'url': '/usuarios/{nome}', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:48:06,019 - INFO - {'url': '/usuarios', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-04-23 08:48:52,754 - INFO - Starting API...
+2024-04-23 08:48:56,850 - INFO - Starting API...
+2024-04-23 08:49:05,045 - INFO - Starting API...
