@@ -46,22 +46,21 @@ def login_for_access_token(
     session: Session = Depends(get_session),
 ):
     try:
-        user = session.scalar(select(Cadastro_Users).where(Cadastro_Users.username == form_data.username))
-        if not user:
+        user = session.query(Cadastro_Users).filter(Cadastro_Users.username == form_data.username).first()
+        if user is None: #if user == None:
             raise HTTPException(
-                status_code=400, detail='Usuário ou senha incorretos!'
+                status_code=status.HTTP_400_BAD_REQUEST, detail='Usuário ou senha incorretos!'
             )
-
         if not verify_password(form_data.password, user.senha):
-            raise HTTPException(
-                status_code=400, detail='Senha incorreta!'
-            )
+             raise HTTPException(
+                 status_code=status.HTTP_400_BAD_REQUEST, detail='Senha incorreta!'
+             )
 
         access_token = create_access_token(data={'sub': user.username})
+        return {'access_token': access_token, 'token_type': 'bearer'}
     except:
-        access_token = "Erro ao validar o usuário"
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail= "Erro ao validar o usuário")
 
-    return {'access_token': access_token, 'token_type': 'bearer'}
 
 
 #Aqui a gente chama a classe responsável pelos valores que vão ser necessitados aqui, e chamamos eles para passarem os valores e serem encaminhados para o banco de dados

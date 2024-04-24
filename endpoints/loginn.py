@@ -34,10 +34,10 @@ class DBManager:
     @staticmethod
     def authenticate_user(db: Session, username: str, password: str):
         user = DBManager.get_user(db, username) #Pegando do banco de dados, o usuário digitado e os que tem no banco de dados
-        if not user: #Se o usuário "procurado" não existir
-            return None
-        if not CryptContext(schemas=["bcrypt"]).verify(password, user.senha): #Verificando a senha digitada, com a senha que ta no banco
-            return None
+        if user is None: #Se o usuário "procurado" não existir
+            raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="Usuário inexistente!") 
+        if not CryptContext(schemes=["bcrypt"]).verify(password, user.senha): #Verificando a senha digitada, com a senha que ta no banco
+            raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="Senha errada!")
         return user   
 
 #Chave secreta para assinar e verificar tokens
@@ -54,28 +54,38 @@ def verify_password(plain_password: str, hashed_password: str):
     return pwd_context.verify(plain_password, hashed_password) #Verificando a senha que foi passada, e a que foi incriptografada
 
 #Função para criar um token JWT
-def create_access_token(data: dict):
-    to_encode = data.copy() #Pegar a data
-    #expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES) #Se quiser colocar expiração no token, não sei se acho necessário
-    #to_encode.update({'exp': expire})
-    encoded_jwt = encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-    #pp = jwt.encode(data, SECRET_KEY, algorithm=ALGORITHM)
-    return encoded_jwt
+def create_access_token(data: dict): 
+    try:
+        to_encode = data.copy() #Pegar a data
+        #expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES) #Se quiser colocar expiração no token, não sei se acho necessário
+        #to_encode.update({'exp': expire})
+        if to_encode != None: #Acho que não precisa deste if to_enncode != None, pode remover e deixar ele fazendo o encoded direto, se no /Token estiver certo igual está agora. Mas se quiser garantir deixar esse if é bom
+            encoded_jwt = encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+        #pp = jwt.encode(data, SECRET_KEY, algorithm=ALGORITHM)
+            return encoded_jwt
+    except Exception as e:
+        print("Erro ", e)
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário errado")
+        
 
 #Rota para realizar login
 @router.post("/login")
 def login(response: Response, form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_session)): #Response é padrão, Auth2PassWordRequestForm seria para o login no canto da pagina, e o db session seria para pegar o banco de dados
-    user = DBManager.authenticate_user(db, form_data.username, form_data.password)
-    if not user:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Usuário ou senha incorretos!",
-        )
-    #Criando um token com o nome do usuário
-    access_token = create_access_token({"sub": user.username})
-    #Settando o token session em um cookie
-    response.set_cookie(key="access_token", value=access_token, httponly=True) #Definindo o token como httponly
-    return {"Status": "Login feito com sucesso!", "token": access_token}
+    try:
+        user = DBManager.authenticate_user(db, form_data.username, form_data.password)
+        if user is None:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Usuário ou senha incorretos!",
+            )
+        #Criando um token com o nome do usuário
+        access_token = create_access_token({"sub": user.username})
+        #Settando o token session em um cookie
+        response.set_cookie(key="access_token", value=access_token, httponly=True) #Definindo o token como httponly
+        return {"Status": "Login feito com sucesso!", "token": access_token}
+    except Exception as e:
+        print("Erro específico: ", e)
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 # Função para obter o usuário atual a partir do cookie de token da sessão
@@ -127,20 +137,20 @@ def protected_post_route(user: Cadastro_Users = Depends(get_current_user)): #Exi
 #Rota para criar o primeiro usuário
 # @router.post("/init_user")
 # def create_initial_user(db: Session = Depends(get_session)):
-#     # Verifica se já existe algum usuário no banco de dados
-#     existing_user = db.query(Cadastro_Admins).first()
+# #     # Verifica se já existe algum usuário no banco de dados
+#     existing_user = db.query(Cadastro_Users).first()
 #     if existing_user:
 #         raise HTTPException(
 #             status_code=status.HTTP_400_BAD_REQUEST,
 #             detail="User already exists in the database",
 #         )
 
-#     # Cria o primeiro usuário
-#     initial_user = Cadastro_Admins(
-#         username="eric2222",
+# #     # Cria o primeiro usuário
+#     initial_user = Cadastro_Users(
+#         username="Admin",
 #         email="Eric.Britto222@gmail.com",
-#         senha=get_password_hash("E40024041"),
-#         is_admin=TRUE
+#         senha=get_password_hash("E40024041e&"),
+#         is_admin=True
 #     )
 #     db.add(initial_user)
 #     db.commit()
