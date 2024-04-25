@@ -18,7 +18,7 @@ import re
 
 router = APIRouter() #Router da classe
 
-def get_session(): #Função para pegar a sessão, e abrir e fechar o banco de dados
+async def get_session(): #Função para pegar a sessão, e abrir e fechar o banco de dados
     session = SessionLocal()
     try:
         yield session
@@ -70,9 +70,9 @@ def create_access_token(data: dict):
 
 #Rota para realizar login
 @router.post("/login")
-def login(response: Response, form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_session)): #Response é padrão, Auth2PassWordRequestForm seria para o login no canto da pagina, e o db session seria para pegar o banco de dados
+async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_session)): #Response é padrão, Auth2PassWordRequestForm seria para o login no canto da pagina, e o db session seria para pegar o banco de dados
     try:
-        user = DBManager.authenticate_user(db, form_data.username, form_data.password)
+        user = DBManager.authenticate_user(db, form_data.username.capitalize(), form_data.password)
         if user is None:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
@@ -120,12 +120,12 @@ async def get_current_user(
 
 #Exemplo de rota protegida, necessário apenas o login para poder usa-lá
 @router.post("/protected")
-def protected_route(user: Cadastro_Users = Depends(get_current_user)):
+async def protected_route(user: Cadastro_Users = Depends(get_current_user)):
     return {"Mensagem": f"Hello, {user.email}!"}
 
 #Rota protegida também pelo login, mas para usá-la precisaria ser admin, caso contrário da erro
 @router.post("/protected_post")
-def protected_post_route(user: Cadastro_Users = Depends(get_current_user)): #Exigindo login para tal execução de uma reuqisição
+async def protected_post_route(user: Cadastro_Users = Depends(get_current_user)): #Exigindo login para tal execução de uma reuqisição
     if not user.is_admin: #Puxando do banco de dados o atributo de cadastro "is_admin" para verificar se é adm ou não, se não for não pode fazer tal ação, mesmo estando logado
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,

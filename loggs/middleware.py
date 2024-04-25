@@ -35,6 +35,8 @@ async def log_middleware(request: Request, call_next): #Criando os "props" padr√
         dict = {"status": "Codigo 500 (Erro no servidor)"}
     elif response.status_code == 401:
         dict = {"status": "Codigo 401 (Erro na autenticacao)"}
+    elif response.status_code == 203:
+        dict = {"status": "Codigo 203 (Nao autorizado para tal requisicao)"}
     else:
         dict = {"status": "Erro nao cadastrado, mas deu erro"}
     

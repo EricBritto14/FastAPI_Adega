@@ -15,7 +15,9 @@ from sqlalchemy.orm import Session
 
 Base.metadata.create_all(engine) #Linha para realmente criar o banco de dados se não tivermos um. Vai criar o banco de dados com as informações que temos no engine do database.py
 
-def get_session(): #Função para pegar a sessão, e abrir e fechar o banco de dados
+#Fazer o metodo pra recuperar senha pelo email, e pegar as info não apenas pelo id e pelo nome, mas sim pelos 2 talvez.
+
+async def get_session(): #Função para pegar a sessão, e abrir e fechar o banco de dados
     session = SessionLocal()
     try:
         yield session
@@ -31,12 +33,12 @@ app.add_middleware(BaseHTTPMiddleware, dispatch=log_middleware) #Jeito certo de 
 logger.info('Starting API...')
 
 @app.get("/")
-def getItems(session: Session = Depends(get_session)): #Pegando os valores do banco de dados, Depends do get_session
+async def getItems(session: Session = Depends(get_session)): #Pegando os valores do banco de dados, Depends do get_session
     items = session.query(Produtos).all()
     return items
 
 @app.get("/usuarios/teste")
-def getItemss(session: Session = Depends(get_session)):
+async def getItemss(session: Session = Depends(get_session)):
     usuarios = session.query(Cadastro_Users).all()
     return usuarios
 
@@ -46,10 +48,10 @@ def login_for_access_token(
     session: Session = Depends(get_session),
 ):
     try:
-        user = session.query(Cadastro_Users).filter(Cadastro_Users.username == form_data.username).first()
-        if user is None: #if user == None:
+        user = session.query(Cadastro_Users).filter(Cadastro_Users.username == form_data.username.capitalize()).first()
+        if user is None: 
             raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST, detail='Usuário ou senha incorretos!'
+                status_code=status.HTTP_400_BAD_REQUEST, detail='Usuário incorreto ou inexistente!'
             )
         if not verify_password(form_data.password, user.senha):
              raise HTTPException(
