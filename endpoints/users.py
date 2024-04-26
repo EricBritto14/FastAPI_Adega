@@ -59,6 +59,7 @@ async def getItems(session: Session = Depends(get_session), user: Cadastro_Users
         items = session.query(models.Cadastro_Users).all()
         return f"Olá, {user.username}, aqui estão todos os usuários!:", items
     except Exception as e:
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
 
 @router.get("/usuarios/{nome}") #Router para trazer as informações de acordo com o id
@@ -74,7 +75,7 @@ async def getItem(username:str, session: Session = Depends(get_session), user: C
         else:
             return f"Olá, {user.username}, aqui está o usuário de nome:{username} -", item
     except Exception as e:
-        session.rollback()
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
 
 @router.post("/usuarios/adicionar")
@@ -105,8 +106,8 @@ async def addItem(item:Cadastro, session: Session = Depends(get_session), user: 
         session.commit()  #comitando a mudança
         session.refresh(item) #Dando um refresh para atualizar o banco
         return f"Olá adicionando o usuário:", item
-        #session.rollback()
     except Exception as e:
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
 
 #Atualizando valores
@@ -121,22 +122,23 @@ async def updateItem(nome:str, item:schemas.Cadastro, session: Session = Depends
                     # Se todas as validações passarem, agora podemos hash a senha
         if itemObject is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário inexistente!")
-        
-        itemObject.username, itemObject.email, itemObject.is_admin, itemObject.senha = item.username.capitalize(), item.email, item.is_admin, valida_senha(item.senha)
-                # Validar e-mail antes de validar a senha
-        print("Email que está vindo procurar no banco: ", itemObject.email)
-        print("Username que está vindo procurar no banco: ", itemObject.username)
-        newUsername = session.query(models.Cadastro_Users).filter_by(username = itemObject.username).first() #Está o erro aqui, o itemobject está pegando o valor certinho, tem que mudar algo aqui pra procurar certo no banco
-        newEmail = session.query(models.Cadastro_Users).filter_by(email = itemObject.email).first()
-        
-        #Continuar a partir daqui os testes de caso, o do produto já está tudo feito. Após isso, colocar pra funcionar com o ID também as coisas, não apenas com o nome. E por fim, tentar fazer como os "componentes" de front-end e reaproveitar melhor o código, principalmente esses session.query de procurar no banco, da pra fazer uma def e só passar os valores, invez de repetir o código.
+        #Pegando o username digitado para atualizar
+        usernameN = item.username.capitalize()
+        newUsername = session.query(models.Cadastro_Users).filter_by(username = usernameN).first() #Está procurando no banco o novo nome de usuário que o cara quer atualizar, se tiver, vai dar o erro de baixo, se não vai da bom
         
         if newUsername != None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome de usuário já existente!")
         
+        #Pegando o email digitado para atualizar
+        emailN = item.email
+        newEmail = session.query(models.Cadastro_Users).filter_by(email = emailN).first()#Está procurando no banco o novo email que o cara quer atualizar, se tiver, vai dar o erro de baixo, se não vai da bom
+        
         if newEmail != None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Este email já está sendo usado!")
         
+        itemObject.username, itemObject.email, itemObject.is_admin, itemObject.senha = item.username.capitalize(), item.email, item.is_admin, valida_senha(item.senha)
+        
+        #Continuar a partir daqui os testes de caso, o do produto já está tudo feito. Após isso, colocar pra funcionar com o ID também as coisas, não apenas com o nome. E por fim, tentar fazer como os "componentes" de front-end e reaproveitar melhor o código, principalmente esses session.query de procurar no banco, da pra fazer uma def e só passar os valores, invez de repetir o código.
         if not itemObject.email.endswith(('@gmail.com', '@outlook.com', '@hotmail.com')):
                 raise HTTPException(
                         status_code=status.HTTP_400_BAD_REQUEST,
@@ -147,29 +149,55 @@ async def updateItem(nome:str, item:schemas.Cadastro, session: Session = Depends
         return f"Olá {user.username}, o usuário desejado foi atualizado para:", itemObject
 
     except Exception as e:
-        #session.rollback()
-        print("Erro de vdd: ", str(e))
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
-           
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
+        raise HTTPException(status_code=e.status_code, detail=str(e))
+
+@router.put("/usuarios/atualizar_by_id/{id}")
+async def atualizarById(id: int, item:schemas.Produtos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    try:
+        if not user.is_admin:
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Usuário não autorizado!")
+        #Continuar daqui do atualizar usuarios id, deixar tudo com o id também funcionando. E por fim, tentar fazer como os componentes de front-end e reaproveitar melhor o código, principalmente esses session.query de procurar no banco, da pra fazer uma def e só passar os valores, invez de repetir o código.
+    except Exception as e:
+        raise HTTPException(status_code=e.status_code, detail=str(e)) 
+      
 
 #Deletando valores
 @router.delete("/usuarios/delete/{nome}")
 async def deleteItem(nome:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
-    if not user.is_admin:
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Você não tem permissão para excluir usuários!"
-        )
-    try:
-        #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
+    try:    
+        if not user.is_admin:
+            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem permissão para excluir usuários!")
+
         itemObject = session.query(models.Cadastro_Users).filter_by(username=nome.capitalize()).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
+        
+        if itemObject is None:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome de usuário não existe")
+        
         id = itemObject.idUsuario
         session.delete(itemObject) #comitando a mudança
         session.commit() #Comitando as mudanças
         session.close() #Fechando o banco
         return f"Olá {user.username}, o usuário de nome:{nome} e id {id}, foi excluido!", itemObject
     except Exception as e:
-        session.rollback()
-        if "Class 'builtins.NoneType' is not mapped" in str(e):
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="O id do usuário digitado não existe.")
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
+    
+@router.delete("/users/delete_by_id/{id}")
+async def deleteItemId(id: int, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    try:
+        if not user.is_admin:
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Você não tem permissão para excluir usuários!")
+        
+        itemId = session.query(models.Cadastro_Users).get(id)
+        if itemId is None:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Id de usuário inexistente!")      
+        
+        nomeUser = itemId.username
+        session.delete(itemId)
+        session.commit()
+        session.close()
+        return f"Olá {user.username}, o usuário de id:{id} e nome {nomeUser}, foi excluído!", itemId    
+    except Exception as e:
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))

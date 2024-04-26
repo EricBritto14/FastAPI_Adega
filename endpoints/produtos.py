@@ -41,6 +41,7 @@ async def getItems(session: Session = Depends(get_session), user: Cadastro_Users
         else:
             return f"Pegando todos os itens para você, {user.username}", items
     except Exception as e:
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
 
 
@@ -54,6 +55,7 @@ async def getItem(nome:str, session: Session = Depends(get_session), user: Cadas
         #return fakeDataBase[id] #Retornando o valor do dicionário, de acordo com o ID que ele digitar
         return f"Pegando o produto de nome:{nome} para você, {user.username}", item
     except Exception as e:
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
 
 @router.get("/produtos/produto_id/{id}")
@@ -65,6 +67,7 @@ async def getItemId(id:int, session: Session = Depends(get_session), user: Cadas
         else:
             return f"Pegando o produto de id:{id} para você, {user.username}", itemId   
     except Exception as e:
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
         
 
@@ -99,21 +102,23 @@ async def addItem(item:schemas.Produtos, session: Session = Depends(get_session)
         session.refresh(item) #Dando um refresh para atualizar o banco
         return f"Olá, {user.username}, o produto desejado foi adicionado!", item
     except Exception as e:
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
 
 #Atualizando valores
 #@router.put("/produtos/atualizar/{id}")
 #itemObject = session.query(models.Produtos).get(id) #Mudanças para pegar pelo id não pelo nome
-@router.put("/produtos/atualizar/{nome}") #Tentar pegar pelo nome, não pelo id
+@router.put("/produtos/atualizar_by_name/{nome}") #Tentar pegar pelo nome, não pelo id
 async def updateItem(nome:str, item:schemas.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     try:
         #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
         # item = session.query(models.Produtos).filter_by(nome=nome.capitalize()).first() 
         itemObject = session.query(models.Produtos).filter_by(nome=nome.capitalize()).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
-        itemObject.tipo, itemObject.valor, itemObject.quantidade, itemObject.data_validade, itemObject.data_cadastro = item.tipo.capitalize(), item.valor, item.quantidade, item.data_validade, data_formatada #atualizando com esses valores novos 
         
         if itemObject is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto não encontrado")
+        
+        itemObject.tipo, itemObject.valor, itemObject.quantidade, itemObject.data_validade, itemObject.data_cadastro = item.tipo.capitalize(), item.valor, item.quantidade, item.data_validade, data_formatada #atualizando com esses valores novos 
         
         if not itemObject.tipo in ('Doces', 'Alcoólicas', 'Não alcoólicas'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
@@ -134,6 +139,36 @@ async def updateItem(nome:str, item:schemas.AttProdutos, session: Session = Depe
             return f"Atualizando o produto de nome:{nome}, {user.username}. Para: ", itemObject, f"Atenção {user.username} o produto {itemObject.nome} chegou na quantidade mínima 10! Agora está em {item.quantidade}, fica esperto!"
         else:
             return f"Atualizando o produto de nome:{nome}, {user.username}. Para: ", itemObject
+        
+    except Exception as e:
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
+        raise HTTPException(status_code=e.status_code, detail=str(e))
+
+@router.put("/produtos/atualizar_by_id/{id}")
+async def atualizarItemId(id: int, item:schemas.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    try:
+        itemObject2 = session.query(models.Produtos).get(id)
+        if itemObject2 is None:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de id:{id} inexistente!")
+        
+        itemObject2.tipo, itemObject2.valor, itemObject2.quantidade, itemObject2.data_validade, itemObject2.data_cadastro = item.tipo.capitalize(), item.valor, item.quantidade, item.data_validade, data_formatada
+        
+        if not itemObject2.tipo in ('Doces', 'Alcoólicas', 'Não alcoólicas'):
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
+        
+        if item.valor <= 0:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor do produto não pode ser 0 ou igual a 0")
+        
+        if item.quantidade <= 0:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser 0 ou igual a 0")
+        
+        validar_data(itemObject2.data_validade)
+        
+        session.commit()
+        if item.quantidade <= 10:
+            return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2, "Atenção {} o produto {} chegou na quantidade mínima 10! Agora está em {}, fica esperto!".format(user.username, id, item.quantidade)  
+        else:
+            return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2      
         
     except Exception as e:
         raise HTTPException(status_code=e.status_code, detail=str(e))
@@ -158,6 +193,7 @@ async def deleteItem(nome:str, session: Session = Depends(get_session), user: Ca
         session.close() #Fechando o banco
         return f"Olá {user.username}, o item {nome} e id {id}, foi deletado! Produto:", itemObject
     except Exception as e:
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
 
 @router.delete("/produtos/delete_by_id/{id}")
@@ -176,5 +212,6 @@ async def deleteItemById(id: int, session: Session = Depends(get_session), user:
         session.close()
         return "Olá {}, o item de id:{} e nome:{}, foi deletado! Produto:".format(user.username, id, produto), item
     except Exception as e:
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
     

@@ -24,7 +24,7 @@ async def get_session(): #Função para pegar a sessão, e abrir e fechar o banc
     finally:
         session.close()
 
-app = FastAPI(title="API Santa-Dose") #Title para dar nome à api
+app = FastAPI()#title="API Santa-Dose" #Title para dar nome à api
 app.include_router(produtos.router, tags=["Produtos"])
 app.include_router(users.router, tags=["Usuários"])
 # app.include_router(admins.router, tags=["Admins"])
