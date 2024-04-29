@@ -49,7 +49,6 @@ def valida_senha(senha : str):
     else:
         return get_password_hash(senha)
 
-
 @router.get("/usuarios")
 async def getItems(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Pegando os valores do banco de dados, Depends do get_session
     try:
@@ -66,7 +65,7 @@ async def getItems(session: Session = Depends(get_session), user: Cadastro_Users
 async def getItem(username:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
     try:
         if not user.is_admin:
-            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail=f"Você não tem permissão para visualizar o usuário:{username}!")
+            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail=f"Você não tem permissão para visualizar os usuários!")
         #Descobrir o pq este item está retornando null, e depois ajeitar todos os routers abaixo deste. Os de produtos já estão certos!
         item = session.query(models.Cadastro_Users).filter_by(username=username.capitalize()).first() #Para pegar apenas o valor que for representado pelo id
         #return fakeDataBase[id] #Retornando o valor do dicionário, de acordo com o ID que ele digitar
@@ -76,6 +75,22 @@ async def getItem(username:str, session: Session = Depends(get_session), user: C
             return f"Olá, {user.username}, aqui está o usuário de nome:{username} -", item
     except Exception as e:
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
+        raise HTTPException(status_code=e.status_code, detail=str(e))
+    
+@router.get("/usuarios/get_by_id/{id}")
+async def getItemId(id:int, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    try:
+        if not user.is_admin:
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Você não tem permissão para visualizar os usuários!")        
+        
+        usuarioBusca = session.query(models.Cadastro_Users).get(id)
+        if usuarioBusca is None:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário inexistente!")
+        else:
+            return f"Olá, {user.username}, aqui está o usuário de id:{id} -", usuarioBusca         
+    
+    except Exception as e:
+        session.rollback()
         raise HTTPException(status_code=e.status_code, detail=str(e))
 
 @router.post("/usuarios/adicionar")
@@ -127,7 +142,7 @@ async def updateItem(nome:str, item:schemas.Cadastro, session: Session = Depends
         newUsername = session.query(models.Cadastro_Users).filter_by(username = usernameN).first() #Está procurando no banco o novo nome de usuário que o cara quer atualizar, se tiver, vai dar o erro de baixo, se não vai da bom
         
         if newUsername != None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome de usuário já existente!")
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome de usuário:{} já existente!".format(usernameN))
         
         #Pegando o email digitado para atualizar
         emailN = item.email
@@ -138,7 +153,6 @@ async def updateItem(nome:str, item:schemas.Cadastro, session: Session = Depends
         
         itemObject.username, itemObject.email, itemObject.is_admin, itemObject.senha = item.username.capitalize(), item.email, item.is_admin, valida_senha(item.senha)
         
-        #Continuar a partir daqui os testes de caso, o do produto já está tudo feito. Após isso, colocar pra funcionar com o ID também as coisas, não apenas com o nome. E por fim, tentar fazer como os "componentes" de front-end e reaproveitar melhor o código, principalmente esses session.query de procurar no banco, da pra fazer uma def e só passar os valores, invez de repetir o código.
         if not itemObject.email.endswith(('@gmail.com', '@outlook.com', '@hotmail.com')):
                 raise HTTPException(
                         status_code=status.HTTP_400_BAD_REQUEST,
@@ -153,12 +167,39 @@ async def updateItem(nome:str, item:schemas.Cadastro, session: Session = Depends
         raise HTTPException(status_code=e.status_code, detail=str(e))
 
 @router.put("/usuarios/atualizar_by_id/{id}")
-async def atualizarById(id: int, item:schemas.Produtos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+async def atualizarById(id: int, item:schemas.Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     try:
         if not user.is_admin:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Usuário não autorizado!")
-        #Continuar daqui do atualizar usuarios id, deixar tudo com o id também funcionando. E por fim, tentar fazer como os componentes de front-end e reaproveitar melhor o código, principalmente esses session.query de procurar no banco, da pra fazer uma def e só passar os valores, invez de repetir o código.
+        
+        itemObjectId = session.query(models.Cadastro_Users).get(id)
+        
+        if itemObjectId is None:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário de id:{} inexistente!".format(id))
+        
+        usernameN = item.username.capitalize()
+        newUsername = session.query(models.Cadastro_Users).filter_by(username = usernameN).first()
+        
+        if newUsername != None:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário de nome:{} já existente!".format(usernameN))
+        
+        emailN = item.email
+        NEmail = session.query(models.Cadastro_Users).filter_by(email = emailN).first()
+        
+        if NEmail != None:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email:{} já está sendo usado!".format(emailN))        
+        
+        itemObjectId.username, itemObjectId.email, itemObjectId.is_admin, itemObjectId.senha = item.username.capitalize(), item.email, item.is_admin, valida_senha(item.senha)
+        
+        if not itemObjectId.email.endswith(('@gmail.com', '@hotmail.com', '@outlook.com')):
+            raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="Email não válido!")
+        
+        session.commit()
+        return f"Olá {user.username}, o usuário desejado foi atualizado para: ", itemObjectId
+        
+        
     except Exception as e:
+        session.rollback()
         raise HTTPException(status_code=e.status_code, detail=str(e)) 
       
 
