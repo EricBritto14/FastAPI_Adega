@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException #, Response
 from sqlalchemy import select
+import uvicorn
 from endpoints import loginn, produtos, users #, admins
 import schemas, models
 from endpoints.loginn import *
@@ -24,7 +25,7 @@ async def get_session(): #Função para pegar a sessão, e abrir e fechar o banc
     finally:
         session.close()
 
-app = FastAPI()#title="API Santa-Dose" #Title para dar nome à api
+app = FastAPI(title="API Adega Santa-Dose")#title="API Santa-Dose" #Title para dar nome à api
 app.include_router(produtos.router, tags=["Produtos"])
 app.include_router(users.router, tags=["Usuários"])
 # app.include_router(admins.router, tags=["Admins"])
@@ -63,6 +64,8 @@ def login_for_access_token(
     except:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail= "Erro ao validar o usuário")
 
+if __name__ == "__main__":
+    uvicorn.run('main:app', port=5000, log_level='info')
 
 
 #Aqui a gente chama a classe responsável pelos valores que vão ser necessitados aqui, e chamamos eles para passarem os valores e serem encaminhados para o banco de dados
