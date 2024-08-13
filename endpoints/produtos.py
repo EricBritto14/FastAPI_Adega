@@ -94,7 +94,7 @@ async def addItem(item:schemas.Produtos, session: Session = Depends(get_session)
         if item.quantidade <= 0:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade do produto não pode ser igual ou menor que 0!")
             
-        if not re.search("[0-9][ml, l, g, kg]", item.tamanho):
+        if not re.search("[0-9][mL, L, G, Kg]", item.tamanho):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tamanho desconhecido (ml/l)")
         
         session.add(item) #Adicionando no banco
