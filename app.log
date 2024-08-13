@@ -8149,3 +8149,19 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2024-08-08 10:59:44,176 - INFO - Starting API...
 2024-08-08 11:01:23,876 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
 2024-08-08 11:01:24,022 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-08-13 09:00:13,907 - INFO - Starting API...
+2024-08-13 09:00:48,170 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-08-13 09:00:48,317 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-08-13 09:00:55,217 - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\abe4ca\Desktop\FastAPI_Adega-main\env\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-08-13 09:00:55,628 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041e%26', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-08-13 09:01:06,165 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "string",\n  "tipo": "string",\n  "valor": 0,\n  "quantidade": 0,\n  "tamanho": "string",\n  "data_validade": "string"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-08-13 09:01:11,627 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "string2",\n  "tipo": "string",\n  "valor": 0,\n  "quantidade": 0,\n  "tamanho": "string",\n  "data_validade": "string"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-08-13 09:01:23,525 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "string2",\n  "tipo": "Tabacaria",\n  "valor": 0,\n  "quantidade": 0,\n  "tamanho": "string",\n  "data_validade": "string"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-08-13 09:01:35,570 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "string2",\n  "tipo": "Tabacaria",\n  "valor": 0,\n  "quantidade": 0,\n  "tamanho": "string",\n  "data_validade": "14/08/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-08-13 09:01:42,488 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "string2",\n  "tipo": "Tabacaria",\n  "valor": 10,\n  "quantidade": 10,\n  "tamanho": "string",\n  "data_validade": "14/08/2024"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-08-13 09:01:51,023 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "string2",\n  "tipo": "Tabacaria",\n  "valor": 10,\n  "quantidade": 10,\n  "tamanho": "1g",\n  "data_validade": "14/08/2024"\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}

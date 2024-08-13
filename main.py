@@ -29,8 +29,7 @@ async def get_session(): #Função para pegar a sessão, e abrir e fechar o banc
 app = FastAPI(title="API Adega Santa-Dose")#title="API Santa-Dose" #Title para dar nome à api
 
 origins = [
-    "http://localhost",
-    "http://localhost:5173",
+    "https://santa-dose.vercel.app",
 ]
 
 app.add_middleware(
