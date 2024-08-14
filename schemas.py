@@ -12,6 +12,8 @@ class Produtos(BaseModel):
    # data_cadastro:str 
 
 class AttProdutos(BaseModel):
+   nome:str
+   tamanho: str
    tipo:str  
    valor:float
    quantidade:int

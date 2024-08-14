@@ -118,9 +118,20 @@ async def updateItem(nome:str, item:schemas.AttProdutos, session: Session = Depe
         if itemObject is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto não encontrado")
         
-        itemObject.tipo, itemObject.valor, itemObject.quantidade, itemObject.data_validade, itemObject.data_cadastro = item.tipo.capitalize(), item.valor, item.quantidade, item.data_validade, data_formatada #atualizando com esses valores novos 
+        itemObject.nome, itemObject.tamanho, itemObject.tipo, itemObject.valor, itemObject.quantidade, itemObject.data_validade, itemObject.data_cadastro = item.nome, item.tamanho, item.tipo.capitalize(), item.valor, item.quantidade, item.data_validade, data_formatada
         
-        if not itemObject.tipo in ('Doces', 'Alcoólicas', 'Não alcoólicas'):
+        if not item.nome:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome vazio! Coloque um valor.")
+        
+        produto = session.query(models.Produtos).filter_by(nome = item.nome).first()
+        
+        if produto == None:
+            return HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de nome {item.nome} já existente!")
+            
+        if not re.search("[0-9][ml, L, G, Kg]", item.tamanho):
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tamanho desconhecido (ml/L/G/Kg)!")
+
+        if not itemObject.tipo in ('Comida', 'Alcoólicas', 'Não alcoólicas', 'Tabacaria'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
         if item.valor <= 0:
@@ -131,9 +142,6 @@ async def updateItem(nome:str, item:schemas.AttProdutos, session: Session = Depe
         
         validar_data(itemObject.data_validade)
         
-        # if not re.search("[0-9][ml][l]", itemObject.tamanho):
-        #     raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="Tamanho desconhecido (ml/l)")
-
         session.commit() #comitando a mudança
         if item.quantidade <= 10:
             return f"Atualizando o produto de nome:{nome}, {user.username}. Para: ", itemObject, f"Atenção {user.username} o produto {itemObject.nome} chegou na quantidade mínima 10! Agora está em {item.quantidade}, fica esperto!"
@@ -142,18 +150,30 @@ async def updateItem(nome:str, item:schemas.AttProdutos, session: Session = Depe
         
     except Exception as e:
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
-        raise HTTPException(status_code=e.status_code, detail=str(e))
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto já existente!")
 
 @router.put("/produtos/atualizar_by_id/{id}")
 async def atualizarItemId(id: int, item:schemas.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     try:
         itemObject2 = session.query(models.Produtos).get(id)
+        
         if itemObject2 is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de id:{id} inexistente!")
         
-        itemObject2.tipo, itemObject2.valor, itemObject2.quantidade, itemObject2.data_validade, itemObject2.data_cadastro = item.tipo.capitalize(), item.valor, item.quantidade, item.data_validade, data_formatada
+        itemObject2.nome, itemObject2.tamanho, itemObject2.tipo, itemObject2.valor, itemObject2.quantidade, itemObject2.data_validade, itemObject2.data_cadastro = item.nome, item.tamanho, item.tipo.capitalize(), item.valor, item.quantidade, item.data_validade, data_formatada
         
-        if not itemObject2.tipo in ('Doces', 'Alcoólicas', 'Não alcoólicas'):
+        if not item.nome:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome vazio! Coloque um valor.")
+        
+        produto = session.query(models.Produtos).filter_by(nome = item.nome).first()
+        
+        if produto == None:
+            return HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de nome {item.nome} já existente!")
+            
+        if not re.search("[0-9][ml, L, G, Kg]", item.tamanho):
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tamanho desconhecido (ml/L/G/Kg)!")
+
+        if not itemObject2.tipo in ('Comida', 'Alcoólicas', 'Não alcoólicas', 'Tabacaria'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
         if item.valor <= 0:
@@ -171,7 +191,8 @@ async def atualizarItemId(id: int, item:schemas.AttProdutos, session: Session = 
             return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2      
         
     except Exception as e:
-        raise HTTPException(status_code=e.status_code, detail=str(e))
+        session.rollback()
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de nome {item.nome} já existente!")
 
 #Deletando valores
 @router.delete("/produtos/delete_by_name/{nome}")
