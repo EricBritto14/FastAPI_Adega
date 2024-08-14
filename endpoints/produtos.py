@@ -150,7 +150,7 @@ async def updateItem(nome:str, item:schemas.AttProdutos, session: Session = Depe
         
     except Exception as e:
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto já existente!")
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
 
 @router.put("/produtos/atualizar_by_id/{id}")
 async def atualizarItemId(id: int, item:schemas.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
@@ -192,7 +192,7 @@ async def atualizarItemId(id: int, item:schemas.AttProdutos, session: Session = 
         
     except Exception as e:
         session.rollback()
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de nome {item.nome} já existente!")
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
 
 #Deletando valores
 @router.delete("/produtos/delete_by_name/{nome}")
