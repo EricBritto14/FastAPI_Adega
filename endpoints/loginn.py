@@ -107,9 +107,15 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
             )
         #Criando um token com o nome do usuário
         access_token = create_access_token({"sub": user.username})
+        user_username = user.username
+        user_id = user.idUsuario
+        email_user = user.email
+        user_is_admin = user.is_admin
         #Settando o token session em um cookie
         response.set_cookie(key="access_token", value=access_token, httponly=True) #Definindo o token como httponly
-        return {"Status": "Login feito com sucesso!", "token": access_token}
+        return {"Status": "Login feito com sucesso!", "token": access_token,
+                 "username": user_username,"userID": user_id, "User_Email": email_user,
+                  "is_admin": user_is_admin}
     except Exception as e:
         print("Erro específico: ", e)
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
