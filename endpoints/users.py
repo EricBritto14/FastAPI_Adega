@@ -201,6 +201,42 @@ async def atualizarById(id: int, item:schemas.Cadastro, session: Session = Depen
     except Exception as e:
         session.rollback()
         raise HTTPException(status_code=e.status_code, detail=str(e)) 
+    
+@router.patch("/usuarios/patch_by_id/{id}")
+async def atualizarById(id: int, item:schemas.Att_Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    try:
+        if not user.is_admin:
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Usuário não autorizado!")
+        
+        itemObjectId = session.query(models.Cadastro_Users).get(id)
+        
+        if itemObjectId is None:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário de id:{} inexistente!".format(id))
+        
+        usernameN = item.username.capitalize()
+        newUsername = session.query(models.Cadastro_Users).filter_by(username = usernameN).first()
+        
+        if newUsername != None:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário de nome:{} já existente!".format(usernameN))
+        
+        emailN = item.email
+        NEmail = session.query(models.Cadastro_Users).filter_by(email = emailN).first()
+        
+        if NEmail != None:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email:{} já está sendo usado!".format(emailN))        
+        
+        itemObjectId.username, itemObjectId.email, itemObjectId.is_admin = item.username.capitalize(), item.email, item.is_admin
+        
+        if not itemObjectId.email.endswith(('@gmail.com', '@hotmail.com', '@outlook.com')):
+            raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="Email não válido!")
+        
+        session.commit()
+        return f"Olá {user.username}, o usuário desejado foi atualizado para: ", itemObjectId
+        
+        
+    except Exception as e:
+        session.rollback()
+        raise HTTPException(status_code=e.status_code, detail=str(e)) 
       
 
 #Deletando valores

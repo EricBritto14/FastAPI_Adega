@@ -25,6 +25,11 @@ class Cadastro(BaseModel):
    senha:str
    is_admin:bool
 
+class Att_Cadastro(BaseModel):
+   username: str
+   email: str
+   is_admin: bool
+
 class Token(BaseModel): #Realomente necessário para o Login, usado no main.py com o /token
     access_token: str
     token_type: str
