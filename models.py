@@ -9,7 +9,7 @@ class Produtos(Base):
     idProduto: int = Column(Integer, primary_key=True)
     nome: String = Column(String(200), nullable=False, unique=True)
     tipo: String = Column(String(256), nullable=False)#Bebida alcoolica/doce/bebida normal/salgadinho etc
-    valor: Float = Column(Float(200), nullable=False) #Valor do produto
+    valor: Float = Column(Float(53), nullable=False) #Valor do produto
     quantidade: int = Column(Integer, nullable=False)
     tamanho: String = Column(String(200), nullable=False) #Tamanho, se é L, ml, e o quanto q é..
     data_validade: String = Column(String(10), nullable=False)
