@@ -1,9 +1,9 @@
-# import models, schemas
+# from django.db import router
+# from fastapi import Depends, APIRouter, HTTPException, status
+# from sqlalchemy.orm import sessionmaker, Session
 # from database import SessionLocal
-# from sqlalchemy.orm import Session
-# from fastapi import Depends, APIRouter
-# from models import *
-# from endpoints.loginn import *
+# from endpoints.loginn import get_password_hash
+# from models import Cadastro_Users
 
 # router = APIRouter()
 
