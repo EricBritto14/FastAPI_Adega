@@ -1,9 +1,9 @@
-import models, schemas 
+import models.ModelsP as models, schemas.SchemasP as schemas 
 import re
 from services.getSession.GetSession import *
 from fastapi import Depends, HTTPException, status
 from controller.Login import *
-from models.models import *
+from models import *
 from schemas import *
 
 def valida_senha(senha : str):

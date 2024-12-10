@@ -1,10 +1,10 @@
-import models.models as models, schemas.schemas as schemas
+import models.ModelsP as modelsP, schemas.SchemasP as schemasP
 import datetime
 import re
 from sqlalchemy.orm import Session
 from services.getSession.GetSession import *
 from fastapi import Depends, HTTPException, status
-from models.models import *
+from models.ModelsP import *
 from controller.Login import get_current_user
 
 data_hoje = date.today()
@@ -25,7 +25,7 @@ def validar_data(data_val):
 
 async def getItemsServices(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Pegando os valores do banco de dados, Depends do get_session. E verificando se o usuário está logado, com o get_current_user
     try:
-        items = session.query(models.Produtos_Cad).all()
+        items = session.query(modelsP.Produtos_Cad).all()
         if items is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nenhum produto existente!")
         else:
@@ -36,7 +36,7 @@ async def getItemsServices(session: Session = Depends(get_session), user: Cadast
     
 async def getItemByNameService(nome:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
     try:
-        item = session.query(models.Produtos_Cad).filter_by(nome=nome.capitalize()).first()
+        item = session.query(modelsP.Produtos_Cad).filter_by(nome=nome.capitalize()).first()
         if item is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto de nome:{}, não encontrado".format(nome))
         #return fakeDataBase[id] #Retornando o valor do dicionário, de acordo com o ID que ele digitar
@@ -47,7 +47,7 @@ async def getItemByNameService(nome:str, session: Session = Depends(get_session)
 
 async def getItemIdService(id:int, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     try:
-        itemId = session.query(models.Produtos_Cad).get(id)
+        itemId = session.query(modelsP.Produtos_Cad).get(id)
         if itemId is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto inexistente!")
         else:
@@ -56,14 +56,14 @@ async def getItemIdService(id:int, session: Session = Depends(get_session), user
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
     
-async def addItemService(item:schemas.Produtos_S, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+async def addItemService(item:schemasP.Produtos_S, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     try:
         if not user.is_admin:
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem permissão para adicionar produtos!")
         #capitalize é para colocar a primeira letra maiscula e o resto minuscula
-        item = models.Produtos_Cad(nome = item.nome.capitalize(), tipo = item.tipo.capitalize(), valor = item.valor, quantidade = item.quantidade, tamanho = item.tamanho.lower(), data_validade = item.data_validade, data_cadastro = data_formatada)
+        item = modelsP.Produtos_Cad(nome = item.nome.capitalize(), tipo = item.tipo.capitalize(), valor = item.valor, quantidade = item.quantidade, tamanho = item.tamanho.lower(), data_validade = item.data_validade, data_cadastro = data_formatada)
 
-        produto = session.query(models.Produtos_Cad).filter_by(nome = item.nome).first()
+        produto = session.query(modelsP.Produtos_Cad).filter_by(nome = item.nome).first()
         if produto != None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto já adicionado!")
         
@@ -89,11 +89,11 @@ async def addItemService(item:schemas.Produtos_S, session: Session = Depends(get
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
 
-async def updateItemService(nome:str, item:schemas.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+async def updateItemService(nome:str, item:schemasP.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     try:
         #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
         # item = session.query(models.Produtos).filter_by(nome=nome.capitalize()).first() 
-        itemObject = session.query(models.Produtos_Cad).filter_by(nome=nome.capitalize()).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
+        itemObject = session.query(modelsP.Produtos_Cad).filter_by(nome=nome.capitalize()).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
         
         if itemObject is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto não encontrado")
@@ -103,7 +103,7 @@ async def updateItemService(nome:str, item:schemas.AttProdutos, session: Session
         if not item.nome:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome vazio! Coloque um valor.")
         
-        produto = session.query(models.Produtos_Cad).filter_by(nome = item.nome).first()
+        produto = session.query(modelsP.Produtos_Cad).filter_by(nome = item.nome).first()
         
         if produto == None:
             return HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de nome {item.nome} já existente!")
@@ -132,9 +132,9 @@ async def updateItemService(nome:str, item:schemas.AttProdutos, session: Session
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
     
-async def atualizarItemIdService(id: int, item:schemas.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+async def atualizarItemIdService(id: int, item:schemasP.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     try:
-        itemObject2 = session.query(models.Produtos_Cad).get(id)
+        itemObject2 = session.query(modelsP.Produtos_Cad).get(id)
         
         if itemObject2 is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de id:{id} inexistente!")
@@ -144,7 +144,7 @@ async def atualizarItemIdService(id: int, item:schemas.AttProdutos, session: Ses
         if not item.nome:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome vazio! Coloque um valor.")
         
-        produto = session.query(models.Produtos).filter_by(nome = item.nome).first()
+        produto = session.query(modelsP.Produtos).filter_by(nome = item.nome).first()
         
         if produto == None:
             return HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de nome {item.nome} já existente!")
@@ -182,7 +182,7 @@ async def deleteItemService(nome:str, session: Session = Depends(get_session), u
             )
     
         #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
-        itemObject = session.query(models.Produtos_Cad).filter_by(nome=nome.capitalize()).first() #Pegando o valor que foi passado pelo nome, e procurando no bnaco pra ver se existe algo com esse nome
+        itemObject = session.query(modelsP.Produtos_Cad).filter_by(nome=nome.capitalize()).first() #Pegando o valor que foi passado pelo nome, e procurando no bnaco pra ver se existe algo com esse nome
         if itemObject is None:
             raise HTTPException(status.HTTP_400_BAD_REQUEST, detail=f"Produto {nome}, não encontrado")
         id = itemObject.idProduto
@@ -199,7 +199,7 @@ async def deleteItemByIdService(id: int, session: Session = Depends(get_session)
         if not user.is_admin:
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem autorização para deletar produtos!")
     
-        item = session.query(models.Produtos_Cad).get(id)
+        item = session.query(modelsP.Produtos_Cad).get(id)
         if item is None:
             # raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de id:{id}, não encontrado")
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto de id:{}, não encontrado".format(id))

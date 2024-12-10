@@ -2,7 +2,7 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from services.getSession.GetSession import *
 from sqlalchemy.orm import Session
-from models.models import *
+from models.ModelsP import *
 from controller.Login import *
 
 def login_for_access_token_service(

@@ -1,7 +1,7 @@
 import os
 from services.getSession.GetSession import *
-from models.models import *
-from schemas.schemas import *
+from models.ModelsP import *
+from schemas.SchemasP import *
 from sqlalchemy.orm import Session
 from sqlalchemy import select
 from fastapi import HTTPException, status, Depends, Request, Response, status, Cookie
