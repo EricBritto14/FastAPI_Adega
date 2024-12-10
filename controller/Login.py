@@ -2,7 +2,7 @@
 from fastapi import APIRouter, Depends, Response
 from sqlalchemy.orm import Session
 from models import *
-from schemas.schemas import *
+from schemas import *
 from services.login.LoginService import *
 
 router = APIRouter() #Router da classe
