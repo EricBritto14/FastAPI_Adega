@@ -8,7 +8,6 @@ load_dotenv()
 
 #Creates database engine 
 URL_DATABASE = os.getenv("URL_DATABASE")
-# URL_DATABASE = "postgresql://postgres:e40024041@localhost:5432/database_adega"
 
 if not URL_DATABASE:
     raise ValueError("A URL do banco de dados não está sendo possível acessar.")

@@ -2,8 +2,8 @@ import os
 from fastapi import FastAPI, Depends #, Response
 from controller import Login, Produtos, Users #, admins
 from controller.Login import *
-from schemas.schemas import *
-from models.models import *
+from schemas import *
+from models import *
 from logger import logger
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.middleware.cors import CORSMiddleware

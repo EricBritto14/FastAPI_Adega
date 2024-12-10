@@ -1,8 +1,8 @@
 from sqlalchemy import null
-import models.models as models, schemas.schemas as schemas
+import models as models, schemas as schemas
 from controller.Login import *
-from models.models import *
-from schemas.schemas import *
+from models import *
+from schemas import *
 from sqlalchemy.orm import Session
 from fastapi import Depends, APIRouter
 from services.users.UsersService import *

@@ -1,7 +1,7 @@
 # from datetime import datetime, timedelta
 from fastapi import APIRouter, Depends, Response
 from sqlalchemy.orm import Session
-from models.models import *
+from models import *
 from schemas.schemas import *
 from services.login.LoginService import *
 

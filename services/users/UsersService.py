@@ -1,7 +1,10 @@
-import models.models as models, schemas.schemas as schemas
+import models, schemas 
+import re
 from services.getSession.GetSession import *
 from fastapi import Depends, HTTPException, status
 from controller.Login import *
+from models.models import *
+from schemas import *
 
 def valida_senha(senha : str):
     if len(senha) < 8:
