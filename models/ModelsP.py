@@ -1,19 +1,35 @@
 from sqlalchemy import Column, Integer, String, Float, Boolean
+from sqlalchemy.ext.declarative import declarative_base
 from database import Base
 from datetime import date
 from pydantic import BaseModel
+from sqlalchemy.ext.hybrid import hybrid_property
 
 #Classe que cria a table no banco de dados, e coloca que valores que serão armazenados
 class Produtos_Cad(Base):
     __tablename__ = 'produtos' 
+    
     idProduto: int = Column(Integer, primary_key=True)
-    nome: String = Column(String(200), nullable=False, unique=True)
-    tipo: String = Column(String(256), nullable=False)#Bebida alcoolica/doce/bebida normal/salgadinho etc
-    valor: Float = Column(Float(53), nullable=False) #Valor do produto
+    nome: str = Column(String(200), nullable=False, unique=True)
+    tipo: str = Column(String(256), nullable=False)  # Tipo do produto
+    valor_compra: float = Column(Float(53), nullable=False)
+    _valor_venda = Column("valor_venda", Float(53), nullable=False)  # Valor original do produto
     quantidade: int = Column(Integer, nullable=False)
-    tamanho: String = Column(String(200), nullable=False) #Tamanho, se é L, ml, e o quanto q é..
-    data_validade: String = Column(String(10), nullable=False)
-    data_cadastro: String = Column(String(10), nullable=False)
+    tamanho: str = Column(String(200), nullable=False)  # Tamanho do produto
+    data_validade: str = Column(String(10), nullable=False)
+    # data_cadastro: str = Column(String(10), nullable=False)
+
+    # Propriedade híbrida para calcular a porcentagem de ganho
+    @hybrid_property
+    def valor_venda(self):
+        if self.valor_compra > 0:
+            return ((self._valor_venda - self.valor_compra) / self.valor_compra) * 100
+        return 0
+
+    # Setter para armazenar o valor original
+    @valor_venda.setter
+    def valor_venda(self, valor):
+        self._valor_venda = valor
 
 class Cadastro_Users(Base):
     __tablename__ = 'all_users'

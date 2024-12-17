@@ -1,21 +1,26 @@
+from typing import List, Union
 from pydantic import BaseModel
 from datetime import date
 
-#Classe que vamos criar o que queremos que o usuário passe de valores, para colocar no banco de dados
+# Classe para criar/atualizar produtos
 class Produtos_S(BaseModel):
-   nome:str
-   tipo:str #Criando uma variável e indicando o valor que deve ser atribuido á ela quando chamarem essa classe para usar 
-   valor:float
-   quantidade:int
-   tamanho:str
-   data_validade:str 
-   # data_cadastro:str 
+    nome: str
+    tipo: str
+    valor_compra: float
+    valor_venda: float  
+    quantidade: int
+    tamanho: str
+    data_validade: str
+
+    class Config:
+        orm_mode = True
 
 class AttProdutos(BaseModel):
    nome:str
    tamanho: str
    tipo:str  
-   valor:float
+   valor_compra:float
+   valor_venda: float  
    quantidade:int
    data_validade:str 
    

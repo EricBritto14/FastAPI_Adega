@@ -12,9 +12,9 @@ async def getItems(session: Session = Depends(get_session), user: Cadastro_Users
     return await getItemsServices(session, user)
 
 #Aqui a gente chama a classe responsável pelos valores que vão ser necessitados aqui, e chamamos eles para passarem os valores e serem encaminhados para o banco de dados
-@router.get("/produtos/produto_name/{nome}") #Router para trazer as informações de acordo com o id
-async def getItem(nome:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
-    return await getItemByNameService(nome, session, user)
+@router.get("/produtos/produto_name/{tipo}") #Router para trazer as informações de acordo com o id
+async def getItem(tipo:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
+    return await getItemByTipoService(tipo, session, user)
 
 @router.get("/produtos/produto_id/{id}")
 async def getItemId(id:int, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):

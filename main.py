@@ -24,8 +24,8 @@ load_dotenv()
 
 ORIGINS = os.getenv("ORIGINS")
 
-# [
-#     "https://santa-dose.vercel.app",
+# origins = [
+    # "http://localhost:5173",
 # ]
 
 app.add_middleware(

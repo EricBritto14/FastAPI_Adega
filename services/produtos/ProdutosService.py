@@ -1,27 +1,38 @@
+import logging
 import models.ModelsP as modelsP, schemas.SchemasP as schemasP
 import datetime
 import re
 from sqlalchemy.orm import Session
+from datetime import datetime, date
 from services.getSession.GetSession import *
 from fastapi import Depends, HTTPException, status
 from models.ModelsP import *
 from controller.Login import get_current_user
 
 data_hoje = date.today()
-data_formatada = data_hoje.strftime('%d/%m/%Y')
 
 #Validando se está vindo em formato de data, e se a data de vencimendo do produto é menor que a data de hoje ou não
-def validar_data(data_val):
+def validar_data(data_val: str) -> str:
     try:
+        data_formatada = datetime.strptime(data_val, '%d/%m/%Y').date()
         data_hoje = date.today()
-        data_valF1 = datetime.strptime(data_val, '%d/%m/%Y').date()
-            #data_valF = data_valF1.strftime('%d/%m/%Y')
-        if not data_valF1 < data_hoje:
-            return data_valF1.strftime('%d/%m/%Y')
+
+        # Verifica se a data é futura
+        if data_formatada > data_hoje:
+            print(f"Data de validade formatada: {data_formatada}")
+            print(f"Data de hoje: {data_hoje}")
+            # Retorna a data em formato padrão para salvar no banco
+            return data_formatada.strftime('%Y-%m-%d')
         else:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Data de validade menor que a data de hoje!")        
-    except Exception as e:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Data de validade em formato errado! (**/**/****) OU data de validação menor que a data de hoje!")
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Data de validade menor ou igual à data de hoje!"
+            )
+    except ValueError:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Formato de data inválido! Use DD/MM/AAAA."
+        )
 
 async def getItemsServices(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Pegando os valores do banco de dados, Depends do get_session. E verificando se o usuário está logado, com o get_current_user
     try:
@@ -34,13 +45,13 @@ async def getItemsServices(session: Session = Depends(get_session), user: Cadast
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
     
-async def getItemByNameService(nome:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
+async def getItemByTipoService(tipo:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
     try:
-        item = session.query(modelsP.Produtos_Cad).filter_by(nome=nome.capitalize()).first()
+        item = session.query(modelsP.Produtos_Cad).filter_by(tipo=tipo.capitalize()).first()
         if item is None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto de nome:{}, não encontrado".format(nome))
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto de nome:{}, não encontrado".format(tipo))
         #return fakeDataBase[id] #Retornando o valor do dicionário, de acordo com o ID que ele digitar
-        return f"Pegando o produto de nome:{nome} para você, {user.username}", item
+        return f"Pegando o produto de nome:{tipo} para você, {user.username}", item
     except Exception as e:
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
@@ -55,50 +66,84 @@ async def getItemIdService(id:int, session: Session = Depends(get_session), user
     except Exception as e:
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
-    
-async def addItemService(item:schemasP.Produtos_S, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+
+async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     try:
         if not user.is_admin:
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem permissão para adicionar produtos!")
-        #capitalize é para colocar a primeira letra maiscula e o resto minuscula
-        item = modelsP.Produtos_Cad(nome = item.nome.capitalize(), tipo = item.tipo.capitalize(), valor = item.valor, quantidade = item.quantidade, tamanho = item.tamanho.lower(), data_validade = item.data_validade, data_cadastro = data_formatada)
+        
+        #Criando um objeto para manipular e apenas retornar a % de ganho em cima do produto em _valor_venda
+        item = modelsP.Produtos_Cad(
+            nome=item.nome.capitalize(),
+            tipo=item.tipo.capitalize(),
+            valor_compra=item.valor_compra,
+            _valor_venda=item.valor_venda,
+            quantidade=item.quantidade,
+            tamanho=item.tamanho.lower(),
+            data_validade=item.data_validade,
+        )
+        
+        if not isinstance(item.nome, str):
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome do produto inválido.")
 
-        produto = session.query(modelsP.Produtos_Cad).filter_by(nome = item.nome).first()
-        if produto != None:
+        produto = session.query(modelsP.Produtos_Cad).filter(modelsP.Produtos_Cad.nome == item.nome).first()
+        if produto is not None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto já adicionado!")
-        
-        if not item.tipo in ('Comida', 'Alcoólicas', 'Não alcoólicas', 'Tabacaria'):
+
+        if item.tipo not in ('Barrigudinhas', 'Comida', 'Refrigerante Descartável', 'Refrigerante Retornável', 
+                             'Refrigerante Lata', 'Doses', 'Vinhos', 'Energéticos De Lata', 'Energéticos 2L', 
+                             'Cigarros', 'Palheiros', 'Sedas', 'Carvão', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Doces'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
-        
+
         validar_data(item.data_validade)
-        
-        if item.valor <= 0:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor do produto não pode ser 0 ou menor que 0!")
+
+        if item.valor_compra <= 0:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor de compra do produto não pode ser menor ou igual a 0!")
+
+        if item.valor_venda <= 0:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor de venda do produto não pode ser menor ou igual a 0!")
 
         if item.quantidade <= 0:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade do produto não pode ser igual ou menor que 0!")
-            
+
         if not re.search("[0-9][ml, L, G, Kg]", item.tamanho):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tamanho desconhecido (ml/L/G/Kg)!")
         
-        session.add(item) #Adicionando no banco
-        session.commit()  #comitando a mudança
-        session.refresh(item) #Dando um refresh para atualizar o banco
+        #Criando o novo produto no banco
+        novo_produto = modelsP.Produtos_Cad(
+            nome=item.nome.capitalize(),
+            tipo=item.tipo.capitalize(),
+            valor_compra=item.valor_compra,
+            _valor_venda=item.valor_venda,
+            quantidade=item.quantidade,
+            tamanho=item.tamanho.lower(),
+            data_validade=item.data_validade,
+        )
+
+        session.add(novo_produto)
+        session.commit()
+        session.refresh(novo_produto)
+        logging.info("Produto adicionado com sucesso.")
         return f"Olá, {user.username}, o produto desejado foi adicionado!", item
+    except HTTPException as e:
+        session.rollback()
+        raise e
     except Exception as e:
-        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
-        raise HTTPException(status_code=e.status_code, detail=str(e))
+        session.rollback()
+        logging.error(f"Erro interno: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Erro interno: {str(e)}"
+        )
 
 async def updateItemService(nome:str, item:schemasP.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     try:
-        #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
-        # item = session.query(models.Produtos).filter_by(nome=nome.capitalize()).first() 
         itemObject = session.query(modelsP.Produtos_Cad).filter_by(nome=nome.capitalize()).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
         
         if itemObject is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto não encontrado")
         
-        itemObject.nome, itemObject.tamanho, itemObject.tipo, itemObject.valor, itemObject.quantidade, itemObject.data_validade, itemObject.data_cadastro = item.nome, item.tamanho, item.tipo.capitalize(), item.valor, item.quantidade, item.data_validade, data_formatada
+        itemObject.nome, itemObject.tamanho, itemObject.tipo, itemObject.valor_compra, itemObject.valor_venda, itemObject.quantidade, itemObject.data_validade = item.nome, item.tamanho, item.tipo.capitalize(), item.valor_compra, item.valor_venda, item.quantidade, item.data_validade
         
         if not item.nome:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome vazio! Coloque um valor.")
@@ -111,14 +156,19 @@ async def updateItemService(nome:str, item:schemasP.AttProdutos, session: Sessio
         if not re.search("[0-9][ml, L, G, Kg]", item.tamanho):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tamanho desconhecido (ml/L/G/Kg)!")
 
-        if not itemObject.tipo in ('Comida', 'Alcoólicas', 'Não alcoólicas', 'Tabacaria'):
+        if not itemObject.tipo in ('Barrigudinhas', 'Comida', 'Refrigerante Descartável', 'Refrigerante Retornável', 
+                             'Refrigerante Lata', 'Doses', 'Vinhos', 'Energéticos De Lata', 'Energéticos 2L', 
+                             'Cigarros', 'Palheiros', 'Sedas', 'Carvão', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Doces'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
-        if item.valor <= 0:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor do produto não pode ser 0 ou igual a 0!")
+        if item.valor_compra <= 0:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor de compra do produto não pode ser menor ou igual a 0!")
+        
+        if item.valor_venda <= 0:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor de venda do produto não pode ser menor ou igual a 0!")
         
         if item.quantidade <= 0:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser igual ou menor que 0!")
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser menor ou igual que 0!")
         
         validar_data(itemObject.data_validade)
         
@@ -139,12 +189,12 @@ async def atualizarItemIdService(id: int, item:schemasP.AttProdutos, session: Se
         if itemObject2 is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de id:{id} inexistente!")
         
-        itemObject2.nome, itemObject2.tamanho, itemObject2.tipo, itemObject2.valor, itemObject2.quantidade, itemObject2.data_validade, itemObject2.data_cadastro = item.nome, item.tamanho, item.tipo.capitalize(), item.valor, item.quantidade, item.data_validade, data_formatada
+        itemObject2.nome, itemObject2.tamanho, itemObject2.tipo, itemObject2.valor_compra, itemObject2.valor_venda, itemObject2.quantidade, itemObject2.data_validade = item.nome, item.tamanho, item.tipo.capitalize(), item.valor_compra, item.valor_venda, item.quantidade, item.data_validade
         
         if not item.nome:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome vazio! Coloque um valor.")
         
-        produto = session.query(modelsP.Produtos).filter_by(nome = item.nome).first()
+        produto = session.query(modelsP.Produtos_Cad).filter_by(nome = item.nome).first()
         
         if produto == None:
             return HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de nome {item.nome} já existente!")
@@ -152,14 +202,19 @@ async def atualizarItemIdService(id: int, item:schemasP.AttProdutos, session: Se
         if not re.search("[0-9][ml, L, G, Kg]", item.tamanho):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tamanho desconhecido (ml/L/G/Kg)!")
 
-        if not itemObject2.tipo in ('Comida', 'Alcoólicas', 'Não alcoólicas', 'Tabacaria'):
+        if not itemObject2.tipo in ('Barrigudinhas', 'Comida', 'Refrigerante Descartável', 'Refrigerante Retornável', 
+                             'Refrigerante Lata', 'Doses', 'Vinhos', 'Energéticos De Lata', 'Energéticos 2L', 
+                             'Cigarros', 'Palheiros', 'Sedas', 'Carvão', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Doces'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
-        if item.valor <= 0:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor do produto não pode ser 0 ou igual a 0")
+        if item.valor_compra <= 0:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor de compra do produto não pode ser menor ou igual a 0")
+        
+        if item.valor_venda <= 0:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor de venda do produto não pode ser menor ou igual a 0")
         
         if item.quantidade <= 0:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser 0 ou igual a 0")
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser menor ou igual a 0")
         
         validar_data(itemObject2.data_validade)
         
