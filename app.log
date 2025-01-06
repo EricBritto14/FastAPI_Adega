@@ -10203,3 +10203,254 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2024-12-17 11:40:29,543 - INFO - {'url': '/usuarios', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
 2024-12-17 11:40:29,554 - INFO - {'url': '/usuarios', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
 2024-12-17 11:40:32,488 - INFO - {'url': '/usuarios', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 09:42:22,842 - INFO - Starting API...
+2024-12-20 09:42:31,170 - INFO - {'url': '/login', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 09:42:31,769 - INFO - {'url': '/login', 'metodo usado': 'POST', 'o que foi foi feito': 'username=Admin&password=E40024041e%26', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 09:42:40,036 - INFO - {'url': '/produtos/produto_name/Barrigudinhas', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 09:42:40,067 - INFO - {'url': '/produtos/produto_name/Barrigudinhas', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 09:42:58,815 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 09:42:59,615 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 11:47:59,591 - INFO - {'url': '/produtos/produto_name/Doses', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 11:47:59,658 - INFO - {'url': '/produtos/produto_name/Doses', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-12-20 11:49:45,498 - INFO - {'url': '/produtos/produto_name/Doses', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-12-20 11:55:16,835 - INFO - {'url': '/produtos/produto_name/Barrigudinhas', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 11:55:16,850 - INFO - {'url': '/produtos/produto_name/Barrigudinhas', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 11:55:18,618 - INFO - {'url': '/produtos/produto_name/Barrigudinhas', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 12:07:59,990 - INFO - {'url': '/produtos/produto_name/Whisky', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 12:08:00,007 - INFO - {'url': '/produtos/produto_name/Whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-12-20 12:08:40,637 - INFO - {'url': '/produtos/produto_name/Refrigerante Retornável', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 12:08:40,664 - INFO - {'url': '/produtos/produto_name/Refrigerante Retornável', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-12-20 12:08:42,284 - INFO - {'url': '/produtos/produto_name/Refrigerante Retornável', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-12-20 12:08:56,282 - INFO - {'url': '/produtos/produto_name/Sedas', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 12:08:56,283 - INFO - {'url': '/produtos/produto_name/Sedas', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-12-20 12:22:49,344 - INFO - {'url': '/produtos/produto_name/Barrigudinhas', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 12:22:49,353 - INFO - {'url': '/produtos/produto_name/Barrigudinhas', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 12:25:49,254 - INFO - {'url': '/produtos/produto_name/Combo', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 12:25:49,270 - INFO - {'url': '/produtos/produto_name/Combo', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-12-20 12:29:34,543 - INFO - {'url': '/produtos/produto_name/Doses', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 12:29:34,558 - INFO - {'url': '/produtos/produto_name/Doses', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-12-20 12:30:20,984 - INFO - {'url': '/produtos/produto_name/Drinks Prontos', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 12:30:20,996 - INFO - {'url': '/produtos/produto_name/Drinks Prontos', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-12-20 12:32:07,770 - INFO - {'url': '/produtos/produto_name/Copão', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 12:32:07,789 - INFO - {'url': '/produtos/produto_name/Copão', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-12-20 12:34:25,902 - INFO - {'url': '/produtos/produto_name/Copão', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-12-20 12:40:09,259 - INFO - {'url': '/produtos/produto_name/Copao Gim', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 12:40:09,276 - INFO - {'url': '/produtos/produto_name/Copao Gim', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-12-20 12:44:21,239 - INFO - {'url': '/produtos/produto_name/Combo Gim', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 12:44:21,383 - INFO - {'url': '/produtos/produto_name/Combo Gim', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2024-12-20 12:44:38,363 - INFO - {'url': '/produtos/produto_name/MonsterR', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2024-12-20 12:44:38,376 - INFO - {'url': '/produtos/produto_name/MonsterR', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:08:04,713 - INFO - Starting API...
+2025-01-06 08:30:56,043 - INFO - {'url': '/produtos/produto_name/Doses', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:30:56,072 - INFO - {'url': '/produtos/produto_name/Doses', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:31:11,926 - INFO - {'url': '/produtos/produto_name/Cervejas Não Alcoólicas', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:31:11,936 - INFO - {'url': '/produtos/produto_name/Cervejas Não Alcoólicas', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:31:16,896 - INFO - {'url': '/produtos/produto_name/Licor', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:31:16,904 - INFO - {'url': '/produtos/produto_name/Licor', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:31:21,428 - INFO - {'url': '/produtos/produto_name/MonsterR', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:31:21,435 - INFO - {'url': '/produtos/produto_name/MonsterR', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:31:28,369 - INFO - {'url': '/produtos/produto_name/MonsterR', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:33:50,501 - INFO - {'url': '/produtos/produto_name/Vodka', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:33:50,501 - INFO - {'url': '/produtos/produto_name/Vodka', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:33:54,127 - INFO - {'url': '/produtos/produto_name/Torcida', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:33:54,135 - INFO - {'url': '/produtos/produto_name/Torcida', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:33:54,935 - INFO - {'url': '/produtos/produto_name/Batata', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:33:54,942 - INFO - {'url': '/produtos/produto_name/Batata', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:33:55,487 - INFO - {'url': '/produtos/produto_name/Fabitos', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:33:55,495 - INFO - {'url': '/produtos/produto_name/Fabitos', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:34:00,748 - INFO - {'url': '/produtos/produto_name/Sedas', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:34:00,759 - INFO - {'url': '/produtos/produto_name/Sedas', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:34:04,145 - INFO - {'url': '/produtos/produto_name/Energéticos Lata 269ml', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:34:04,155 - INFO - {'url': '/produtos/produto_name/Energéticos Lata 269ml', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:34:05,049 - INFO - {'url': '/produtos/produto_name/Energéticos Lata 473ml', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:34:05,058 - INFO - {'url': '/produtos/produto_name/Energéticos Lata 473ml', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:34:05,517 - INFO - {'url': '/produtos/produto_name/Energéticos 2L', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:34:05,524 - INFO - {'url': '/produtos/produto_name/Energéticos 2L', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:34:08,283 - INFO - {'url': '/produtos/produto_name/Refrigerante 1L', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:34:08,294 - INFO - {'url': '/produtos/produto_name/Refrigerante 1L', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:34:08,748 - INFO - {'url': '/produtos/produto_name/Refrigerante Retornável', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:34:08,758 - INFO - {'url': '/produtos/produto_name/Refrigerante Retornável', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:34:09,258 - INFO - {'url': '/produtos/produto_name/Refrigerante Descartável', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:34:09,267 - INFO - {'url': '/produtos/produto_name/Refrigerante Descartável', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 08:34:25,043 - INFO - {'url': '/produtos/produto_name/Cachaça', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 08:34:25,050 - INFO - {'url': '/produtos/produto_name/Cachaça', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 09:57:04,181 - INFO - {'url': '/usuarios', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 09:57:04,219 - INFO - {'url': '/usuarios', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 11:17:27,674 - INFO - Starting API...
+2025-01-06 11:17:35,924 - INFO - Starting API...
+2025-01-06 11:17:43,669 - INFO - Starting API...
+2025-01-06 11:17:47,898 - INFO - Starting API...
+2025-01-06 11:17:52,756 - INFO - Starting API...
+2025-01-06 11:18:03,062 - INFO - Starting API...
+2025-01-06 11:18:05,411 - INFO - Starting API...
+2025-01-06 11:18:08,289 - INFO - Starting API...
+2025-01-06 11:18:13,019 - INFO - Starting API...
+2025-01-06 11:18:17,124 - INFO - Starting API...
+2025-01-06 11:18:20,903 - INFO - Starting API...
+2025-01-06 11:18:26,256 - INFO - Starting API...
+2025-01-06 11:18:50,699 - INFO - Starting API...
+2025-01-06 11:18:53,786 - INFO - Starting API...
+2025-01-06 11:20:07,314 - INFO - Starting API...
+2025-01-06 12:05:09,601 - INFO - Starting API...
+2025-01-06 12:05:12,769 - INFO - Starting API...
+2025-01-06 12:11:45,125 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:11:45,320 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:19:08,235 - INFO - Starting API...
+2025-01-06 12:19:14,837 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:19:15,034 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:22:12,796 - INFO - {'url': '/meses/adicionar_valores', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "mes": "Janeiro",\n  "valor": 5000\n}', 'status': 'Codigo 401 (Erro na autenticacao)'}
+2025-01-06 12:22:21,544 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041e%26', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 12:24:43,238 - INFO - Starting API...
+2025-01-06 12:24:46,992 - INFO - Starting API...
+2025-01-06 12:24:47,039 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:24:47,393 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:25:06,172 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:25:06,226 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:25:11,836 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041e%26', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 12:25:20,331 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=Admin&password=E40024041e%26', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 12:25:26,519 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=Admin&password=E40024041e%26', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 12:25:32,720 - INFO - {'url': '/init_user', 'metodo usado': 'POST', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:25:42,277 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041e%26', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:25:54,970 - INFO - Valor adicionado para o mês com sucesso.
+2025-01-06 12:25:54,972 - INFO - {'url': '/meses/adicionar_valores', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "mes": "Janeiro",\n  "valor": 10000\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:26:09,532 - INFO - {'url': '/meses', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:26:42,144 - INFO - {'url': '/meses/atualizar_valores/Janeiro', 'metodo usado': 'PUT', 'o que foi foi feito': '{\n  "mes": "Janeiro",\n  "valor": 200000\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:26:49,575 - INFO - {'url': '/meses', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:30:04,552 - INFO - Starting API...
+2025-01-06 12:30:11,877 - INFO - {'url': '/meses/deletar_valores/Janeiro', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:30:25,139 - INFO - {'url': '/meses', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:37:17,837 - INFO - Starting API...
+2025-01-06 12:37:24,849 - INFO - Starting API...
+2025-01-06 12:37:29,829 - INFO - Starting API...
+2025-01-06 12:37:38,631 - INFO - Starting API...
+2025-01-06 12:37:43,048 - INFO - Starting API...
+2025-01-06 12:46:07,724 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:46:07,736 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:47:00,268 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:47:17,332 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:47:17,340 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 12:48:19,622 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:05:06,290 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:05:06,290 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:10:24,474 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:10:48,194 - INFO - {'url': '/meses/adicionar_valores', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "mes": "Janeiro",\n  "valor": 10000\n}', 'status': 'Erro 400 (Nao encontrado)'}
+2025-01-06 14:10:55,263 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:10:55,389 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:11:02,072 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041e%26', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:11:07,952 - INFO - Valor adicionado para o mês com sucesso.
+2025-01-06 14:11:07,954 - INFO - {'url': '/meses_venda/adicionar_valores', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "mes": "Janeiro",\n  "valor": 10000\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:11:18,290 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:11:36,279 - INFO - Valor adicionado para o mês com sucesso.
+2025-01-06 14:11:36,281 - INFO - {'url': '/meses_venda/adicionar_valores', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "mes": "Fevereiro",\n  "valor": 20000\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:11:41,812 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:26:35,769 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:26:35,778 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:26:37,464 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:27:04,461 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:27:06,460 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:27:09,448 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:27:11,450 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:27:13,511 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:27:20,778 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:27:28,447 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:27:31,449 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:27:42,785 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:27:54,447 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:28:29,767 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:28:31,461 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:28:41,460 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:28:54,803 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:28:56,492 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:29:09,453 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:29:16,761 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:29:18,443 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:29:51,447 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:30:02,754 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:37:12,775 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:37:12,791 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:37:28,450 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:42:51,013 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:43:36,623 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:44:07,455 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:50:44,761 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:50:44,773 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:54:22,797 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:54:25,468 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:54:36,937 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:55:11,784 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:55:16,698 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:55:38,728 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:55:39,892 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:56:00,780 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:56:06,529 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 14:56:10,718 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:00:15,798 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:00:22,700 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:03:35,766 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:03:35,776 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:03:57,477 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:04:14,774 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:04:22,469 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:04:26,463 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:04:30,452 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:04:33,360 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:05:14,786 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:05:24,321 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:07:08,784 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:07:17,487 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:07:30,793 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:07:33,487 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:07:59,478 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:08:02,476 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:08:04,480 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:08:10,793 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:08:15,478 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:08:17,484 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:08:19,492 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:08:21,479 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:08:25,485 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:08:32,481 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:08:42,789 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:08:44,489 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:08:46,483 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:08:51,226 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:09:07,671 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:09:12,401 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:09:22,829 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:09:58,114 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:10:00,885 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:14:08,836 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:14:08,844 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:14:13,528 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:14:22,578 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:15:32,852 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:19:21,887 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:26:29,851 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:26:29,859 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:26:32,537 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:26:41,542 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:27:27,288 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:44:57,170 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:44:57,176 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:44:57,927 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:45:01,825 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:50:43,898 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:54:42,911 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:54:45,577 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:54:49,774 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:54:52,579 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:57:55,131 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:57:55,151 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:58:55,730 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 15:59:40,766 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 16:00:04,668 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 16:01:41,282 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 16:02:44,277 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 16:03:52,901 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 16:04:05,283 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 16:04:20,585 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 16:06:06,372 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 16:06:08,554 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-01-06 16:17:58,631 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 16:18:04,175 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-01-06 16:18:09,626 - INFO - {'url': '/usuarios', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}

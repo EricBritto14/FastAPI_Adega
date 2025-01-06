@@ -28,8 +28,14 @@ class Produtos_Cad(Base):
 
     # Setter para armazenar o valor original
     @valor_venda.setter
-    def valor_venda(self, valor):
+    def valor_venda(self, valor): 
         self._valor_venda = valor
+    
+class Meses_Valores_Cad(Base):
+    __tablename__ = 'valores_meses'
+    idMes: int = Column(Integer, primary_key=True)
+    mes: str = Column(String(100), nullable=False, unique=True)
+    valor: float = Column(Float, nullable=False)
 
 class Cadastro_Users(Base):
     __tablename__ = 'all_users'

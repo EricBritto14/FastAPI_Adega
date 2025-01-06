@@ -29,23 +29,23 @@ async def protected_post_route(user: Cadastro_Users = Depends(get_current_user))
     return await protected_post_route_service(user)
 
 # Rota para criar o primeiro usuário
-# @router.post("/init_user")
-# def create_initial_user(db: Session = Depends(get_session)):
-# #     # Verifica se já existe algum usuário no banco de dados
-#     existing_user = db.query(Cadastro_Users).first()
-#     if existing_user:
-#         raise HTTPException(
-#             status_code=status.HTTP_400_BAD_REQUEST,
-#             detail="User already exists in the database",
-#         )
+@router.post("/init_user")
+def create_initial_user(db: Session = Depends(get_session)):
+#     # Verifica se já existe algum usuário no banco de dados
+    existing_user = db.query(Cadastro_Users).first()
+    if existing_user:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="User already exists in the database",
+        )
 
-# #     # Cria o primeiro usuário
-#     initial_user = Cadastro_Users(
-#         username="Admin",
-#         email="Eric.Britto22@gmail.com",
-#         senha=get_password_hash("E40024041e&"),
-#         is_admin=True
-#     )
-#     db.add(initial_user)
-#     db.commit()
-#     return {"message": "Initial user created successfully"}
+#     # Cria o primeiro usuário
+    initial_user = Cadastro_Users(
+        username="Admin",
+        email="Eric.Britto22@gmail.com",
+        senha=get_password_hash("E40024041e&"),
+        is_admin=True
+    )
+    db.add(initial_user)
+    db.commit()
+    return {"message": "Initial user created successfully"}

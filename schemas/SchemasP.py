@@ -15,6 +15,14 @@ class Produtos_S(BaseModel):
     class Config:
         orm_mode = True
 
+class Meses_Valores(BaseModel):
+   mes: str
+   valor: float
+
+class Meses_Valores_Att(BaseModel):
+   mes: str
+   valor: float
+
 class AttProdutos(BaseModel):
    nome:str
    tamanho: str
