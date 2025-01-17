@@ -59,6 +59,57 @@ async def addMesesService(item: schemasP.Meses_Valores, session: Session = Depen
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Erro interno: {str(e)}"
         )
+    
+async def addDiasVendasService(item: schemasP.Dias_Valores_Mes, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    try:
+        if not user.is_admin:
+            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem permissão para adicionar dividores fiados!")            
+        
+        #Criando um objeto para manipular e apenas retornar a % de ganho em cima do produto em _valor_venda
+        item = modelsP.Dias_Valores_Mes_Cad(
+            dia=item.dia,
+            valor=item.valor,
+            mes = item.mes,
+        )
+        
+        # produtoMes = session.query(modelsP.Fiado_Val).filter(modelsP.Fiado_Val.dia == item.dia).first()
+        # if produtoMes is not None:
+        #     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor já adicionado para este dia!")
+
+        #Criando o novo produto no banco
+        novo_produto_dia_venda = modelsP.Dias_Valores_Mes_Cad(
+            dia=item.dia,
+            valor=item.valor,
+            mes = item.mes,
+        )
+
+        session.add(novo_produto_dia_venda)
+        session.commit()
+        session.refresh(novo_produto_dia_venda)
+        logging.info("Valor adicionado para o(s) dia(s) com sucesso.")
+        return f"Olá, {user.username}, o valor para o(s) dia(s) desejado(s) foi adicionado!", item
+    except HTTPException as e:
+        session.rollback()
+        raise e
+    except Exception as e:
+        session.rollback()
+        logging.error(f"Erro interno: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Erro interno: {str(e)}"
+        )
+    
+async def getDaysMesesServices(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Pegando os valores do banco de dados, Depends do get_session. E verificando se o usuário está logado, com o get_current_user
+    try:
+        mes = session.query(modelsP.Dias_Valores_Mes_Cad).all()
+        if mes is None:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nenhum valor existente neste mês!")
+        else:
+            return f"Pegando todos os mêses para você, {user.username}", mes
+    except Exception as e:
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
+        raise HTTPException(status_code=e.status_code, detail=str(e))
+    
 
 async def updateMesService(mes:str, item:schemasP.Meses_Valores, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     try:

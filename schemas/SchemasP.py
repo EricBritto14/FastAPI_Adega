@@ -15,14 +15,6 @@ class Produtos_S(BaseModel):
     class Config:
         orm_mode = True
 
-class Meses_Valores(BaseModel):
-   mes: str
-   valor: float
-
-class Meses_Valores_Att(BaseModel):
-   mes: str
-   valor: float
-
 class AttProdutos(BaseModel):
    nome:str
    tamanho: str
@@ -31,7 +23,35 @@ class AttProdutos(BaseModel):
    valor_venda: float  
    quantidade:int
    data_validade:str 
+
+class Meses_Valores(BaseModel):
+   mes: str
+   valor: float
+
+class Meses_Valores_Att(BaseModel):
+   mes: str
+   valor: float
+
+class Dias_Valores_Mes(BaseModel):
+   mes: str
+   valor: float
+   dia: int
+
+class Dias_Valores_Mes_Att(BaseModel):
+   mes: str
+   valor: float
+   dia: int
+
+class Fiado(BaseModel):
+   dia: int
+   valor: float
+   name: str
    
+class Fiado_Att(BaseModel):
+   dia: int
+   valor: float
+   name: str
+
 class Cadastro(BaseModel):
    username:str
    email:str

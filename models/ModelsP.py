@@ -35,7 +35,22 @@ class Meses_Valores_Cad(Base):
     __tablename__ = 'valores_meses'
     idMes: int = Column(Integer, primary_key=True)
     mes: str = Column(String(100), nullable=False, unique=True)
-    valor: float = Column(Float, nullable=False)
+    valor: float = Column(Float(100), nullable=False)
+
+class Dias_Valores_Mes_Cad(Base):
+    __tablename__ = "valores_dias_venda"
+    id: int = Column(Integer, primary_key=True)
+    dia: int = Column(Integer, nullable=False)
+    valor: float = Column(Float(53), nullable=False)
+    mes: String = Column(String(100), nullable=False, unique=True)
+
+class Fiado_Val(Base):
+    __tablename__ = "fiado"
+    idFiado: int = Column(Integer, primary_key=True)
+    dia: int = Column(Integer, nullable=False)
+    valor: float = Column(Float(53), nullable=False)
+    name: String = Column(String(200), nullable=False, unique=True)
+
 
 class Cadastro_Users(Base):
     __tablename__ = 'all_users'
