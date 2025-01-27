@@ -71,16 +71,26 @@ async def addDiasVendasService(item: schemasP.Dias_Valores_Mes, session: Session
             valor=item.valor,
             mes = item.mes,
         )
+
+         # 🔎 Verificar se o dia já tem valor no mesmo mês
+        produtoMes = (
+            session.query(modelsP.Dias_Valores_Mes_Cad)
+            .filter(
+                modelsP.Dias_Valores_Mes_Cad.dia == item.dia,
+                modelsP.Dias_Valores_Mes_Cad.mes == item.mes  # ⚠️ Adiciona a verificação de mês
+            )
+            .first()
+        )
         
-        # produtoMes = session.query(modelsP.Fiado_Val).filter(modelsP.Fiado_Val.dia == item.dia).first()
-        # if produtoMes is not None:
-        #     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor já adicionado para este dia!")
+        produtoMes = session.query(modelsP.Fiado_Val).filter(modelsP.Fiado_Val.dia == item.dia).first()
+        if produtoMes is not None:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor já adicionado para este dia e mês!")
 
         #Criando o novo produto no banco
         novo_produto_dia_venda = modelsP.Dias_Valores_Mes_Cad(
             dia=item.dia,
             valor=item.valor,
-            mes = item.mes,
+            mes=item.mes
         )
 
         session.add(novo_produto_dia_venda)
@@ -99,16 +109,16 @@ async def addDiasVendasService(item: schemasP.Dias_Valores_Mes, session: Session
             detail=f"Erro interno: {str(e)}"
         )
     
-async def getDaysMesesServices(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Pegando os valores do banco de dados, Depends do get_session. E verificando se o usuário está logado, com o get_current_user
+async def getDaysMesesServices(mes: str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Pegando os valores do banco de dados, Depends do get_session. E verificando se o usuário está logado, com o get_current_user
     try:
-        mes = session.query(modelsP.Dias_Valores_Mes_Cad).all()
+        mes = session.query(modelsP.Dias_Valores_Mes_Cad).filter_by(mes=mes.capitalize()).all()
         if mes is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nenhum valor existente neste mês!")
         else:
             return f"Pegando todos os mêses para você, {user.username}", mes
     except Exception as e:
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
-        raise HTTPException(status_code=e.status_code, detail=str(e))
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
     
 
 async def updateMesService(mes:str, item:schemasP.Meses_Valores, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
