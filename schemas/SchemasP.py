@@ -42,6 +42,24 @@ class Dias_Valores_Mes_Att(BaseModel):
    valor: float
    dia: int
 
+class Meses_Valores_Bill(BaseModel):
+   mes: str
+   valor: float
+
+class Dias_Valores_Mes_Bill(BaseModel):
+   mes: str
+   valor: float
+   dia: int
+
+class Gastos_Aleatorios_Mes(BaseModel):
+   mes: str
+   valor: float
+
+class Gastos_Aleatorios(BaseModel):
+   mes: str
+   valor: float
+   dia: int
+
 class Fiado(BaseModel):
    dia: int
    valor: float

@@ -1,6 +1,6 @@
 import os
 from fastapi import FastAPI, Depends #, Response
-from controller import Login, Meses, Produtos, Users, Fiados #, admins
+from controller import Login, Meses, Produtos, Users, Fiados, Boletos, GastosAleatorios #, admins
 from controller.Login import *
 from schemas import *
 from models import *
@@ -40,6 +40,8 @@ app.include_router(Produtos.router, tags=["Produtos"])
 app.include_router(Users.router, tags=["Usuários"])
 app.include_router(Fiados.router, tags=["Fiados"])
 app.include_router(Meses.router, tags=["Meses"])
+app.include_router(Boletos.router, tags=["Boletos"])
+app.include_router(GastosAleatorios.router, tags=["Gastos Aleatórios"])
 app.include_router(Login.router, tags=["Login"])
 app.add_middleware(BaseHTTPMiddleware, dispatch=log_middleware) #Jeito certo de registar o middleware no app, para conseguir criar uma classe middleware e só puxar pra cá
 logger.info('Starting API...')

@@ -44,6 +44,31 @@ class Dias_Valores_Mes_Cad(Base):
     valor: float = Column(Float(53), nullable=False)
     mes: String = Column(String(100), nullable=False)
 
+class Meses_Valores_Bill_Cad(Base):
+    __tablename__ = 'valores_contas_bills'
+    idMes: int = Column(Integer, primary_key=True)
+    mes: str = Column(String(100), nullable=False)
+    valor: float = Column(Float(53), nullable=False)
+
+class Dias_Valores_Mes_Bill_Cad(Base):
+    __tablename__ = "valores_dias_bills"
+    id: int = Column(Integer, primary_key=True)
+    dia: int = Column(Integer, nullable=False)
+    valor: float = Column(Float(53), nullable=False)
+    mes: String = Column(String(100), nullable=False)
+
+class Gastos_Aleatorios_Mes(Base):
+    __tablename__ = 'gastos_aleatorios'
+    idMes: int = Column(Integer, primary_key=True)
+    mes: str = Column(String(100), nullable=False)
+    valor: float = Column(Float(53), nullable=False)
+
+class Gastos_Aleatorios_Cad(Base):
+    __tablename__ = "gastos_aleatorios_mes"
+    id: int = Column(Integer, primary_key=True)
+    dia: int = Column(Integer, nullable=False)
+    valor: float = Column(Float(53), nullable=False)
+    mes: String = Column(String(100), nullable=False)
 class Fiado_Val(Base):
     __tablename__ = "fiado"
     idFiado: int = Column(Integer, primary_key=True)
