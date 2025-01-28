@@ -60,6 +60,15 @@ class Gastos_Aleatorios(BaseModel):
    valor: float
    dia: int
 
+class Gastos_Cartao_Mes(BaseModel):
+   mes: str
+   valor: float
+
+class Gastos_Cartao(BaseModel):
+   mes: str
+   valor: float
+   dia: int
+
 class Fiado(BaseModel):
    dia: int
    valor: float
