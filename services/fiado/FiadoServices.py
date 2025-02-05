@@ -61,26 +61,51 @@ async def updateFiadoService(item:schemasP.Fiado, session: Session = Depends(get
         if not user.is_admin:
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem permissão para adicionar dividores fiados!")
         
-        itemObject = session.query(modelsP.Fiado_Val).all() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
+        itemObject = session.query(modelsP.Fiado_Val).filter_by(dia=item.dia).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
         
         if itemObject is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Dia não encontrado")
         
-        itemObject.dia,itemObject.valor, itemObject.name = item.dia, item.valor, item.name,
+        itemObject.dia = item.dia
+        if item.valor is None:
+            itemObject.valor = 0
+        else:
+            itemObject.valor = item.valor
+        itemObject.name = item.name
         
         if not item.dia:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Dia vazio! Selecione um valor.")
         
-        produto = session.query(modelsP.Fiado_Val).filter_by(dia = item.dia).first()
-        
-        if produto == None:
-            return HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Mês de nome {item.dia} já existente!")
+        # produto = session.query(modelsP.Fiado_Val).filter_by(dia = item.dia).first()
+        # 
+        # if produto == None:
+            # return HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Mês de nome {item.dia} já existente!")
             
         # if item.valor <= 0:
         #     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="A venda total do mês não pode ser menor ou igual a 0!")
         
         session.commit() #comitando a mudança
+        session.refresh(itemObject)
     except Exception as e:
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
+    
+async def deleteItemByIdSpun(id: int, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    try:
+        if not user.is_admin:
+            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem autorização para deletar produtos!")
+    
+        item = session.query(modelsP.Fiado_Val).get(id)
+        if item is None:
+            # raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de id:{id}, não encontrado")
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Dívida de id:{}, não encontrado".format(id))
+        produto = item.name
+        session.delete(item)
+        session.commit()
+        session.close()
+        return "Olá {}, a dívida de id:{} e do proprietário de nome:{}, foi deletado! Dívidas:".format(user.username, id, produto), item
+    except Exception as e:
+        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
+    
     

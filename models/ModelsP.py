@@ -87,8 +87,7 @@ class Fiado_Val(Base):
     idFiado: int = Column(Integer, primary_key=True)
     dia: int = Column(Integer, nullable=False)
     valor: float = Column(Float(53), nullable=False)
-    name: String = Column(String(200), nullable=False, unique=True)
-
+    name: String = Column(String(200), nullable=False)
 
 class Cadastro_Users(Base):
     __tablename__ = 'all_users'
@@ -97,4 +96,3 @@ class Cadastro_Users(Base):
     email: String = Column(String(200), nullable=False, unique=True)
     senha: String = Column(String(200), nullable=False)
     is_admin: bool = Column(Boolean, default=False)
-

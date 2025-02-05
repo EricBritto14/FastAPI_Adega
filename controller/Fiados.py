@@ -21,3 +21,7 @@ async def getValFiado(session: Session = Depends(get_session), user: Cadastro_Us
 @router.put("/fiados/atualizar_valores") #Tentar pegar pelo nome, não pelo id
 async def updateValFiado(item: SchemasP.Fiado_Att, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     return await updateFiadoService(item, session, user)
+
+@router.delete("/fiados/deletar")
+async def deleteSpun(id: int, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    return await deleteItemByIdSpun(id, session, user)
