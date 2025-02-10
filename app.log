@@ -18267,3 +18267,462 @@ DETAIL:  Key (name)=(Eric) already exists.
 2025-02-05 16:30:11,516 - INFO - {'url': '/fiados', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
 2025-02-05 16:30:14,541 - INFO - {'url': '/fiados', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
 2025-02-05 16:30:24,910 - INFO - {'url': '/fiados', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 12:54:12,155 - INFO - Starting API...
+2025-02-10 13:15:57,916 - INFO - {'url': '/fiados', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:15:57,961 - INFO - {'url': '/fiados', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:34:35,890 - INFO - {'url': '/fiados', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:34:35,909 - INFO - {'url': '/fiados', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:39:33,921 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:39:33,949 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:25,052 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:25,069 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":9999}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 13:40:25,107 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:25,108 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":15000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:25,123 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:25,124 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":4,"valor":15000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:25,138 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:25,139 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":5,"valor":16000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:25,153 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:25,155 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":6,"valor":80000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:32,752 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:33,461 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:39,378 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":9999}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 13:40:39,394 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:39,396 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":15000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:39,417 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:39,418 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":4,"valor":15000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:39,434 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:39,434 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":5,"valor":16000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:39,452 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:39,453 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":6,"valor":80000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:39,470 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:39,471 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":7,"valor":89999}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:47,652 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":9999}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 13:40:47,667 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:47,669 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":15000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:47,686 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:47,687 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":4,"valor":15000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:47,702 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:47,702 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":5,"valor":16000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:47,717 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:47,718 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":6,"valor":80000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:47,733 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:47,734 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":7,"valor":89999}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:40:47,748 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:40:47,749 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":8,"valor":90000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:04,076 - INFO - {'url': '/dias_venda/Fevereiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:04,083 - INFO - {'url': '/dias_venda/Fevereiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:08,106 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:32,040 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":1}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 13:41:32,064 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:41:32,066 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:32,078 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:41:32,079 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":4,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:32,093 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:41:32,094 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":5,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:32,108 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:41:32,109 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":6,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:32,123 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:41:32,123 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":7,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:32,135 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:41:32,138 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":8,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:40,993 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:49,623 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":0}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 13:41:49,644 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:41:49,645 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:49,662 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:41:49,663 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":4,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:49,676 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:41:49,677 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":5,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:49,690 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:41:49,691 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":6,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:49,704 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:41:49,705 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":7,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:41:49,715 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 13:41:49,719 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":8,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:42:00,738 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:46:38,831 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:48:35,177 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:48:35,185 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:48:41,458 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:48:41,477 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:48:49,515 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:48:49,527 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":1}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 13:48:55,982 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":0}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 13:49:13,220 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:49:38,331 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:50:12,441 - INFO - {'url': '/boletos/deletar_valores/Janeiro', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:50:15,992 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:50:24,617 - INFO - {'url': '/boletos/deletar_valores/Janeiro', 'metodo usado': 'DELETE', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 13:50:30,908 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:50:31,676 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:50:42,195 - INFO - {'url': '/boletos', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:57:08,909 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:57:25,941 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:57:31,826 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 13:58:20,234 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:01:18,501 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:01:18,507 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:12:52,738 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:12:52,748 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:12:58,060 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:12:58,069 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":0}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 14:13:09,237 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:17:47,287 - INFO - {'url': '/fiados', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:17:47,294 - INFO - {'url': '/fiados', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:17:56,908 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:17:56,915 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:09,778 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:09,786 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":9999}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 14:18:09,805 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:09,807 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:09,818 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:09,820 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":4,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:09,829 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:09,831 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":5,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:09,844 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:09,845 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":6,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:09,859 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:09,860 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":7,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:09,873 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:09,874 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":8,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:09,883 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:09,884 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":9,"valor":89999}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:15,168 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:24,992 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":9999}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 14:18:25,009 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:25,010 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:25,027 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:25,029 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":4,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:25,044 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:25,045 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":5,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:25,058 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:25,059 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":6,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:25,073 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:25,074 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":7,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:25,085 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:25,087 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":8,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:18:25,097 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 14:18:25,098 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":9,"valor":8}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:30:27,008 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:35:33,730 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:36:26,929 - INFO - Starting API...
+2025-02-10 14:36:46,889 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:40:48,646 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:40:55,868 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:58:50,086 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 14:59:16,165 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "mes": "Janeiro",\n  "valor": 1000,\n  "dia": 1\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 14:59:30,243 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 15:00:40,884 - INFO - Starting API...
+2025-02-10 15:46:05,188 - INFO - Starting API...
+2025-02-10 15:46:08,669 - INFO - Starting API...
+2025-02-10 15:46:11,349 - INFO - Starting API...
+2025-02-10 15:47:34,852 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 15:56:29,384 - INFO - Starting API...
+2025-02-10 15:56:32,221 - INFO - Starting API...
+2025-02-10 15:58:09,153 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 15:58:09,175 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 15:58:14,353 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 15:58:14,387 - INFO - Boleto adicionado para o(s) dia(s) com sucesso.
+2025-02-10 15:58:14,387 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":999}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 15:58:21,733 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 15:58:26,566 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":1}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 15:58:34,365 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 15:58:41,706 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":0}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 15:58:47,577 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:24,371 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:24,388 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:30,065 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:30,070 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":8}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 16:00:30,102 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:30,102 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:30,120 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:30,122 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":4,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:30,134 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:30,137 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":5,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:30,142 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:30,149 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":6,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:30,158 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:30,158 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":7,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:30,178 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:30,179 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":8,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:30,193 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:30,194 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":9,"valor":8}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:37,081 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:50,984 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":9}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-02-10 16:00:50,994 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:50,996 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:51,000 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:51,000 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":4,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:51,023 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:51,026 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":5,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:51,032 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:51,032 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":6,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:51,054 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:51,055 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":7,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:51,068 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:51,069 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":8,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:00:51,081 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:00:51,083 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":9,"valor":8}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:01:00,193 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:03:37,239 - INFO - Starting API...
+2025-02-10 16:03:59,809 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:04:07,479 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":999}', 'status': 'Erro nao cadastrado, mas deu erro'}
+2025-02-10 16:04:07,484 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":999}', 'status': 'Erro nao cadastrado, mas deu erro'}
+2025-02-10 16:04:18,307 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:04:26,591 - INFO - Starting API...
+2025-02-10 16:11:16,089 - INFO - Starting API...
+2025-02-10 16:11:56,934 - INFO - Starting API...
+2025-02-10 16:12:01,499 - INFO - Starting API...
+2025-02-10 16:12:23,660 - INFO - Starting API...
+2025-02-10 16:12:28,803 - INFO - Starting API...
+2025-02-10 16:12:35,919 - INFO - Starting API...
+2025-02-10 16:12:39,175 - INFO - Starting API...
+2025-02-10 16:12:46,465 - INFO - Starting API...
+2025-02-10 16:12:51,725 - INFO - Starting API...
+2025-02-10 16:12:54,845 - INFO - Starting API...
+2025-02-10 16:13:08,238 - INFO - Starting API...
+2025-02-10 16:13:25,844 - INFO - Starting API...
+2025-02-10 16:13:28,497 - INFO - Starting API...
+2025-02-10 16:13:40,716 - INFO - Starting API...
+2025-02-10 16:13:43,234 - INFO - Starting API...
+2025-02-10 16:13:55,893 - INFO - Starting API...
+2025-02-10 16:14:18,718 - INFO - Starting API...
+2025-02-10 16:14:25,526 - INFO - Starting API...
+2025-02-10 16:14:28,030 - INFO - Starting API...
+2025-02-10 16:14:30,741 - INFO - Starting API...
+2025-02-10 16:14:34,183 - INFO - Starting API...
+2025-02-10 16:14:39,198 - INFO - Starting API...
+2025-02-10 16:14:47,537 - INFO - Starting API...
+2025-02-10 16:14:50,208 - INFO - Starting API...
+2025-02-10 16:14:58,176 - INFO - Starting API...
+2025-02-10 16:15:00,679 - INFO - Starting API...
+2025-02-10 16:15:03,449 - INFO - Starting API...
+2025-02-10 16:15:06,598 - INFO - Starting API...
+2025-02-10 16:15:12,229 - INFO - Starting API...
+2025-02-10 16:15:17,171 - INFO - Starting API...
+2025-02-10 16:15:20,711 - INFO - Starting API...
+2025-02-10 16:15:32,747 - INFO - Starting API...
+2025-02-10 16:15:35,728 - INFO - Starting API...
+2025-02-10 16:15:39,974 - INFO - Starting API...
+2025-02-10 16:15:44,186 - INFO - Starting API...
+2025-02-10 16:15:49,271 - INFO - Starting API...
+2025-02-10 16:15:58,742 - INFO - Starting API...
+2025-02-10 16:17:12,272 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:17:12,291 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:17:20,888 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:17:20,893 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":999}', 'status': 'Erro nao cadastrado, mas deu erro'}
+2025-02-10 16:17:20,900 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":999}', 'status': 'Erro nao cadastrado, mas deu erro'}
+2025-02-10 16:20:31,683 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "mes": "Janeiro",\n  "valor": 1000,\n  "dia": 1\n}', 'status': 'Erro nao cadastrado, mas deu erro'}
+2025-02-10 16:20:45,530 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:20:45,749 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:20:52,658 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041e%26', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:21:07,262 - INFO - Boleto atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:21:07,264 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{\n  "mes": "Janeiro",\n  "valor": 1000,\n  "dia": 1\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:21:19,386 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:21:28,962 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":1000}', 'status': 'Erro nao cadastrado, mas deu erro'}
+2025-02-10 16:21:28,969 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":3000}', 'status': 'Erro nao cadastrado, mas deu erro'}
+2025-02-10 16:21:40,376 - INFO - Boleto criado para o(s) dia(s) e mês selecionado com sucesso!
+2025-02-10 16:21:40,378 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{\n  "mes": "Janeiro",\n  "valor": 3000,\n  "dia": 3\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:21:50,126 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:22:03,480 - INFO - Boleto atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:22:03,483 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{\n  "mes": "Janeiro",\n  "valor": 2000,\n  "dia": 1\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:22:10,985 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:13,098 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:13,106 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:17,760 - INFO - Boleto atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:27:17,762 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":3000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:17,773 - INFO - Boleto atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:27:17,774 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":2000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:17,789 - INFO - Boleto criado para o(s) dia(s) e mês selecionado com sucesso!
+2025-02-10 16:27:17,790 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":5000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:22,725 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:29,111 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:29,123 - INFO - Boleto atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:27:29,125 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":3000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:29,139 - INFO - Boleto atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:27:29,141 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":2000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:29,156 - INFO - Boleto atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:27:29,158 - INFO - {'url': '/boletos/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":60000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:35,529 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:45,704 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:45,718 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:27:56,948 - INFO - {'url': '/dias_boletos/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:28:08,316 - INFO - {'url': '/fiados', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:28:08,327 - INFO - {'url': '/fiados', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:28:15,035 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:28:51,449 - INFO - Starting API...
+2025-02-10 16:28:56,055 - INFO - Starting API...
+2025-02-10 16:29:01,854 - INFO - Starting API...
+2025-02-10 16:29:43,784 - INFO - Starting API...
+2025-02-10 16:29:50,360 - INFO - Starting API...
+2025-02-10 16:30:39,288 - INFO - Starting API...
+2025-02-10 16:30:45,067 - INFO - Starting API...
+2025-02-10 16:30:50,066 - INFO - Starting API...
+2025-02-10 16:31:03,554 - INFO - Starting API...
+2025-02-10 16:31:05,762 - INFO - Starting API...
+2025-02-10 16:31:15,804 - INFO - Starting API...
+2025-02-10 16:31:18,075 - INFO - Starting API...
+2025-02-10 16:31:23,118 - INFO - Starting API...
+2025-02-10 16:31:26,551 - INFO - Starting API...
+2025-02-10 16:31:33,960 - INFO - Starting API...
+2025-02-10 16:31:37,648 - INFO - Starting API...
+2025-02-10 16:31:40,168 - INFO - Starting API...
+2025-02-10 16:31:48,556 - INFO - Starting API...
+2025-02-10 16:31:56,024 - INFO - Starting API...
+2025-02-10 16:32:09,608 - INFO - Starting API...
+2025-02-10 16:32:18,506 - INFO - Starting API...
+2025-02-10 16:32:59,050 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:34:14,031 - INFO - {'url': '/fiados', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:35:46,671 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:35:54,934 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:35:54,945 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:35:54,947 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":9999}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:35:54,973 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:35:54,974 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:35:54,984 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:35:54,987 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":4,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:35:54,999 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:35:55,000 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":5,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:35:55,012 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:35:55,012 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":6,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:35:55,026 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:35:55,027 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":7,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:35:55,040 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:35:55,041 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":8,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:35:55,050 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:35:55,052 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":9,"valor":8}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:35:55,065 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:35:55,065 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":1000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:01,611 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:08,878 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:08,879 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":1}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:08,892 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:08,893 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:08,903 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:08,905 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":4,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:08,915 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:08,916 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":5,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:08,928 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:08,929 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":6,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:08,942 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:08,943 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":7,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:08,953 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:08,955 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":8,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:08,965 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:08,966 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":9,"valor":8}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:08,977 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:08,978 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":1000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:17,520 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:17,521 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:17,530 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:17,531 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":3,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:17,542 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:17,544 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":4,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:17,556 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:17,557 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":5,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:17,568 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:17,571 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":6,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:17,579 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:17,580 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":7,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:17,593 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:17,594 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":8,"valor":0}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:17,605 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:17,606 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":9,"valor":8}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:17,615 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:36:17,616 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":1000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:27,371 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:29,970 - INFO - {'url': '/meses_venda', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:36:29,988 - INFO - {'url': '/meses_venda', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:39:57,344 - INFO - Starting API...
+2025-02-10 16:40:00,626 - INFO - Starting API...
+2025-02-10 16:40:03,279 - INFO - Starting API...
+2025-02-10 16:40:19,898 - INFO - Starting API...
+2025-02-10 16:40:24,604 - INFO - Starting API...
+2025-02-10 16:40:28,548 - INFO - Starting API...
+2025-02-10 16:40:33,713 - INFO - Starting API...
+2025-02-10 16:40:36,470 - INFO - Starting API...
+2025-02-10 16:40:49,585 - INFO - Starting API...
+2025-02-10 16:40:55,230 - INFO - Starting API...
+2025-02-10 16:41:02,154 - INFO - Starting API...
+2025-02-10 16:41:14,814 - INFO - Starting API...
+2025-02-10 16:41:17,305 - INFO - Starting API...
+2025-02-10 16:41:26,461 - INFO - Starting API...
+2025-02-10 16:41:34,851 - INFO - Starting API...
+2025-02-10 16:41:38,902 - INFO - Starting API...
+2025-02-10 16:41:45,521 - INFO - Starting API...
+2025-02-10 16:41:51,954 - INFO - {'url': '/gastos_aleatorios/Janeiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:41:51,980 - INFO - {'url': '/gastos_aleatorios/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:41:58,298 - INFO - {'url': '/gastos_aleatorios/adicionar_valores_dias', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:41:58,302 - INFO - {'url': '/gastos_aleatorios/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":50000}', 'status': 'Erro nao cadastrado, mas deu erro'}
+2025-02-10 16:41:58,308 - INFO - {'url': '/gastos_aleatorios/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":10000}', 'status': 'Erro nao cadastrado, mas deu erro'}
+2025-02-10 16:42:03,244 - INFO - {'url': '/gastos_aleatorios/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:42:31,419 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:42:31,540 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:42:38,038 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041e%26', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:42:52,344 - INFO - Valor de gasto aleatório adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:42:52,345 - INFO - {'url': '/gastos_aleatorios/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{\n  "mes": "Janeiro",\n  "valor": 2000,\n  "dia": 2\n}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:43:00,833 - INFO - {'url': '/gastos_aleatorios/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:43:15,038 - INFO - {'url': '/gastos_aleatorios/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":5}', 'status': 'Erro nao cadastrado, mas deu erro'}
+2025-02-10 16:43:15,045 - INFO - {'url': '/gastos_aleatorios/adicionar_valores_dias', 'metodo usado': 'POST', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":2000}', 'status': 'Erro nao cadastrado, mas deu erro'}
+2025-02-10 16:43:30,335 - ERROR - Erro interno: Session.refresh() missing 1 required positional argument: 'instance'
+2025-02-10 16:43:30,337 - INFO - {'url': '/gastos_aleatorios/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{\n  "mes": "Janeiro",\n  "valor": 5,\n  "dia": 1\n}', 'status': 'Codigo 500 (Erro no servidor)'}
+2025-02-10 16:43:50,103 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:43:50,230 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:43:56,066 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041e%26', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:44:08,091 - INFO - {'url': '/gastos_aleatorios/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:44:24,398 - ERROR - Erro interno: Session.refresh() missing 1 required positional argument: 'instance'
+2025-02-10 16:44:24,399 - INFO - {'url': '/gastos_aleatorios/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{\n  "mes": "Janeiro",\n  "valor": 51,\n  "dia": 1\n}', 'status': 'Codigo 500 (Erro no servidor)'}
+2025-02-10 16:44:44,376 - INFO - Starting API...
+2025-02-10 16:45:15,406 - INFO - {'url': '/gastos_aleatorios/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:45:19,027 - INFO - Valor de gasto aleatório atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:45:19,029 - INFO - {'url': '/gastos_aleatorios/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":2000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:45:19,053 - INFO - Valor de gasto aleatório atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:45:19,055 - INFO - {'url': '/gastos_aleatorios/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":509}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:45:24,332 - INFO - {'url': '/gastos_aleatorios/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:48:04,224 - INFO - Starting API...
+2025-02-10 16:48:21,536 - INFO - Starting API...
+2025-02-10 16:48:26,930 - INFO - Starting API...
+2025-02-10 16:48:31,709 - INFO - Starting API...
+2025-02-10 16:48:36,303 - INFO - Starting API...
+2025-02-10 16:48:41,153 - INFO - Starting API...
+2025-02-10 16:48:44,149 - INFO - Starting API...
+2025-02-10 16:48:57,583 - INFO - Starting API...
+2025-02-10 16:49:04,413 - INFO - Starting API...
+2025-02-10 16:49:15,608 - INFO - Starting API...
+2025-02-10 16:49:19,305 - INFO - Starting API...
+2025-02-10 16:49:23,377 - INFO - Starting API...
+2025-02-10 16:49:27,531 - INFO - Starting API...
+2025-02-10 16:49:30,186 - INFO - Starting API...
+2025-02-10 16:49:36,587 - INFO - Starting API...
+2025-02-10 16:49:52,937 - INFO - {'url': '/gastos_cartao/Janeiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:49:52,964 - INFO - {'url': '/gastos_cartao/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:49:58,657 - INFO - {'url': '/gastos_cartao/adicionar_valores_dias', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:49:58,672 - INFO - Valor de gasto com cartões foi atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:49:58,674 - INFO - {'url': '/gastos_cartao/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":5000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:49:58,694 - INFO - Valor de gasto com cartões adicionado para o(s) dia(s) com sucesso.
+2025-02-10 16:49:58,695 - INFO - {'url': '/gastos_cartao/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":999}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:50:08,637 - INFO - {'url': '/gastos_cartao/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:50:14,350 - INFO - Valor de gasto com cartões foi atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:50:14,351 - INFO - {'url': '/gastos_cartao/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":1,"valor":60000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:50:14,361 - INFO - Valor de gasto com cartões foi atualizado para o(s) dia(s) com sucesso.
+2025-02-10 16:50:14,363 - INFO - {'url': '/gastos_cartao/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Janeiro","dia":2,"valor":999}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:50:21,357 - INFO - {'url': '/gastos_cartao/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-02-10 16:59:21,965 - INFO - Starting API...
+2025-02-10 16:59:48,201 - INFO - Starting API...
+2025-02-10 17:00:03,223 - INFO - Starting API...
+2025-02-10 17:00:07,665 - INFO - Starting API...
+2025-02-10 17:00:13,238 - INFO - Starting API...
+2025-02-10 17:00:26,853 - INFO - Starting API...
+2025-02-10 17:00:33,517 - INFO - Starting API...
+2025-02-10 17:00:38,148 - INFO - Starting API...
+2025-02-10 17:00:43,070 - INFO - Starting API...
+2025-02-10 17:00:51,292 - INFO - Starting API...
+2025-02-10 17:00:55,362 - INFO - Starting API...
+2025-02-10 17:01:07,355 - INFO - Starting API...
+2025-02-10 17:01:22,015 - INFO - Starting API...
+2025-02-10 17:01:27,889 - INFO - Starting API...
+2025-02-10 17:01:31,658 - INFO - Starting API...
+2025-02-10 17:01:36,230 - INFO - Starting API...
+2025-02-10 17:01:42,828 - INFO - Starting API...
+2025-02-10 17:01:48,033 - INFO - Starting API...

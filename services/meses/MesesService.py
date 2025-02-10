@@ -65,39 +65,34 @@ async def addDiasVendasService(item: schemasP.Dias_Valores_Mes, session: Session
         if not user.is_admin:
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem permissão para adicionar dividores fiados!")            
         
-        #Criando um objeto para manipular e apenas retornar a % de ganho em cima do produto em _valor_venda
-        item = modelsP.Dias_Valores_Mes_Cad(
-            dia=item.dia,
-            valor=item.valor,
-            mes = item.mes,
-        )
-
-         # 🔎 Verificar se o dia já tem valor no mesmo mês
         produtoMes = (
             session.query(modelsP.Dias_Valores_Mes_Cad)
             .filter(
                 modelsP.Dias_Valores_Mes_Cad.dia == item.dia,
-                modelsP.Dias_Valores_Mes_Cad.mes == item.mes  # ⚠️ Adiciona a verificação de mês
+                modelsP.Dias_Valores_Mes_Cad.mes == item.mes  
             )
             .first()
         )
         
-        produtoMes = session.query(modelsP.Fiado_Val).filter(modelsP.Fiado_Val.dia == item.dia).first()
-        if produtoMes is not None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor já adicionado para este dia e mês!")
-
-        #Criando o novo produto no banco
-        novo_produto_dia_venda = modelsP.Dias_Valores_Mes_Cad(
-            dia=item.dia,
-            valor=item.valor,
-            mes=item.mes
-        )
-
-        session.add(novo_produto_dia_venda)
-        session.commit()
-        session.refresh(novo_produto_dia_venda)
-        logging.info("Valor adicionado para o(s) dia(s) com sucesso.")
-        return f"Olá, {user.username}, o valor para o(s) dia(s) desejado(s) foi adicionado!", item
+        if produtoMes:
+            produtoMes.valor = item.valor
+            session.commit()
+            session.refresh(produtoMes)
+            logging.info("Valor de venda atualizado para o(s) dia(s) com sucesso.")
+            return f"Olá, {user.username}, o valor para o(s) dia(s) desejado(s) foi atualizado!", item
+        else:
+                        #Criando o novo produto no banco
+            novo_produto_dia_venda = modelsP.Dias_Valores_Mes_Cad(
+                dia=item.dia,
+                valor=item.valor,
+                mes=item.mes
+            )
+            session.add(novo_produto_dia_venda)
+            session.commit()
+            session.refresh(novo_produto_dia_venda)
+            logging.info("Valor adicionado para o(s) dia(s) com sucesso.")
+            return f"Olá, {user.username}, o valor para o(s) dia(s) desejado(s) foi adicionado!", item
+        
     except HTTPException as e:
         session.rollback()
         raise e

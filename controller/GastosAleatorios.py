@@ -12,7 +12,7 @@ router = APIRouter()
 async def addExpenses(item: SchemasP.Gastos_Aleatorios_Mes, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     return await addExpensesMonthService(item, session, user)
 
-@router.post("/gastos_aleatorios/adicionar_valores_dias")
+@router.patch("/gastos_aleatorios/adicionar_valores_dias")
 async def addExpensesDay(item: SchemasP.Gastos_Aleatorios, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     return await addDaysExpensesService(item, session, user)
 

@@ -53,40 +53,36 @@ async def addDaysBillsService(item: schemasP.Dias_Valores_Mes_Bill, session: Ses
     try:
         if not user.is_admin:
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem permissão para adicionar novos valores de boletos!")            
-        
-        #Criando um objeto para manipular e apenas retornar a % de ganho em cima do produto em _valor_venda
-        item = modelsP.Dias_Valores_Mes_Bill_Cad(
-            dia=item.dia,
-            valor=item.valor,
-            mes = item.mes,
-        )
 
-         # 🔎 Verificar se o dia já tem valor no mesmo mês
         produtoMes = (
             session.query(modelsP.Dias_Valores_Mes_Bill_Cad)
             .filter(
                 modelsP.Dias_Valores_Mes_Bill_Cad.dia == item.dia,
-                modelsP.Dias_Valores_Mes_Bill_Cad.mes == item.mes  # ⚠️ Adiciona a verificação de mês
+                modelsP.Dias_Valores_Mes_Bill_Cad.mes == item.mes  
             )
             .first()
         )
         
-        produtoMes = session.query(modelsP.Fiado_Val).filter(modelsP.Fiado_Val.dia == item.dia).first()
-        if produtoMes is not None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Boleto já adicionado para este dia e mês!")
+        if produtoMes:
+            produtoMes.valor = item.valor
+            session.commit()
+            session.refresh(produtoMes)
+            logging.info("Boleto atualizado para o(s) dia(s) com sucesso.")
+            return f"Olá, {user.username}, o valor dos boletos atualizado!", item
+        else:
+            #Criando o novo produto no banco
+            novo_produto_dia_venda = modelsP.Dias_Valores_Mes_Bill_Cad(
+                dia=item.dia,
+                valor=item.valor,
+                mes=item.mes
+            )
 
-        #Criando o novo produto no banco
-        novo_produto_dia_venda = modelsP.Dias_Valores_Mes_Bill_Cad(
-            dia=item.dia,
-            valor=item.valor,
-            mes=item.mes
-        )
-
-        session.add(novo_produto_dia_venda)
-        session.commit()
-        session.refresh(novo_produto_dia_venda)
-        logging.info("Boleto adicionado para o(s) dia(s) com sucesso.")
-        return f"Olá, {user.username}, o valor do boleto para o(s) dia(s) desejado(s) foi adicionado!", item
+            session.add(novo_produto_dia_venda)
+            session.commit()
+            session.refresh(novo_produto_dia_venda)
+            logging.info("Boleto criado para o(s) dia(s) e mês selecionado com sucesso!")
+            return f"Olá, {user.username}. Novo boleto foi adicionado para o dia {item.dia} e mês {item.mes}"
+        
     except HTTPException as e:
         session.rollback()
         raise e
@@ -104,7 +100,7 @@ async def getDaysBillsServices(mes: str, session: Session = Depends(get_session)
         if mes is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nenhum boleto existente neste mês!")
         else:
-            return f"Pegando todos os mêses para você, {user.username}", mes
+            return f"Pegando todos os valores de boletos para você, {user.username}", mes
     except Exception as e:
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))

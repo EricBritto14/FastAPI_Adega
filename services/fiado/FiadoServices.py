@@ -22,29 +22,34 @@ async def addFiadoValService(item: schemasP.Fiado, session: Session = Depends(ge
         if not user.is_admin:
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem permissão para adicionar dividores fiados!")            
         
-        #Criando um objeto para manipular e apenas retornar a % de ganho em cima do produto em _valor_venda
-        item = modelsP.Fiado_Val(
-            dia=item.dia,
-            valor=item.valor,
-            name = item.name,
+        produtoMes = (
+            session.query(modelsP.Gastos_Cartao_Cad)
+            .filter(
+                modelsP.Gastos_Cartao_Cad.dia == item.dia,
+                modelsP.Gastos_Cartao_Cad.mes == item.mes  
+            )
+            .first()
         )
         
-        # produtoMes = session.query(modelsP.Fiado_Val).filter(modelsP.Fiado_Val.dia == item.dia).first()
-        # if produtoMes is not None:
-        #     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor já adicionado para este dia!")
+        if produtoMes:
+            produtoMes.valor = item.valor
+            session.commit()
+            session.refresh(produtoMes)
+            logging.info("Valor de fiado foi atualizado para o(s) dia(s) com sucesso.")
+            return f"Olá, {user.username}, o valor de fiado foi atualizado para o(s) dia(s) desejado(s) foi adicionado!", item
+        else:
+            #Criando o novo produto no banco
+            novo_produto_mes = modelsP.Fiado_Val(
+                dia=item.dia,
+                valor=item.valor,
+                name = item.name,
+            )
 
-        #Criando o novo produto no banco
-        novo_produto_mes = modelsP.Fiado_Val(
-            dia=item.dia,
-            valor=item.valor,
-            name = item.name,
-        )
-
-        session.add(novo_produto_mes)
-        session.commit()
-        session.refresh(novo_produto_mes)
-        logging.info("Valor adicionado para o(s) dia(s) com sucesso.")
-        return f"Olá, {user.username}, o valor para o(s) dia(s) desejado(s) foi adicionado!", item
+            session.add(novo_produto_mes)
+            session.commit()
+            session.refresh(novo_produto_mes)
+            logging.info("Valor de fiado foi adicionado para o(s) dia(s) com sucesso.")
+            return f"Olá, {user.username}, o valor de fiado foi adicionado para o(s) dia(s) desejado(s) com sucesso!", item
     except HTTPException as e:
         session.rollback()
         raise e

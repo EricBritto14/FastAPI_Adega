@@ -12,7 +12,7 @@ router = APIRouter()
 async def addBill(item: SchemasP.Meses_Valores_Bill, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     return await addBillsMonthService(item, session, user)
 
-@router.post("/boletos/adicionar_valores_dias")
+@router.patch("/boletos/adicionar_valores_dias")
 async def addBillDay(item: SchemasP.Dias_Valores_Mes_Bill, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     return await addDaysBillsService(item, session, user)
 
