@@ -90,9 +90,20 @@ async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(g
         if produto is not None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto já adicionado!")
 
-        if item.tipo not in ('Barrigudinhas', 'Comida', 'Refrigerante Descartável', 'Refrigerante Retornável', 
-                             'Refrigerante Lata', 'Doses', 'Vinhos', 'Energéticos De Lata', 'Energéticos 2L', 
-                             'Cigarros', 'Palheiros', 'Sedas', 'Carvão', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Doces'):
+        if item.tipo not in (
+            'Doses',
+            'Barrigudinhas', 'Cerveja 269mlA', 'Cerveja Long Neck 330mlA', 'Cerveja 350mlA', 'Cerveja TubaoA', 'Cerveja 600mlA', 
+            'Cerveja 269mlNA', 'Cerveja Long Neck 330mlNA', 'Cerveja 350mlNA', 'Cerveja TubaoNA', 'Cerveja 600mlNA',
+            'WhiskyG', 'GinG', 'VodkaG', 'CachacaG', 'LicorG', 'VinhosG',
+            'WhiskyC2L', 'GinC2L', 'VodkaC2L', 'WhiskyCEL', 'GinCEL', 'VodkaCEL',  
+            'Drinks Prontos',
+            'Combo Vodka', 'Combo Gin', 'Combo Whisky', 
+            'Refrigerante Descartavel', 'Refrigerante Retornavel', 'Refrigerante 1L', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante Lata',
+            'Gatorade', 'Energeticos 2L', 'Energeticos Lata 473ml', 'Energeticos Lata 269ml',
+            'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao Narga',
+            'Carvao Churrasco', 'Gelo', 'Fabitos', 'Batata', 'Torcida',
+            'Balas', 'Chiclete', 'Doces De Pote', 'Chocolate', 'Pirulito'
+            ):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
 
         validar_data(item.data_validade)
