@@ -23,16 +23,18 @@ async def addFiadoValService(item: schemasP.Fiado, session: Session = Depends(ge
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem permissão para adicionar dividores fiados!")            
         
         produtoMes = (
-            session.query(modelsP.Gastos_Cartao_Cad)
+            session.query(modelsP.Fiado_Val)
             .filter(
-                modelsP.Gastos_Cartao_Cad.dia == item.dia,
-                modelsP.Gastos_Cartao_Cad.mes == item.mes  
+                modelsP.Fiado_Val.dia == item.dia,
             )
             .first()
         )
         
         if produtoMes:
+            print(f"Produto para atualizar: {produtoMes.dia}, nome {produtoMes.name}, e valor {produtoMes.valor}")
             produtoMes.valor = item.valor
+            produtoMes.name = item.name
+
             session.commit()
             session.refresh(produtoMes)
             logging.info("Valor de fiado foi atualizado para o(s) dia(s) com sucesso.")
@@ -41,7 +43,7 @@ async def addFiadoValService(item: schemasP.Fiado, session: Session = Depends(ge
             #Criando o novo produto no banco
             novo_produto_mes = modelsP.Fiado_Val(
                 dia=item.dia,
-                valor=item.valor,
+                valor= item.valor,
                 name = item.name,
             )
 

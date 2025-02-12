@@ -84,8 +84,7 @@ class Gastos_Cartao_Cad(Base):
     mes: String = Column(String(100), nullable=False)
 class Fiado_Val(Base):
     __tablename__ = "fiado"
-    idFiado: int = Column(Integer, primary_key=True)
-    dia: int = Column(Integer, nullable=False)
+    dia: int = Column(Integer, nullable=False, primary_key=True)
     valor: float = Column(Float(53), nullable=False)
     name: String = Column(String(200), nullable=False)
 
