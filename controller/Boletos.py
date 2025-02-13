@@ -8,7 +8,7 @@ from services.boletos.BoletosService import *
 
 router = APIRouter()
 
-@router.post("/boletos/adicionar_valores")
+@router.patch("/boletos/adicionar_valores")
 async def addBill(item: SchemasP.Meses_Valores_Bill, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     return await addBillsMonthService(item, session, user)
 

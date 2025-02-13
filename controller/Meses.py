@@ -8,7 +8,7 @@ from services.meses.MesesService import *
 
 router = APIRouter()
 
-@router.post("/meses_venda/adicionar_valores")
+@router.patch("/meses_venda/adicionar_valores")
 async def addItem(item: SchemasP.Meses_Valores, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     return await addMesesService(item, session, user)
 

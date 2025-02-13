@@ -39,8 +39,7 @@ class Meses_Valores_Cad(Base):
 
 class Dias_Valores_Mes_Cad(Base):
     __tablename__ = "valores_dias_venda"
-    id: int = Column(Integer, primary_key=True)
-    dia: int = Column(Integer, nullable=False)
+    dia: int = Column(Integer, nullable=False, primary_key=True)
     valor: float = Column(Float(53), nullable=False)
     mes: String = Column(String(100), nullable=False)
 
@@ -52,8 +51,7 @@ class Meses_Valores_Bill_Cad(Base):
 
 class Dias_Valores_Mes_Bill_Cad(Base):
     __tablename__ = "valores_dias_bills"
-    id: int = Column(Integer, primary_key=True)
-    dia: int = Column(Integer, nullable=False)
+    dia: int = Column(Integer, nullable=False, primary_key=True)
     valor: float = Column(Float(53), nullable=False)
     mes: String = Column(String(100), nullable=False)
 
@@ -65,8 +63,7 @@ class Gastos_Aleatorios_Mes(Base):
 
 class Gastos_Aleatorios_Cad(Base):
     __tablename__ = "gastos_aleatorios_mes"
-    id: int = Column(Integer, primary_key=True)
-    dia: int = Column(Integer, nullable=False)
+    dia: int = Column(Integer, nullable=False, primary_key=True)
     valor: float = Column(Float(53), nullable=False)
     mes: String = Column(String(100), nullable=False)
 
@@ -78,8 +75,7 @@ class Gastos_Cartao_Mes(Base):
 
 class Gastos_Cartao_Cad(Base):
     __tablename__ = "gastos_cartoes_mes"
-    id: int = Column(Integer, primary_key=True)
-    dia: int = Column(Integer, nullable=False)
+    dia: int = Column(Integer, nullable=False, primary_key=True)
     valor: float = Column(Float(53), nullable=False)
     mes: String = Column(String(100), nullable=False)
 class Fiado_Val(Base):

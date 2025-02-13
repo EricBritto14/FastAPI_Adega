@@ -32,23 +32,28 @@ async def addMesesService(item: schemasP.Meses_Valores, session: Session = Depen
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome de mês inválido.")
 
         produtoMes = session.query(modelsP.Meses_Valores_Cad).filter(modelsP.Meses_Valores_Cad.mes == item.mes).first()
-        if produtoMes is not None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor já adicionado para este mês!")
 
         if item.valor <= 0:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="A venda total do mês não pode ser menor ou igual a 0!")
         
-        #Criando o novo produto no banco
-        novo_produto_mes = modelsP.Meses_Valores_Cad(
-            mes=item.mes.capitalize(),
-            valor=item.valor,
-        )
+        if produtoMes:
+            produtoMes.valor = item.valor
+            session.commit()
+            session.refresh(produtoMes)
+            logging.info("Valor de venda mensal atualizado para o mês com sucesso.")
+            return f"Olá, {user.username}, o valor de venda para o mês desejado foi atualizado!", item
+        else: 
+            #Criando o novo produto no banco
+            novo_produto_mes = modelsP.Meses_Valores_Cad(
+                mes=item.mes.capitalize(),
+                valor=item.valor,
+            )
 
-        session.add(novo_produto_mes)
-        session.commit()
-        session.refresh(novo_produto_mes)
-        logging.info("Valor adicionado para o mês com sucesso.")
-        return f"Olá, {user.username}, o valor para o mês desejado foi adicionado!", item
+            session.add(novo_produto_mes)
+            session.commit()
+            session.refresh(novo_produto_mes)
+            logging.info("Valor adicionado para o mês com sucesso.")
+            return f"Olá, {user.username}, o valor para o mês desejado foi adicionado!", item
     except HTTPException as e:
         session.rollback()
         raise e

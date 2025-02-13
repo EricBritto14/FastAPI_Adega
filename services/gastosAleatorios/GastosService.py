@@ -21,23 +21,28 @@ async def addExpensesMonthService(item: schemasP.Gastos_Aleatorios_Mes, session:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome de mês inválido.")
 
         produtoMes = session.query(modelsP.Gastos_Aleatorios_Mes).filter(modelsP.Gastos_Aleatorios_Mes.mes == item.mes).first()
-        if produtoMes is not None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor total de gasto já adicionado para este mês!")
 
         if item.valor <= 0:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="O valor total de gastos no mês não pode ser menor ou igual a 0!")
         
-        #Criando o novo produto no banco
-        novo_produto_mes = modelsP.Gastos_Aleatorios_Mes(
-            mes=item.mes.capitalize(),
-            valor=item.valor,
-        )
+        if produtoMes:
+            produtoMes.valor = item.valor
+            session.commit()
+            session.refresh(produtoMes)
+            logging.info("Valor total de gastos aleatórios atualizado para o mês com sucesso.")
+            return f"Olá, {user.username}, o Valor total de gastos aleatórios por mês desejado foi atualizado com sucesso!", item
+        else:
+            #Criando o novo produto no banco
+            novo_produto_mes = modelsP.Gastos_Aleatorios_Mes(
+                mes=item.mes.capitalize(),
+                valor=item.valor,
+            )
 
-        session.add(novo_produto_mes)
-        session.commit()
-        session.refresh(novo_produto_mes)
-        logging.info("Valor de gasto adicionado para o mês com sucesso.")
-        return f"Olá, {user.username}, o Valor de gasto para o mês desejado foi adicionado!", item
+            session.add(novo_produto_mes)
+            session.commit()
+            session.refresh(novo_produto_mes)
+            logging.info("Valor de gasto adicionado para o mês com sucesso.")
+            return f"Olá, {user.username}, o Valor de gasto para o mês desejado foi adicionado!", item
     except HTTPException as e:
         session.rollback()
         raise e
