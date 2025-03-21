@@ -47,7 +47,8 @@ async def getItemsServices(session: Session = Depends(get_session), user: Cadast
     
 async def getItemByTipoService(tipo:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
     try:
-        item = session.query(modelsP.Produtos_Cad).filter_by(tipo=tipo.capitalize()).first()
+        item = session.query(modelsP.Produtos_Cad).filter_by(tipo=tipo.capitalize()).all()
+        print("item que está buscando:", item)
         if item is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto de nome:{}, não encontrado".format(tipo))
         #return fakeDataBase[id] #Retornando o valor do dicionário, de acordo com o ID que ele digitar
@@ -77,7 +78,7 @@ async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(g
             nome=item.nome.capitalize(),
             tipo=item.tipo.capitalize(),
             valor_compra=item.valor_compra,
-            _valor_venda=item.valor_venda,
+            valor_venda=item.valor_venda,
             quantidade=item.quantidade,
             tamanho=item.tamanho.lower(),
             data_validade=item.data_validade,
@@ -89,20 +90,21 @@ async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(g
         produto = session.query(modelsP.Produtos_Cad).filter(modelsP.Produtos_Cad.nome == item.nome).first()
         if produto is not None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto já adicionado!")
-
+        
+        print("item que está vindo: ", item.tipo)
         if item.tipo not in (
             'Doses',
-            'Barrigudinhas', 'Cerveja 269mlA', 'Cerveja Long Neck 330mlA', 'Cerveja 350mlA', 'Cerveja TubaoA', 'Cerveja 600mlA', 
-            'Cerveja 269mlNA', 'Cerveja Long Neck 330mlNA', 'Cerveja 350mlNA', 'Cerveja TubaoNA', 'Cerveja 600mlNA',
-            'WhiskyG', 'GinG', 'VodkaG', 'CachacaG', 'LicorG', 'VinhosG',
-            'WhiskyC2L', 'GinC2L', 'VodkaC2L', 'WhiskyCEL', 'GinCEL', 'VodkaCEL',  
-            'Drinks Prontos',
-            'Combo Vodka', 'Combo Gin', 'Combo Whisky', 
-            'Refrigerante Descartavel', 'Refrigerante Retornavel', 'Refrigerante 1L', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante Lata',
-            'Gatorade', 'Energeticos 2L', 'Energeticos Lata 473ml', 'Energeticos Lata 269ml',
-            'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao Narga',
-            'Carvao Churrasco', 'Gelo', 'Fabitos', 'Batata', 'Torcida',
-            'Balas', 'Chiclete', 'Doces De Pote', 'Chocolate', 'Pirulito'
+            'Barrigudinhas', 'Cerveja 269mla', 'Cerveja long neck 330mla', 'Cerveja 350mla', 'Cerveja tubaoa', 'Cerveja 600mla', 
+            'Cerveja 269mlna', 'Cerveja long neck 330mlna', 'Cerveja 350mlna', 'Cerveja tubaona', 'Cerveja 600mlna',
+            'Whiskyg', 'Ging', 'Vodkag', 'Cachacag', 'Licorg', 'Vinhosg',
+            'Whiskyc2l', 'Ginc2l', 'Vodkac2l', 'Whiskycel', 'Gincel', 'Vodkacel',  
+            'Drinks prontos',
+            'Combo vodka', 'Combo gin', 'Combo whisky', 
+            'Refrigerante descartavel', 'Refrigerante retornavel', 'Refrigerante 1l', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante lata',
+            'Gatorade', 'Energeticos 2l', 'Energeticos lata 473ml', 'Energeticos lata 269ml',
+            'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao narga',
+            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida',
+            'Balas', 'Chiclete', 'Doces de pote', 'Chocolate', 'Pirulito'
             ):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
 
@@ -125,7 +127,7 @@ async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(g
             nome=item.nome.capitalize(),
             tipo=item.tipo.capitalize(),
             valor_compra=item.valor_compra,
-            _valor_venda=item.valor_venda,
+            valor_venda=item.valor_venda,
             quantidade=item.quantidade,
             tamanho=item.tamanho.lower(),
             data_validade=item.data_validade,

@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, Boolean
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base, validates
 from database import Base
 from datetime import date
 from pydantic import BaseModel
@@ -13,23 +14,22 @@ class Produtos_Cad(Base):
     nome: str = Column(String(200), nullable=False, unique=True)
     tipo: str = Column(String(256), nullable=False)  # Tipo do produto
     valor_compra: float = Column(Float(53), nullable=False)
-    _valor_venda = Column("valor_venda", Float(53), nullable=False)  # Valor original do produto
+    valor_venda = Column("valor_venda", Float(53), nullable=False)  # Valor original do produto
+    percentual_lucro = Column(Float(53), nullable=True)
     quantidade: int = Column(Integer, nullable=False)
     tamanho: str = Column(String(200), nullable=False)  # Tamanho do produto
     data_validade: str = Column(String(10), nullable=False)
     # data_cadastro: str = Column(String(10), nullable=False)
 
-    # Propriedade híbrida para calcular a porcentagem de ganho
-    @hybrid_property
-    def valor_venda(self):
+    @validates('valor_venda')
+    def set_valor_venda(self, key, valor_venda):
         if self.valor_compra > 0:
-            return ((self._valor_venda - self.valor_compra) / self.valor_compra) * 100
-        return 0
+            self.percentual_lucro = ((valor_venda - self.valor_compra) / self.valor_compra) * 100
+        
+        else:
+            self.percentual_lucro = 0
 
-    # Setter para armazenar o valor original
-    @valor_venda.setter
-    def valor_venda(self, valor): 
-        self._valor_venda = valor
+        return valor_venda
     
 class Meses_Valores_Cad(Base):
     __tablename__ = 'valores_meses'
