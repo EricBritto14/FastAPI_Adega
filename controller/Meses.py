@@ -25,9 +25,9 @@ async def getItem(mes: str, session: Session = Depends(get_session), user: Cadas
 async def getItem(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
     return await getMesesServices(session, user)
 
-@router.put("/meses_venda/atualizar_valores/{mes}") #Tentar pegar pelo nome, não pelo id
-async def updateItem(mes:str, item: SchemasP.Meses_Valores_Att, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
-    return await updateMesService(mes, item, session, user)
+# @router.put("/meses_venda/atualizar_valores/{mes}") #Tentar pegar pelo nome, não pelo id
+# async def updateItem(mes:str, item: SchemasP.Meses_Valores_Att, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+#     return await updateMesService(mes, item, session, user)
 
 #Deletando valores
 @router.delete("/meses_venda/deletar_valores/{mes}")

@@ -12,8 +12,9 @@ class Produtos_S(BaseModel):
     tamanho: str
     data_validade: str
 
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True  # ✅ novo nome
+    }
 
 class AttProdutos(BaseModel):
    nome:str

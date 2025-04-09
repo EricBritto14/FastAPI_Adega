@@ -121,30 +121,30 @@ async def getDaysMesesServices(mes: str, session: Session = Depends(get_session)
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
     
 
-async def updateMesService(mes:str, item:schemasP.Meses_Valores, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
-    try:
-        itemObject = session.query(modelsP.Meses_Valores_Cad).filter_by(mes=mes.capitalize()).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
+# async def updateMesService(mes:str, item:schemasP.Meses_Valores, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+#     try:
+#         itemObject = session.query(modelsP.Meses_Valores_Cad).filter_by(mes=mes.capitalize()).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
         
-        if itemObject is None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Mês não encontrado")
+#         if itemObject is None:
+#             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Mês não encontrado")
         
-        itemObject.mes,itemObject.valor = item.mes, item.valor
+#         itemObject.mes,itemObject.valor = item.mes, item.valor
         
-        if not item.mes:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Mês vazio! Selecione um valor.")
+#         if not item.mes:
+#             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Mês vazio! Selecione um valor.")
         
-        produto = session.query(modelsP.Meses_Valores_Cad).filter_by(mes = item.mes).first()
+#         produto = session.query(modelsP.Meses_Valores_Cad).filter_by(mes = item.mes).first()
         
-        if produto == None:
-            return HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Mês de nome {item.mes} já existente!")
+#         if produto == None:
+#             return HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Mês de nome {item.mes} já existente!")
             
-        if item.valor <= 0:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="A venda total do mês não pode ser menor ou igual a 0!")
+#         if item.valor <= 0:
+#             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="A venda total do mês não pode ser menor ou igual a 0!")
         
-        session.commit() #comitando a mudança
-    except Exception as e:
-        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
+#         session.commit() #comitando a mudança
+#     except Exception as e:
+#         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
+#         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
     
 async def deleteMesService(mes:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     try: 
