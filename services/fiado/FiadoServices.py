@@ -9,7 +9,7 @@ from controller.Login import get_current_user
 async def getFiadoServices(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Pegando os valores do banco de dados, Depends do get_session. E verificando se o usuário está logado, com o get_current_user
     try:
         valores = session.query(modelsP.Fiado_Val).all()
-        if valores is None:
+        if not valores:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nenhum valor salvo!")
         else:
             return f"Pegando todos os mêses para você, {user.username}", valores
@@ -70,7 +70,7 @@ async def updateFiadoService(item:schemasP.Fiado, session: Session = Depends(get
         
         itemObject = session.query(modelsP.Fiado_Val).filter_by(dia=item.dia).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
         
-        if itemObject is None:
+        if not itemObject:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Dia não encontrado")
         
         itemObject.dia = item.dia
@@ -103,7 +103,7 @@ async def deleteItemByIdSpun(id: int, session: Session = Depends(get_session), u
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem autorização para deletar produtos!")
     
         item = session.query(modelsP.Fiado_Val).get(id)
-        if item is None:
+        if not item:
             # raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de id:{id}, não encontrado")
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Dívida de id:{}, não encontrado".format(id))
         produto = item.name

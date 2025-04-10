@@ -9,7 +9,7 @@ from controller.Login import get_current_user
 async def getMesesServices(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Pegando os valores do banco de dados, Depends do get_session. E verificando se o usuário está logado, com o get_current_user
     try:
         mes = session.query(modelsP.Meses_Valores_Cad).all()
-        if mes is None:
+        if not mes:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nenhum mês existente!")
         else:
             return f"Pegando todos os mêses para você, {user.username}", mes
@@ -156,7 +156,7 @@ async def deleteMesService(mes:str, session: Session = Depends(get_session), use
     
         #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
         itemObject = session.query(modelsP.Meses_Valores_Cad).filter_by(mes=mes.capitalize()).first() #Pegando o valor que foi passado pelo nome, e procurando no bnaco pra ver se existe algo com esse nome
-        if itemObject is None:
+        if not itemObject:
             raise HTTPException(status.HTTP_400_BAD_REQUEST, detail=f"Produto {mes}, não encontrado")
         id = itemObject.idMes
         session.delete(itemObject) #comitando a mudança

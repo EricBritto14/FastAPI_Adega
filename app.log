@@ -24240,3 +24240,98 @@ DETAIL:  Key (dia)=(1) already exists.
 2025-04-09 09:31:59,900 - INFO - {'url': '/dias_venda/Fevereiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
 2025-04-09 09:31:59,910 - INFO - {'url': '/dias_venda/Fevereiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
 2025-04-09 09:32:02,723 - INFO - {'url': '/dias_venda/Janeiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:01:42,991 - INFO - Starting API...
+2025-04-10 16:06:33,567 - INFO - {'url': '/docs', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:06:34,200 - INFO - {'url': '/openapi.json', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:10:24,109 - INFO - {'url': '/token', 'metodo usado': 'POST', 'o que foi foi feito': 'grant_type=password&username=admin&password=E40024041e%26', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:11:34,214 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{\n  "nome": "Coca-Cola",\n  "tipo": "Refrigerante Descartável",\n  "valor_compra": 5,\n  "valor_venda": 12,\n  "quantidade": 10,\n  "tamanho": "2L",\n  "data_validade": "20/04/2025"\n}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-04-10 16:12:19,029 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:12:19,045 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{"idProduto":null,"nome":"Coca-Cola","quantidade":6,"tipo":"Refrigerante Descartável","valor_compra":"5","valor_venda":"12","data_cadastro":null,"data_validade":"30/04/2025","tamanho":"2L"}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-04-10 16:19:51,803 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{"idProduto":null,"nome":"Coca-Cola","quantidade":6,"tipo":"Refrigerante Descartável","valor_compra":"5","valor_venda":"12","data_cadastro":null,"data_validade":"30/04/2025","tamanho":"2L"}', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-04-10 16:20:17,379 - INFO - Produto adicionado com sucesso.
+2025-04-10 16:20:17,382 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{"idProduto":null,"nome":"Coca-Cola","quantidade":6,"tipo":"Refrigerante Descartavel","valor_compra":"5","valor_venda":"12","data_cadastro":null,"data_validade":"08/05/2025","tamanho":"2L"}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:20:23,942 - INFO - {'url': '/produtos/produto_name/Refrigerante descartavel', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:20:23,956 - INFO - {'url': '/produtos/produto_name/Refrigerante descartavel', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:22:22,648 - INFO - {'url': '/produtos', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:35:29,968 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:35:30,001 - INFO - Produto adicionado com sucesso.
+2025-04-10 16:35:30,006 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{"idProduto":null,"nome":"Dose Pinga Mel","quantidade":12,"tipo":"Doses","valor_compra":"0.50","valor_venda":"1.50","data_cadastro":null,"data_validade":"02/05/2025","tamanho":"50ml"}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:35:34,124 - INFO - {'url': '/produtos/produto_name/Doses', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:35:34,143 - INFO - {'url': '/produtos/produto_name/Doses', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:36:37,467 - INFO - Produto adicionado com sucesso.
+2025-04-10 16:36:37,471 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{"idProduto":null,"nome":"Skol","quantidade":16,"tipo":"Barrigudinhas","valor_compra":"1.50","valor_venda":"3.75","data_cadastro":null,"data_validade":"30/04/2025","tamanho":"350ml"}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:36:56,097 - INFO - {'url': '/produtos/produto_name/Barrigudinhas', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:36:56,130 - INFO - {'url': '/produtos/produto_name/Barrigudinhas', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:39:15,667 - INFO - Produto adicionado com sucesso.
+2025-04-10 16:39:15,670 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{"idProduto":null,"nome":"Brahma","quantidade":10,"tipo":"Cerveja 269mlA","valor_compra":"4","valor_venda":"6.50","data_cadastro":null,"data_validade":"30/04/2025","tamanho":"350ml"}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:39:19,029 - INFO - {'url': '/produtos/produto_name/Cerveja 269mla', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:39:19,047 - INFO - {'url': '/produtos/produto_name/Cerveja 269mla', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:39:52,877 - INFO - Produto adicionado com sucesso.
+2025-04-10 16:39:52,882 - INFO - {'url': '/produtos/adicionar', 'metodo usado': 'POST', 'o que foi foi feito': '{"idProduto":null,"nome":"Heineken","quantidade":8,"tipo":"Cerveja Long Neck 330mlA","valor_compra":"5","valor_venda":"9","data_cadastro":null,"data_validade":"30/04/2025","tamanho":"350ml"}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:40:00,386 - INFO - {'url': '/produtos/produto_name/Cerveja long neck 330ml', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:40:00,398 - INFO - {'url': '/produtos/produto_name/Cerveja long neck 330ml', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:40:25,176 - INFO - {'url': '/produtos/produto_name/Cerveja long neck 330ml', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:40:44,249 - INFO - {'url': '/produtos/produto_name/Cerveja long neck 330ml', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:40:48,545 - INFO - {'url': '/produtos', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:41:44,735 - INFO - {'url': '/produtos/produto_name/Cerveja long neck 330mla', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:43:55,054 - INFO - {'url': '/produtos/produto_name/Cerveja long neck 330mla', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:43:55,068 - INFO - {'url': '/produtos/produto_name/Cerveja long neck 330mla', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:41,926 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:41,942 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:43,655 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:44,218 - INFO - {'url': '/produtos/produto_name/Combo gin', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:44,233 - INFO - {'url': '/produtos/produto_name/Combo gin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:44,772 - INFO - {'url': '/produtos/produto_name/Combo vodka', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:44,788 - INFO - {'url': '/produtos/produto_name/Combo vodka', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:45,499 - INFO - {'url': '/produtos/produto_name/Combo vodka', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:45,695 - INFO - {'url': '/produtos/produto_name/Combo vodka', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:45,899 - INFO - {'url': '/produtos/produto_name/Combo vodka', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:47,014 - INFO - {'url': '/produtos/produto_name/Combo gin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:47,404 - INFO - {'url': '/produtos/produto_name/Combo gin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:47,563 - INFO - {'url': '/produtos/produto_name/Combo gin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:47,716 - INFO - {'url': '/produtos/produto_name/Combo gin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:51,058 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:46:56,393 - INFO - {'url': '/produtos/produto_name/Combo gin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:47:52,410 - INFO - {'url': '/produtos/produto_name/Combo gin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:48:02,375 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:48:03,409 - INFO - {'url': '/produtos/produto_name/Combo gin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:48:25,422 - INFO - Starting API...
+2025-04-10 16:48:39,971 - INFO - Starting API...
+2025-04-10 16:48:47,832 - INFO - {'url': '/produtos/produto_name/Combo gin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:49:09,385 - INFO - Starting API...
+2025-04-10 16:49:14,845 - INFO - Starting API...
+2025-04-10 16:49:27,923 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:49:31,594 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:49:32,383 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:49:32,833 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:49:33,238 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:49:33,610 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:49:33,770 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:49:34,113 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:49:34,592 - INFO - {'url': '/produtos/produto_name/Combo whisky', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-10 16:51:38,893 - INFO - Starting API...
+2025-04-10 16:51:43,319 - INFO - Starting API...
+2025-04-10 16:52:04,272 - INFO - {'url': '/produtos/produto_name/Combo gin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-04-10 16:52:07,483 - INFO - {'url': '/produtos/produto_name/Combo gin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-04-10 16:52:11,103 - INFO - {'url': '/produtos/produto_name/Combo gin', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Erro 400 (Nao funcionou a aquisicao)'}
+2025-04-10 16:52:20,120 - INFO - Starting API...
+2025-04-10 16:56:46,598 - INFO - Starting API...
+2025-04-10 16:59:16,690 - INFO - Starting API...
+2025-04-10 16:59:22,114 - INFO - Starting API...
+2025-04-10 16:59:35,953 - INFO - Starting API...
+2025-04-10 16:59:56,745 - INFO - Starting API...
+2025-04-10 17:00:18,959 - INFO - Starting API...
+2025-04-10 17:00:22,269 - INFO - Starting API...
+2025-04-10 17:00:26,097 - INFO - Starting API...
+2025-04-10 17:00:29,491 - INFO - Starting API...
+2025-04-10 17:00:33,795 - INFO - Starting API...
+2025-04-10 17:00:37,504 - INFO - Starting API...
+2025-04-10 17:01:10,697 - INFO - Starting API...
+2025-04-10 17:01:13,590 - INFO - Starting API...
+2025-04-10 17:01:20,101 - INFO - Starting API...
+2025-04-10 17:01:27,931 - INFO - Starting API...
+2025-04-10 17:01:34,881 - INFO - Starting API...
+2025-04-10 17:01:40,843 - INFO - Starting API...
+2025-04-10 17:01:51,845 - INFO - Starting API...
+2025-04-10 17:01:55,732 - INFO - Starting API...
+2025-04-10 17:02:00,496 - INFO - Starting API...

@@ -37,7 +37,7 @@ def validar_data(data_val: str) -> str:
 async def getItemsServices(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Pegando os valores do banco de dados, Depends do get_session. E verificando se o usuário está logado, com o get_current_user
     try:
         items = session.query(modelsP.Produtos_Cad).all()
-        if items is None:
+        if not items:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nenhum produto existente!")
         else:
             return f"Pegando todos os itens para você, {user.username}", items
@@ -49,7 +49,7 @@ async def getItemByTipoService(tipo:str, session: Session = Depends(get_session)
     try:
         item = session.query(modelsP.Produtos_Cad).filter_by(tipo=tipo.capitalize()).all()
         print("item que está buscando:", item)
-        if item is None:
+        if not item:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto de nome:{}, não encontrado".format(tipo))
         #return fakeDataBase[id] #Retornando o valor do dicionário, de acordo com o ID que ele digitar
         return f"Pegando o produto de nome:{tipo} para você, {user.username}", item
@@ -60,7 +60,7 @@ async def getItemByTipoService(tipo:str, session: Session = Depends(get_session)
 async def getItemIdService(id:int, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     try:
         itemId = session.query(modelsP.Produtos_Cad).get(id)
-        if itemId is None:
+        if not itemId:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto inexistente!")
         else:
             return f"Pegando o produto de id:{id} para você, {user.username}", itemId   
@@ -153,7 +153,7 @@ async def updateItemService(nome:str, item:schemasP.AttProdutos, session: Sessio
     try:
         itemObject = session.query(modelsP.Produtos_Cad).filter_by(nome=nome.capitalize()).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
         
-        if itemObject is None:
+        if not itemObject:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto não encontrado")
         
         itemObject.nome, itemObject.tamanho, itemObject.tipo, itemObject.valor_compra, itemObject.valor_venda, itemObject.quantidade, itemObject.data_validade = item.nome, item.tamanho, item.tipo.capitalize(), item.valor_compra, item.valor_venda, item.quantidade, item.data_validade
@@ -199,7 +199,7 @@ async def atualizarItemIdService(id: int, item:schemasP.AttProdutos, session: Se
     try:
         itemObject2 = session.query(modelsP.Produtos_Cad).get(id)
         
-        if itemObject2 is None:
+        if not itemObject2:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de id:{id} inexistente!")
         
         itemObject2.nome, itemObject2.tamanho, itemObject2.tipo, itemObject2.valor_compra, itemObject2.valor_venda, itemObject2.quantidade, itemObject2.data_validade = item.nome, item.tamanho, item.tipo.capitalize(), item.valor_compra, item.valor_venda, item.quantidade, item.data_validade
@@ -251,7 +251,7 @@ async def deleteItemService(nome:str, session: Session = Depends(get_session), u
     
         #newId = len(fakeDataBase.keys()) + 1 #Pegando o tamanho do fakedatabase e adicionando o valor de +1 para que o próximo item que for adicionado seja na próxima key
         itemObject = session.query(modelsP.Produtos_Cad).filter_by(nome=nome.capitalize()).first() #Pegando o valor que foi passado pelo nome, e procurando no bnaco pra ver se existe algo com esse nome
-        if itemObject is None:
+        if not itemObject:
             raise HTTPException(status.HTTP_400_BAD_REQUEST, detail=f"Produto {nome}, não encontrado")
         id = itemObject.idProduto
         session.delete(itemObject) #comitando a mudança
@@ -268,7 +268,7 @@ async def deleteItemByIdService(id: int, session: Session = Depends(get_session)
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem autorização para deletar produtos!")
     
         item = session.query(modelsP.Produtos_Cad).get(id)
-        if item is None:
+        if not item:
             # raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de id:{id}, não encontrado")
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto de id:{}, não encontrado".format(id))
         produto = item.nome

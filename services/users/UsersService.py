@@ -69,7 +69,7 @@ async def getItemByIdService(id:int, session: Session = Depends(get_session), us
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Você não tem permissão para visualizar os usuários!")        
         
         usuarioBusca = session.query(models.Cadastro_Users).get(id)
-        if usuarioBusca is None:
+        if not usuarioBusca:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário inexistente!")
         else:
             return f"Olá, {user.username}, aqui está o usuário de id:{id} -", usuarioBusca         
@@ -117,7 +117,7 @@ async def updateItemService(nome:str, item:schemas.Cadastro, session: Session = 
         itemObject = session.query(models.Cadastro_Users).filter_by(username=nome.capitalize()).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
                     # Aqui, todas as outras validações podem ser realizadas
                     # Se todas as validações passarem, agora podemos hash a senha
-        if itemObject is None:
+        if not itemObject:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário inexistente!")
         #Pegando o username digitado para atualizar
         usernameN = item.username.capitalize()
@@ -155,7 +155,7 @@ async def atualizarByIdService(id: int, item:schemas.Cadastro, session: Session 
         
         itemObjectId = session.query(models.Cadastro_Users).get(id)
         
-        if itemObjectId is None:
+        if not itemObjectId:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário de id:{} inexistente!".format(id))
         
         usernameN = item.username.capitalize()
@@ -190,7 +190,7 @@ async def atualizarByIdService(id: int, item:schemas.Att_Cadastro, session: Sess
         
         itemObjectId = session.query(models.Cadastro_Users).get(id)
         
-        if itemObjectId is None:
+        if not itemObjectId:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário de id:{} inexistente!".format(id))
         
         usernameN = item.username.capitalize()
@@ -225,7 +225,7 @@ async def deleteItemService(nome:str, session: Session = Depends(get_session), u
 
         itemObject = session.query(models.Cadastro_Users).filter_by(username=nome.capitalize()).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
         
-        if itemObject is None:
+        if not itemObject:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome de usuário não existe")
         
         id = itemObject.idUsuario
@@ -243,7 +243,7 @@ async def deleteItemIdService(id: int, session: Session = Depends(get_session), 
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Você não tem permissão para excluir usuários!")
         
         itemId = session.query(models.Cadastro_Users).get(id)
-        if itemId is None:
+        if not itemId:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Id de usuário inexistente!")      
         
         nomeUser = itemId.username
