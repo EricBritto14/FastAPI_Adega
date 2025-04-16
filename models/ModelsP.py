@@ -9,7 +9,6 @@ from sqlalchemy.ext.hybrid import hybrid_property
 #Classe que cria a table no banco de dados, e coloca que valores que serão armazenados
 class Produtos_Cad(Base):
     __tablename__ = 'produtos' 
-    
     idProduto: int = Column(Integer, primary_key=True)
     nome: str = Column(String(200), nullable=False, unique=True)
     tipo: str = Column(String(256), nullable=False)  # Tipo do produto
