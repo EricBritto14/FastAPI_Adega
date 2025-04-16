@@ -24342,3 +24342,64 @@ DETAIL:  Key (dia)=(1) already exists.
 2025-04-16 08:04:08,264 - INFO - {'url': '/produtos', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
 2025-04-16 08:16:03,963 - INFO - Starting API...
 2025-04-16 08:16:10,488 - INFO - Starting API...
+2025-04-16 09:04:15,339 - INFO - Starting API...
+2025-04-16 09:04:47,185 - INFO - Starting API...
+2025-04-16 09:12:07,106 - INFO - {'url': '/dias_venda/Abril', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:12:07,160 - INFO - {'url': '/dias_venda/Abril', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:12:13,495 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:12:13,518 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-04-16 09:12:13,521 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Abril","dia":1,"valor":3000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:12:13,539 - ERROR - Erro interno: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "valores_dias_venda_pkey"
+DETAIL:  Key (mes)=(Abril) already exists.
+
+[SQL: INSERT INTO valores_dias_venda (dia, valor, mes) VALUES (%(dia)s, %(valor)s, %(mes)s)]
+[parameters: {'dia': 2, 'valor': 5000.0, 'mes': 'Abril'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-16 09:12:13,540 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Abril","dia":2,"valor":5000}', 'status': 'Codigo 500 (Erro no servidor)'}
+2025-04-16 09:12:17,851 - INFO - {'url': '/dias_venda/Marco', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:12:17,857 - INFO - {'url': '/dias_venda/Marco', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:12:21,403 - INFO - {'url': '/dias_venda/Abril', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:12:28,231 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-04-16 09:12:28,231 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Abril","dia":1,"valor":3000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:12:28,241 - ERROR - Erro interno: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "valores_dias_venda_pkey"
+DETAIL:  Key (mes)=(Abril) already exists.
+
+[SQL: INSERT INTO valores_dias_venda (dia, valor, mes) VALUES (%(dia)s, %(valor)s, %(mes)s)]
+[parameters: {'dia': 2, 'valor': 5000.0, 'mes': 'Abril'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-16 09:12:28,243 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Abril","dia":2,"valor":5000}', 'status': 'Codigo 500 (Erro no servidor)'}
+2025-04-16 09:12:31,498 - INFO - {'url': '/dias_venda/Marco', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:12:34,561 - INFO - {'url': '/dias_venda/Abril', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:12:49,158 - INFO - Valor de venda atualizado para o(s) dia(s) com sucesso.
+2025-04-16 09:12:49,159 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Abril","dia":1,"valor":3000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:12:49,169 - ERROR - Erro interno: (psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "valores_dias_venda_pkey"
+DETAIL:  Key (mes)=(Abril) already exists.
+
+[SQL: INSERT INTO valores_dias_venda (dia, valor, mes) VALUES (%(dia)s, %(valor)s, %(mes)s)]
+[parameters: {'dia': 3, 'valor': 6000.0, 'mes': 'Abril'}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-04-16 09:12:49,170 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Abril","dia":3,"valor":6000}', 'status': 'Codigo 500 (Erro no servidor)'}
+2025-04-16 09:19:26,135 - INFO - Starting API...
+2025-04-16 09:19:43,473 - INFO - Starting API...
+2025-04-16 09:19:58,906 - INFO - Starting API...
+2025-04-16 09:20:11,087 - INFO - Starting API...
+2025-04-16 09:21:11,088 - INFO - Starting API...
+2025-04-16 09:21:26,538 - INFO - {'url': '/dias_venda/Abril', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:21:32,316 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-04-16 09:21:32,318 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Abril","dia":1,"valor":5000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:21:32,328 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-04-16 09:21:32,330 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Abril","dia":2,"valor":4000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:21:35,885 - INFO - {'url': '/dias_venda/Marco', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:21:38,507 - INFO - {'url': '/dias_venda/Abril', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:21:42,744 - INFO - {'url': '/dias_venda/Marco', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:21:52,554 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-04-16 09:21:52,556 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Marco","dia":1,"valor":3000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:21:52,569 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-04-16 09:21:52,571 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Marco","dia":2,"valor":6000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:21:52,583 - INFO - Valor adicionado para o(s) dia(s) com sucesso.
+2025-04-16 09:21:52,584 - INFO - {'url': '/meses_valor/adicionar_valores_dias', 'metodo usado': 'PATCH', 'o que foi foi feito': '{"mes":"Marco","dia":3,"valor":10000}', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:21:55,760 - INFO - {'url': '/dias_venda/Fevereiro', 'metodo usado': 'OPTIONS', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:21:55,766 - INFO - {'url': '/dias_venda/Fevereiro', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:21:58,632 - INFO - {'url': '/dias_venda/Marco', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:22:01,943 - INFO - {'url': '/dias_venda/Abril', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
+2025-04-16 09:22:05,514 - INFO - {'url': '/dias_venda/Marco', 'metodo usado': 'GET', 'o que foi foi feito': 'Pegando os produtos, ou deletando algo', 'status': 'Codigo 200 (Funcionou a aquisicao)'}
