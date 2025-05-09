@@ -3,14 +3,15 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import declarative_base, validates
 from database import Base
 from datetime import date
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 from sqlalchemy.ext.hybrid import hybrid_property
+import re
 
 #Classe que cria a table no banco de dados, e coloca que valores que serão armazenados
 class Produtos_Cad(Base):
     __tablename__ = 'produtos' 
     idProduto: int = Column(Integer, primary_key=True)
-    nome: str = Column(String(200), nullable=False, unique=True)
+    nome: str = Column(String(200), nullable=False)
     tipo: str = Column(String(256), nullable=False)  # Tipo do produto
     valor_compra: float = Column(Float(53), nullable=False)
     valor_venda = Column("valor_venda", Float(53), nullable=False)  # Valor original do produto
@@ -29,6 +30,12 @@ class Produtos_Cad(Base):
             self.percentual_lucro = 0
 
         return valor_venda
+    
+    @validator("tamanho")
+    def validar_tamanho(cls, v):
+        if not re.fullmatch(r"\d+(ml|l|g|kg)", v.strip(), flags=re.IGNORECASE):
+            raise ValueError("Tamanho inválido! Use formatos como: 500ml, 1L, 2Kg, 100g")
+        return v
     
 class Meses_Valores_Cad(Base):
     __tablename__ = 'valores_meses'

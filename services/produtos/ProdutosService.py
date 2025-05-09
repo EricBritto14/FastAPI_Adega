@@ -87,9 +87,10 @@ async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(g
         if not isinstance(item.nome, str):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome do produto inválido.")
 
-        produto = session.query(modelsP.Produtos_Cad).filter(modelsP.Produtos_Cad.nome == item.nome).first()
-        if produto is not None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto já adicionado!")
+        # tipo = session.query(modelsP.Produtos_Cad).filter(modelsP.Produtos_Cad.tipo == item.tipo).first()
+        # produto = session.query(tipo).filter(modelsP.Produtos_Cad.nome == item.nome).first()
+        # if produto is not None:
+        #     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto já adicionado!")
         
         print("item que está vindo: ", item.tipo)
         if item.tipo not in (
@@ -119,7 +120,7 @@ async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(g
         if item.quantidade <= 0:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade do produto não pode ser igual ou menor que 0!")
 
-        if not re.search("[0-9][ml, L, G, Kg]", item.tamanho):
+        if not re.fullmatch(r"\d+(ml|l|g|kg)", item.tamanho, re.IGNORECASE):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tamanho desconhecido (ml/L/G/Kg)!")
         
         #Criando o novo produto no banco
