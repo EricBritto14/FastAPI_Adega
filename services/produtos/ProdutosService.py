@@ -97,7 +97,7 @@ async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(g
             'Doses',
             'Barrigudinhas', 'Cerveja 269mla', 'Cerveja long neck 330mla', 'Cerveja 350mla', 'Cerveja tubaoa', 'Cerveja 600mla', 
             'Cerveja 269mlna', 'Cerveja long neck 330mlna', 'Cerveja 350mlna', 'Cerveja tubaona', 'Cerveja 600mlna',
-            'Whiskyg', 'Ging', 'Vodkag', 'Cachacag', 'Licorg', 'Vinhosg',
+            'Whiskyg', 'Ging', 'Vodkag', 'Cachacag', 'Licorg', 'Vinhos',
             'Whiskyc2l', 'Ginc2l', 'Vodkac2l', 'Whiskycel', 'Gincel', 'Vodkacel',  
             'Drinks prontos',
             'Combo vodka', 'Combo gin', 'Combo whisky', 
