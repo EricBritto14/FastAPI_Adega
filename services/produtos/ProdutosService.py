@@ -170,9 +170,18 @@ async def updateItemService(nome:str, item:schemasP.AttProdutos, session: Sessio
         if not re.search("[0-9][ml, L, G, Kg]", item.tamanho):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tamanho desconhecido (ml/L/G/Kg)!")
 
-        if not itemObject.tipo in ('Barrigudinhas', 'Comida', 'Refrigerante Descartável', 'Refrigerante Retornável', 
-                             'Refrigerante Lata', 'Doses', 'Vinhos', 'Energéticos De Lata', 'Energéticos 2L', 
-                             'Cigarros', 'Palheiros', 'Sedas', 'Carvão', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Doces'):
+        if not itemObject.tipo in ('Doses',
+            'Barrigudinhas', 'Cerveja 269mla', 'Cerveja long neck 330mla', 'Cerveja 350mla', 'Cerveja tubaoa', 'Cerveja 600mla', 
+            'Cerveja 269mlna', 'Cerveja long neck 330mlna', 'Cerveja 350mlna', 'Cerveja tubaona', 'Cerveja 600mlna',
+            'Whiskyg', 'Ging', 'Vodkag', 'Cachacag', 'Licorg', 'Vinhos',
+            'Whiskyc2l', 'Ginc2l', 'Vodkac2l', 'Whiskycel', 'Gincel', 'Vodkacel',  
+            'Drinks prontos',
+            'Combo vodka', 'Combo gin', 'Combo whisky', 
+            'Refrigerante descartavel', 'Refrigerante retornavel', 'Refrigerante 1l', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante lata',
+            'Gatorade', 'Energeticos 2l', 'Energeticos lata 473ml', 'Energeticos lata 269ml',
+            'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao narga',
+            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida',
+            'Balas', 'Chiclete', 'Doces de pote', 'Chocolate', 'Pirulito'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
         if item.valor_compra <= 0:
@@ -216,9 +225,18 @@ async def atualizarItemIdService(id: int, item:schemasP.AttProdutos, session: Se
         if not re.search("[0-9][ml, L, G, Kg]", item.tamanho):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tamanho desconhecido (ml/L/G/Kg)!")
 
-        if not itemObject2.tipo in ('Barrigudinhas', 'Comida', 'Refrigerante Descartável', 'Refrigerante Retornável', 
-                             'Refrigerante Lata', 'Doses', 'Vinhos', 'Energéticos De Lata', 'Energéticos 2L', 
-                             'Cigarros', 'Palheiros', 'Sedas', 'Carvão', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Doces'):
+        if not itemObject2.tipo in ('Doses',
+            'Barrigudinhas', 'Cerveja 269mla', 'Cerveja long neck 330mla', 'Cerveja 350mla', 'Cerveja tubaoa', 'Cerveja 600mla', 
+            'Cerveja 269mlna', 'Cerveja long neck 330mlna', 'Cerveja 350mlna', 'Cerveja tubaona', 'Cerveja 600mlna',
+            'Whiskyg', 'Ging', 'Vodkag', 'Cachacag', 'Licorg', 'Vinhos',
+            'Whiskyc2l', 'Ginc2l', 'Vodkac2l', 'Whiskycel', 'Gincel', 'Vodkacel',  
+            'Drinks prontos',
+            'Combo vodka', 'Combo gin', 'Combo whisky', 
+            'Refrigerante descartavel', 'Refrigerante retornavel', 'Refrigerante 1l', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante lata',
+            'Gatorade', 'Energeticos 2l', 'Energeticos lata 473ml', 'Energeticos lata 269ml',
+            'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao narga',
+            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida',
+            'Balas', 'Chiclete', 'Doces de pote', 'Chocolate', 'Pirulito'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
         if item.valor_compra <= 0:
