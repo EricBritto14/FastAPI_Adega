@@ -16,6 +16,10 @@ class Produtos_S(BaseModel):
         "from_attributes": True  # ✅ novo nome
     }
 
+class Produtos_TeT(BaseModel):
+   tipo: str
+   valor: float
+
 class AttProdutos(BaseModel):
    nome:str
    tamanho: str

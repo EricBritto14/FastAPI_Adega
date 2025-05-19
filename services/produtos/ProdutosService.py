@@ -68,6 +68,44 @@ async def getItemIdService(id:int, session: Session = Depends(get_session), user
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
 
+async def addTotalEOpcaoVenda(item: schemasP.Produtos_TeT, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    try: 
+        if not user.is_admin:
+            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Você não tem permissão para adicionar produtos!")
+
+        item = modelsP.Produto_TeT_Cad(
+            tipo=item.tipo.capitalize(),
+            valor=item.valor
+        )
+
+        if item.tipo not in ( "Pix", "Cartão de debito", "Cartão de crédito", "Dinheiro", "Fiado"):
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de pagamento não válido!")
+        
+        if item.valor <= 0:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor de venda total igual inválido (0 ou menor que 0)")
+        
+        valor_e_tipo_produto = modelsP.Produto_TeT_Cad(
+            tipo = item.tipo.capitalize(),
+            valor = item.valor
+        )
+
+        session.add(valor_e_tipo_produto)
+        session.commit()
+        session.refresh(valor_e_tipo_produto)
+        logging.info("Valor total e tipo de pagamento adicionado com sucesso.")
+        return f"Olá, {user.username}, valor total e tipo de pagamento adicionado com sucesso!", item
+    except HTTPException as e:
+        session.rollback()
+        raise e
+    except Exception as e:
+        session.rollback()
+        logging.error(f"Erro interno: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Erro interno: {str(e)}"
+        )
+
+
 async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     try:
         if not user.is_admin:
