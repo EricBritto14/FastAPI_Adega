@@ -24,6 +24,10 @@ async def getItemId(id:int, session: Session = Depends(get_session), user: Cadas
 async def addItem(item:schemasP.Produtos_S, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     return await addItemService(item, session, user)
 
+@router.post("/produtos/totalWtipo")
+async def addTotalwTipo(item:schemasP.Produtos_TeT, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    return await addTotalEOpcaoVenda(item, session, user)
+
 @router.patch("/produtos/atualizar_by_name/{nome}") #Tentar pegar pelo nome, não pelo id
 async def updateItem(nome:str, item:schemasP.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     return await updateItemService(nome, item, session, user)
