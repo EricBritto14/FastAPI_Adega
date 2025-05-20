@@ -19,6 +19,7 @@ class Produtos_S(BaseModel):
 class Produtos_TeT(BaseModel):
    tipo: str
    valor: float
+   quantidade: float
 
 class AttProdutos(BaseModel):
    nome:str

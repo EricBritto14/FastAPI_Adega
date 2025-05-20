@@ -75,7 +75,8 @@ async def addTotalEOpcaoVenda(item: schemasP.Produtos_TeT, session: Session = De
 
         item = modelsP.Produto_TeT_Cad(
             tipo=item.tipo.capitalize(),
-            valor=item.valor
+            valor=item.valor,
+            quantidade=item.quantidade
         )
 
         if item.tipo not in ( "Pix", "Cartão de debito", "Cartão de crédito", "Dinheiro", "Fiado"):
@@ -84,9 +85,13 @@ async def addTotalEOpcaoVenda(item: schemasP.Produtos_TeT, session: Session = De
         if item.valor <= 0:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor de venda total igual inválido (0 ou menor que 0)")
         
+        if item.quantidade <= 0:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de compra de itens inválido (0 ou menor que 0)")
+        
         valor_e_tipo_produto = modelsP.Produto_TeT_Cad(
             tipo = item.tipo.capitalize(),
-            valor = item.valor
+            valor = item.valor,
+            quantidade = item.quantidade
         )
 
         session.add(valor_e_tipo_produto)
