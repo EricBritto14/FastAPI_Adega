@@ -43,6 +43,7 @@ class Produto_TeT_Cad(Base):
     tipo: str = Column(String(100), nullable=False)
     valor: float = Column(Float(53), nullable=False)
     quantidade: float = Column(Float(53), nullable=False)
+    produto: str = Column(String(100), nullable=False)
     
 class Meses_Valores_Cad(Base):
     __tablename__ = 'valores_meses'
