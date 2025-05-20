@@ -112,7 +112,7 @@ async def getExpensesCardServices(session: Session = Depends(get_session), user:
     try:
         mes = session.query(modelsP.Gastos_Cartao_Mes).all()
         if not mes:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nenhum mês existente!")
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Não há valor salvo em nenhum mês existente!")
         else:
             return f"Pegando todos os mêses para você, {user.username}", mes
     except Exception as e:
