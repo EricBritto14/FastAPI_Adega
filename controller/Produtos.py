@@ -36,6 +36,10 @@ async def updateItem(nome:str, item:schemasP.AttProdutos, session: Session = Dep
 async def atualizarItemId(id: int, item:schemasP.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     return await atualizarItemIdService(id, item, session, user)
 
+@router.get("/produtos/totalWtipos")
+async def getItemTipoQuantidade(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    return await getItemTiposQuantidades(session, user)
+
 #Deletando valores
 @router.delete("/produtos/delete_by_name/{nome}")
 async def deleteItem(nome:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto

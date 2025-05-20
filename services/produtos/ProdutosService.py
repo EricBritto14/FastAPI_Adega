@@ -45,6 +45,17 @@ async def getItemsServices(session: Session = Depends(get_session), user: Cadast
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
     
+async def getItemTiposQuantidades(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    try:
+        item = session.query(modelsP.Produto_TeT_Cad).all()
+        if not item:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nenhum produto com valor e quantidade salvo!")
+        else:
+            return f"Pegando todos os itens salvos para você, {user.username}", item
+    except Exception as e:
+        session.rollback()
+        raise HTTPException(status_code=e.status_code, detail=str(e))
+
 async def getItemByTipoService(tipo:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
     try:
         item = session.query(modelsP.Produtos_Cad).filter_by(tipo=tipo.capitalize()).all()
@@ -76,7 +87,8 @@ async def addTotalEOpcaoVenda(item: schemasP.Produtos_TeT, session: Session = De
         item = modelsP.Produto_TeT_Cad(
             tipo=item.tipo.capitalize(),
             valor=item.valor,
-            quantidade=item.quantidade
+            quantidade=item.quantidade,
+            produto=item.produto
         )
 
         if item.tipo not in ( "Pix", "Cartão de debito", "Cartão de crédito", "Dinheiro", "Fiado"):
@@ -88,10 +100,14 @@ async def addTotalEOpcaoVenda(item: schemasP.Produtos_TeT, session: Session = De
         if item.quantidade <= 0:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de compra de itens inválido (0 ou menor que 0)")
         
+        if item.produto is None:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nenhum produto selecionado!")
+        
         valor_e_tipo_produto = modelsP.Produto_TeT_Cad(
             tipo = item.tipo.capitalize(),
             valor = item.valor,
-            quantidade = item.quantidade
+            quantidade = item.quantidade,
+            produto = item.produto
         )
 
         session.add(valor_e_tipo_produto)
