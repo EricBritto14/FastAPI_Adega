@@ -1,10 +1,8 @@
+from fastapi import File, UploadFile
 from sqlalchemy import Column, Integer, String, Float, Boolean
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import declarative_base, validates
+from sqlalchemy.orm import validates
 from database import Base
-from datetime import date
-from pydantic import BaseModel, validator
-from sqlalchemy.ext.hybrid import hybrid_property
+from pydantic import validator
 import re
 
 #Classe que cria a table no banco de dados, e coloca que valores que serão armazenados
@@ -105,3 +103,4 @@ class Cadastro_Users(Base):
     email: String = Column(String(200), nullable=False, unique=True)
     senha: String = Column(String(200), nullable=False)
     is_admin: bool = Column(Boolean, default=False)
+    profile_image: String = Column(String(255), nullable=False)

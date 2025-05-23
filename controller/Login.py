@@ -44,7 +44,8 @@ def create_initial_user(db: Session = Depends(get_session)):
         username="Admin",
         email="Eric.Britto22@gmail.com",
         senha=get_password_hash("E40024041e&"),
-        is_admin=True
+        is_admin= True,
+        profile_image= ""
     )
     db.add(initial_user)
     db.commit()
