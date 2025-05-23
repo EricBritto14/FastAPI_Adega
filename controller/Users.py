@@ -22,8 +22,16 @@ async def getItemId(id:int, session: Session = Depends(get_session), user: Cadas
     return await getItemByIdService(id, session, user)
 
 @router.post("/usuarios/adicionar")
-async def addItem(item:Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
-    return await addItemService(item, session, user)
+async def addItem(username: str = Form(...),
+    email: str = Form(...),
+    senha: str = Form(...),
+    is_admin_raw: str = Form(...),
+    profile_image: UploadFile = File(None),
+    session: Session = Depends(get_session), 
+    user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+    print(f"username: {username}, email: {email}, senha: {senha}, is_admin_raw: {is_admin_raw}")
+    print(f"profile_image: {profile_image.filename if profile_image else 'Nenhuma imagem'}")
+    return await addItemService(username = username, email = email, senha = senha, is_admin_raw = is_admin_raw, profile_image = profile_image, session = session)
 
 #Atualizando valores
 @router.put("/usuarios/atualizar/{nome}")

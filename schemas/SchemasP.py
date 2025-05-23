@@ -1,6 +1,5 @@
-from typing import List, Union
+from fastapi import File, UploadFile
 from pydantic import BaseModel
-from datetime import date
 
 # Classe para criar/atualizar produtos
 class Produtos_S(BaseModel):
@@ -90,7 +89,18 @@ class Cadastro(BaseModel):
    username:str
    email:str
    senha:str
-   is_admin:bool
+   is_admin: bool
+   profile_image: UploadFile = File(...)
+
+class CadastroUserResponse(BaseModel):
+    id: int
+    username: str
+    email: str
+    is_admin: bool
+    profile_image: str | None
+
+    class Config:
+        orm_mode = True
 
 class Att_Cadastro(BaseModel):
    username: str
