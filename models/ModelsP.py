@@ -105,3 +105,4 @@ class Cadastro_Users(Base):
     email: String = Column(String(200), nullable=False, unique=True)
     senha: String = Column(String(200), nullable=False)
     is_admin: bool = Column(Boolean, default=False)
+    profile_image: String = Column(String(255), nullable=False)

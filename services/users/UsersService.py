@@ -1,7 +1,7 @@
 import models.ModelsP as models, schemas.SchemasP as schemas 
 import re
 from services.getSession.GetSession import *
-from fastapi import Depends, HTTPException, status
+from fastapi import Depends, HTTPException, UploadFile, status
 from controller.Login import *
 from models import *
 from schemas import *
@@ -78,17 +78,40 @@ async def getItemByIdService(id:int, session: Session = Depends(get_session), us
         session.rollback()
         raise HTTPException(status_code=e.status_code, detail=str(e))
     
-async def addItemService(item:Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+async def addItemService(username: str,
+    email: str,
+    senha: str,
+    is_admin_raw: str,
+    profile_image: UploadFile,
+    session: Session): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     try:
-        if not user.is_admin:     #, user: Cadastro_Users = Depends(get_current_user)
-            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="Você não tem permissão para adicionar usuários!")
-    
-        item = Cadastro_Users(username = item.username.capitalize(), email = item.email, senha = valida_senha(item.senha), is_admin = item.is_admin)
+        # if not user.is_admin:     #, user: Cadastro_Users = Depends(get_current_user)
+        #     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="Você não tem permissão para adicionar usuários!")
+        is_admin = is_admin_raw in ["1", "true", "on"]
+
+        image_path = None
+        if profile_image:
+            from pathlib import Path
+            import uuid
+
+            filename = f"{uuid.uuid4()}_{profile_image.filename}"
+            upload_folder = Path("static/profile_images")
+            upload_folder.mkdir(parents=True, exist_ok=True)
+            file_path = upload_folder / filename
+
+            with open(file_path, "wb") as buffer:
+                buffer.write(await profile_image.read())
+
+            image_path = str(file_path)
+
+
+
+        item = Cadastro_Users(username = username.capitalize(), email = email, senha = valida_senha(senha), is_admin = is_admin, profile_image= image_path)
         
-        username = session.query(models.Cadastro_Users).filter_by(username = item.username).first()
+        usernameT = session.query(models.Cadastro_Users).filter_by(username = item.username).first()
         emailT = session.query(models.Cadastro_Users).filter_by(email = item.email).first()
         
-        if username != None:
+        if usernameT != None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Username já existente, tente outro!")
         
         if emailT != None:
@@ -104,10 +127,24 @@ async def addItemService(item:Cadastro, session: Session = Depends(get_session),
         session.add(item) #Adicionando no banco
         session.commit()  #comitando a mudança
         session.refresh(item) #Dando um refresh para atualizar o banco
-        return f"Olá adicionando o usuário:", item
+        return {
+            "mensagem": f"Usuário {username} adicionado com sucesso!",
+            "usuario": {
+                "id": item.idUsuario,
+                "username": item.username,
+                "email": item.email,
+                "is_admin": item.is_admin,
+                "profile_image": item.profile_image
+            }
+        }
+
     except Exception as e:
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
-        raise HTTPException(status_code=e.status_code, detail=str(e))
+        raise e
+    except Exception as e:
+        session.rollback()
+        print("Erro:", repr(e))
+        raise HTTPException(status_code=500, detail="Erro interno do servidor")
     
 async def updateItemService(nome:str, item:schemas.Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     try:

@@ -92,6 +92,16 @@ class Cadastro(BaseModel):
    senha:str
    is_admin:bool
 
+class CadastroUserResponse(BaseModel):
+    id: int
+    username: str
+    email: str
+    is_admin: bool
+    profile_image: str | None
+
+    class Config:
+        orm_mode = True
+
 class Att_Cadastro(BaseModel):
    username: str
    email: str
