@@ -41,10 +41,11 @@ def create_initial_user(db: Session = Depends(get_session)):
 
 #     # Cria o primeiro usuário
     initial_user = Cadastro_Users(
-        username="Admin",
-        email="Eric.Britto22@gmail.com",
+        username="Admin2",
+        email="Eric.Britto222@gmail.com",
         senha=get_password_hash("E40024041e&"),
-        is_admin=True
+        is_admin=True,
+        
     )
     db.add(initial_user)
     db.commit()
