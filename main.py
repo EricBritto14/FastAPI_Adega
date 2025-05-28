@@ -1,5 +1,6 @@
 import os
 from fastapi import FastAPI, Depends #, Response
+from fastapi.staticfiles import StaticFiles
 from controller import Login, Meses, Produtos, Users, Fiados, Boletos, GastosAleatorios, GastosCartoes #, admins
 from controller.Login import *
 from schemas import *
@@ -36,6 +37,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.mount("/static", StaticFiles(directory=os.path.join(os.getcwd(), "static")), name="static")
 app.include_router(Produtos.router, tags=["Produtos"])
 app.include_router(Users.router, tags=["Usuários"])
 app.include_router(Fiados.router, tags=["Fiados"])

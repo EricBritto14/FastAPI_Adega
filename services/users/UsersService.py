@@ -102,7 +102,7 @@ async def addItemService(username: str,
             with open(file_path, "wb") as buffer:
                 buffer.write(await profile_image.read())
 
-            image_path = str(file_path)
+            image_path = f"profile_images/{filename}"
 
 
 
