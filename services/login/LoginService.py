@@ -74,11 +74,12 @@ async def loginService(response: Response, form_data: OAuth2PasswordRequestForm 
         user_id = user.idUsuario
         email_user = user.email
         user_is_admin = user.is_admin
+        profile_image = user.profile_image
         #Settando o token session em um cookie
         response.set_cookie(key="access_token", value=access_token, httponly=True) #Definindo o token como httponly
         return {"Status": "Login feito com sucesso!", "token": access_token,
                  "username": user_username,"userID": user_id, "User_Email": email_user,
-                  "is_admin": user_is_admin}
+                  "is_admin": user_is_admin, "profile_image": profile_image}
     except Exception as e:
         print("Erro específico: ", e)
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
