@@ -16,6 +16,10 @@ class Produtos_S(BaseModel):
         "from_attributes": True  # ✅ novo nome
     }
 
+class CarrinhoVenda(BaseModel):
+   tipo_venda: str
+   valor_venda: float
+
 class Produtos_TeT(BaseModel):
    tipo: str
    valor: float
