@@ -37,6 +37,12 @@ class Produtos_Cad(Base):
             raise ValueError("Tamanho inválido! Use formatos como: 500ml, 1L, 2Kg, 100g")
         return v
     
+class Venda_Carrinho(Base):
+    __tablename__ = "vendasCarrinho"
+    id_venda: int = Column(Integer, primary_key=True, autoincrement=True)
+    tipo_venda: str = Column(String(100), nullable=False)
+    valor_venda: float = Column(Float(53), nullable=False)
+    
 class Produto_TeT_Cad(Base):
     __tablename__ = "valorTotal_e_tipoVenda"
     id_venda_com_tipo: int = Column(Integer, primary_key=True, autoincrement=True)
