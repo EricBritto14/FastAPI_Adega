@@ -11,20 +11,20 @@ async def getVendasService(session: Session = Depends(get_session), user: Cadast
     try:
         vendas = session.query(modelsP.Venda_Carrinho).all()
         if not vendas:
-            raise HTTPException(status_code = status.HTTP_400_BAD_REQUEST, detail="Nenhuma venda de carrinho existente!")
+            raise HTTPException(status_code = status.HTTP_400_BAD_REQUEST, detail="Nenhuma venda de carrinho dos tipos (Pix, Cartão de debito, Cartão de crédito, Dinheiro, Fiado) existente!")
         else: 
             return f"Pegando todos as vendas de carrinho para você, {user.username}", vendas
     except Exception as e:
         session.rollback()
         raise HTTPException(status_code= status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
     
-async def getVendasTipoService(tipo: str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+async def getVendasTipoService(tipo_venda: str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     try:
-        vendas = session.query(modelsP.Venda_Carrinho).get(tipo)
+        vendas = session.query(modelsP.Venda_Carrinho).filter_by(tipo_venda=tipo_venda.capitalize()).all()
         if not vendas:
-            raise HTTPException(status_code= status.HTTP_400_BAD_REQUEST, detail="Nenhum valor encontrado com este tipo de venda!")
+            raise HTTPException(status_code= status.HTTP_400_BAD_REQUEST, detail=f"Nenhuma venda do tipo: {tipo_venda} encontrado!")
         else:
-            return f"Pegando todos as vendas de carrinho do tipo {tipo} para você, {user.username}", vendas
+            return f"Pegando todos as vendas de carrinho do tipo {tipo_venda} para você, {user.username}", vendas
     except Exception as e:
         session.rollback()
         raise HTTPException(status_code= status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
@@ -32,19 +32,14 @@ async def getVendasTipoService(tipo: str, session: Session = Depends(get_session
 async def addVendaService(item: schemasP.CarrinhoVenda, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     try:
         item = modelsP.Venda_Carrinho(
-            tipo_venda = item.tipo_venda.capitalize(),
-            valor_venda = item.valor_venda
+            tipo = item.tipo.capitalize(),
         )
 
-        if item.tipo_venda not in ( "Pix", "Cartão de debito", "Cartão de crédito", "Dinheiro", "Fiado" ):
+        if item.tipo not in ( "Pix", "Cartão de debito", "Cartão de crédito", "Dinheiro", "Fiado" ):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de pagamento não válido!")
         
-        if item.valor_venda <= 0:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Valor de venda total igual inválido (0 ou menor que 0)")
-        
         vendaCarrinho = modelsP.Venda_Carrinho(
-            tipo_venda = item.tipo_venda,
-            valor_venda = item.valor_venda
+            tipo = item.tipo,
         )
 
         session.add(vendaCarrinho)

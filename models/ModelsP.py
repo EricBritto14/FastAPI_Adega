@@ -40,8 +40,7 @@ class Produtos_Cad(Base):
 class Venda_Carrinho(Base):
     __tablename__ = "vendasCarrinho"
     id_venda: int = Column(Integer, primary_key=True, autoincrement=True)
-    tipo_venda: str = Column(String(100), nullable=False)
-    valor_venda: float = Column(Float(53), nullable=False)
+    tipo: str = Column(String(100), nullable=False)
     
 class Produto_TeT_Cad(Base):
     __tablename__ = "valorTotal_e_tipoVenda"

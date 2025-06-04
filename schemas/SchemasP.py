@@ -17,8 +17,7 @@ class Produtos_S(BaseModel):
     }
 
 class CarrinhoVenda(BaseModel):
-   tipo_venda: str
-   valor_venda: float
+   tipo: str
 
 class Produtos_TeT(BaseModel):
    tipo: str
