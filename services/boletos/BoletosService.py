@@ -63,13 +63,15 @@ async def addDaysBillsService(item: schemasP.Dias_Valores_Mes_Bill, session: Ses
             session.query(modelsP.Dias_Valores_Mes_Bill_Cad)
             .filter(
                 modelsP.Dias_Valores_Mes_Bill_Cad.dia == item.dia,
-                modelsP.Dias_Valores_Mes_Bill_Cad.mes == item.mes  
+                modelsP.Dias_Valores_Mes_Bill_Cad.mes == item.mes,
+                modelsP.Dias_Valores_Mes_Bill_Cad.motivo == item.motivo
             )
             .first()
         )
         
         if produtoMes:
             produtoMes.valor = item.valor
+            produtoMes.motivo = item.motivo
             session.commit()
             session.refresh(produtoMes)
             logging.info("Boleto atualizado para o(s) dia(s) com sucesso.")
@@ -79,7 +81,8 @@ async def addDaysBillsService(item: schemasP.Dias_Valores_Mes_Bill, session: Ses
             novo_produto_dia_venda = modelsP.Dias_Valores_Mes_Bill_Cad(
                 dia=item.dia,
                 valor=item.valor,
-                mes=item.mes
+                mes=item.mes,
+                motivo=item.motivo
             )
 
             session.add(novo_produto_dia_venda)
