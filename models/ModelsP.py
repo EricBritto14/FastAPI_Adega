@@ -73,7 +73,7 @@ class Dias_Valores_Mes_Bill_Cad(Base):
     dia: int = Column(Integer, nullable=False, primary_key=True)
     valor: float = Column(Float(53), nullable=False)
     mes: String = Column(String(100), nullable=False, primary_key=True)
-
+    motivo: String = Column(String(100), nullable=False)
 class Gastos_Aleatorios_Mes(Base):
     __tablename__ = 'gastos_aleatorios'
     idMes: int = Column(Integer, primary_key=True)

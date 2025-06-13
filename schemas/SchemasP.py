@@ -60,6 +60,7 @@ class Dias_Valores_Mes_Bill(BaseModel):
    mes: str
    valor: float
    dia: int
+   motivo: str 
 
 class Gastos_Aleatorios_Mes(BaseModel):
    mes: str
