@@ -63,13 +63,15 @@ async def addDaysExpensesService(item: schemasP.Gastos_Aleatorios, session: Sess
             session.query(modelsP.Gastos_Aleatorios_Cad)
             .filter(
                 modelsP.Gastos_Aleatorios_Cad.dia == item.dia,
-                modelsP.Gastos_Aleatorios_Cad.mes == item.mes  
+                modelsP.Gastos_Aleatorios_Cad.mes == item.mes,
+                modelsP.Gastos_Aleatorios_Cad.motivo == item.motivo
             )
             .first()
         )
         
         if produtoMes:
             produtoMes.valor = item.valor
+            produtoMes.motivo = item.motivo
             session.commit()
             session.refresh(produtoMes)
             logging.info("Valor de gasto aleatório atualizado para o(s) dia(s) com sucesso.")
@@ -79,7 +81,8 @@ async def addDaysExpensesService(item: schemasP.Gastos_Aleatorios, session: Sess
             novo_produto_dia_venda = modelsP.Gastos_Aleatorios_Cad(
                 dia=item.dia,
                 valor=item.valor,
-                mes=item.mes
+                mes=item.mes,
+                motivo=item.motivo
             )
 
             session.add(novo_produto_dia_venda)

@@ -63,12 +63,16 @@ async def addDaysExpensesCardService(item: schemasP.Gastos_Cartao, session: Sess
             session.query(modelsP.Gastos_Cartao_Cad)
             .filter(
                 modelsP.Gastos_Cartao_Cad.dia == item.dia,
-                modelsP.Gastos_Cartao_Cad.mes == item.mes  
+                modelsP.Gastos_Cartao_Cad.mes == item.mes, 
+                modelsP.Gastos_Cartao_Cad.motivo == item.motivo,
+                modelsP.Gastos_Cartao_Cad.cartao == item.cartao
             )
             .first()
         )
         if produtoMes: 
             produtoMes.valor = item.valor
+            produtoMes.cartao = item.cartao
+            produtoMes.motivo = item.motivo
             session.commit()
             session.refresh(produtoMes)
             logging.info("Valor de gasto com cartões foi atualizado para o(s) dia(s) com sucesso.")
@@ -78,6 +82,8 @@ async def addDaysExpensesCardService(item: schemasP.Gastos_Cartao, session: Sess
             novo_produto_dia_venda = modelsP.Gastos_Cartao_Cad(
                 dia=item.dia,
                 valor=item.valor,
+                motivo = item.motivo,
+                cartao = item.cartao,
                 mes=item.mes
             )
 
