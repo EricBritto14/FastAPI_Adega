@@ -16,9 +16,9 @@ async def addItem(item: SchemasP.Meses_Valores, session: Session = Depends(get_s
 async def addItemDia(item: SchemasP.Dias_Valores_Mes, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     return await addDiasVendasService(item, session, user)
 
-@router.get("/dias_venda/{mes}") #Router para trazer as informações de acordo com o id
-async def getItem(mes: str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
-    return await getDaysMesesServices(mes, session, user)
+@router.get("/dias_venda/{mes}/{tipo_venda}") #Router para trazer as informações de acordo com o id
+async def getItem(mes: str, tipo_venda: str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
+    return await getDaysMesesServices(mes, tipo_venda, session, user)
 
 #Aqui a gente chama a classe responsável pelos valores que vão ser necessitados aqui, e chamamos eles para passarem os valores e serem encaminhados para o banco de dados
 @router.get("/meses_venda") #Router para trazer as informações de acordo com o id
