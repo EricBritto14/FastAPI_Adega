@@ -61,6 +61,7 @@ class Dias_Valores_Mes_Cad(Base):
     dia: int = Column(Integer, nullable=False, primary_key=True)
     valor: float = Column(Float(53), nullable=False)
     mes: String = Column(String(100), nullable=False, primary_key=True)
+    tipo_venda: String = Column(String(100), nullable=False)
 
 class Meses_Valores_Bill_Cad(Base):
     __tablename__ = 'valores_contas_bills'

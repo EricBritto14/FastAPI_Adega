@@ -44,6 +44,7 @@ class Meses_Valores_Att(BaseModel):
 
 class Dias_Valores_Mes(BaseModel):
    mes: str
+   tipo_venda: str
    valor: float
    dia: int
 

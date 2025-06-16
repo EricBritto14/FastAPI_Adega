@@ -65,6 +65,7 @@ async def addMesesService(item: schemasP.Meses_Valores, session: Session = Depen
             detail=f"Erro interno: {str(e)}"
         )
     
+#
 async def addDiasVendasService(item: schemasP.Dias_Valores_Mes, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     try:
         if not user.is_admin:
@@ -74,7 +75,8 @@ async def addDiasVendasService(item: schemasP.Dias_Valores_Mes, session: Session
             session.query(modelsP.Dias_Valores_Mes_Cad)
             .filter(
                 modelsP.Dias_Valores_Mes_Cad.dia == item.dia,
-                modelsP.Dias_Valores_Mes_Cad.mes == item.mes  
+                modelsP.Dias_Valores_Mes_Cad.mes == item.mes,
+                modelsP.Dias_Valores_Mes_Cad.tipo_venda == item.tipo_venda,
             )
             .first()
         )
@@ -90,7 +92,8 @@ async def addDiasVendasService(item: schemasP.Dias_Valores_Mes, session: Session
             novo_produto_dia_venda = modelsP.Dias_Valores_Mes_Cad(
                 dia=item.dia,
                 valor=item.valor,
-                mes=item.mes
+                mes=item.mes,
+                tipo_venda = item.tipo_venda
             )
             session.add(novo_produto_dia_venda)
             session.commit()
@@ -108,10 +111,11 @@ async def addDiasVendasService(item: schemasP.Dias_Valores_Mes, session: Session
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Erro interno: {str(e)}"
         )
-    
-async def getDaysMesesServices(mes: str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Pegando os valores do banco de dados, Depends do get_session. E verificando se o usuário está logado, com o get_current_user
+
+#
+async def getDaysMesesServices(mes: str, tipo_venda: str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Pegando os valores do banco de dados, Depends do get_session. E verificando se o usuário está logado, com o get_current_user
     try:
-        mes = session.query(modelsP.Dias_Valores_Mes_Cad).filter_by(mes=mes.capitalize()).all()
+        mes = session.query(modelsP.Dias_Valores_Mes_Cad).filter_by(mes=mes.capitalize(), tipo_venda=tipo_venda.capitalize()).all()
         if mes is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nenhum valor existente neste mês!")
         else:
