@@ -58,12 +58,15 @@ async def getItemTiposQuantidades(session: Session = Depends(get_session), user:
 
 async def getItemByTipoService(tipo:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Criando um getItem, (get). que espera receber uma variável (id) e com os dois pontos :int eu EXIJO que a variável que venha seja INT
     try:
-        item = session.query(modelsP.Produtos_Cad).filter_by(tipo=tipo.capitalize()).all()
-        print("item que está buscando:", item)
-        if not item:
+        produtos = session.query(modelsP.Produtos_Cad).filter_by(tipo=tipo.capitalize()).all()
+        print("item que está buscando:", produtos)
+        if not produtos:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto de nome:{}, não encontrado".format(tipo))
-        #return fakeDataBase[id] #Retornando o valor do dicionário, de acordo com o ID que ele digitar
-        return f"Pegando o produto de nome:{tipo} para você, {user.username}", item
+
+        for p in produtos:
+            p.nome = p.nome.upper()
+
+        return f"Pegando o produto de nome:{tipo} para você, {user.username}", produtos
     except Exception as e:
         session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
         raise HTTPException(status_code=e.status_code, detail=str(e))
