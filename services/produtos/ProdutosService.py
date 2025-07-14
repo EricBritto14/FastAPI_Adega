@@ -165,6 +165,7 @@ async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(g
             'Combo vodka', 'Combo gin', 'Combo whisky', 
             'Refrigerante descartavel', 'Refrigerante retornavel', 'Refrigerante 1l', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante lata',
             'Gatorade', 'Energeticos 2l', 'Energeticos lata 473ml', 'Energeticos lata 269ml',
+            'Fardos',
             'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao narga',
             'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida',
             'Balas', 'Chiclete', 'Doces de pote', 'Chocolate', 'Pirulito'
