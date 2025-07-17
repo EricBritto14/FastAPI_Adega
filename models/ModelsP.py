@@ -19,6 +19,7 @@ class Produtos_Cad(Base):
     quantidade: int = Column(Integer, nullable=False)
     tamanho: str = Column(String(200), nullable=False)  # Tamanho do produto
     data_validade: str = Column(String(10), nullable=False)
+    quantidadeUn: int = Column(Integer)
     # data_cadastro: str = Column(String(10), nullable=False)
 
     @validates('valor_venda')

@@ -142,6 +142,7 @@ async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(g
             valor_compra=item.valor_compra,
             valor_venda=item.valor_venda,
             quantidade=item.quantidade,
+            quantidadeUn = item.quantidadeUn,
             tamanho=item.tamanho.lower(),
             data_validade=item.data_validade,
         )
@@ -193,6 +194,7 @@ async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(g
             valor_compra=item.valor_compra,
             valor_venda=item.valor_venda,
             quantidade=item.quantidade,
+            quantidadeUn=item.quantidadeUn,
             tamanho=item.tamanho.lower(),
             data_validade=item.data_validade,
         )
@@ -220,7 +222,7 @@ async def updateItemService(nome:str, item:schemasP.AttProdutos, session: Sessio
         if not itemObject:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Produto não encontrado")
         
-        itemObject.nome, itemObject.tamanho, itemObject.tipo, itemObject.valor_compra, itemObject.valor_venda, itemObject.quantidade, itemObject.data_validade = item.nome, item.tamanho, item.tipo.capitalize(), item.valor_compra, item.valor_venda, item.quantidade, item.data_validade
+        itemObject.nome, itemObject.tamanho, itemObject.tipo, itemObject.valor_compra, itemObject.valor_venda, itemObject.quantidade, itemObject.quantidadeUn, itemObject.data_validade = item.nome, item.tamanho, item.tipo.capitalize(), item.valor_compra, item.valor_venda, item.quantidade, item.quantidadeUn, item.data_validade
         
         if not item.nome:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome vazio! Coloque um valor.")
@@ -243,7 +245,7 @@ async def updateItemService(nome:str, item:schemasP.AttProdutos, session: Sessio
             'Refrigerante descartavel', 'Refrigerante retornavel', 'Refrigerante 1l', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante lata',
             'Gatorade', 'Energeticos 2l', 'Energeticos lata 473ml', 'Energeticos lata 269ml',
             'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao narga',
-            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida',
+            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Fardos',
             'Balas', 'Chiclete', 'Doces de pote', 'Chocolate', 'Pirulito'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
@@ -277,6 +279,12 @@ async def atualizarItemIdService(id: int, item:schemasP.AttProdutos, session: Se
         
         itemObject2.nome, itemObject2.tamanho, itemObject2.tipo, itemObject2.valor_compra, itemObject2.valor_venda, itemObject2.quantidade, itemObject2.data_validade = item.nome, item.tamanho, item.tipo.capitalize(), item.valor_compra, item.valor_venda, item.quantidade, item.data_validade
         
+        if item.tipo.capitalize() == "Fardos":
+            if item.quantidadeUn is not None:
+                itemObject2.quantidadeUn = item.quantidadeUn
+            else:
+                pass
+
         if not item.nome:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome vazio! Coloque um valor.")
         
@@ -298,7 +306,7 @@ async def atualizarItemIdService(id: int, item:schemasP.AttProdutos, session: Se
             'Refrigerante descartavel', 'Refrigerante retornavel', 'Refrigerante 1l', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante lata',
             'Gatorade', 'Energeticos 2l', 'Energeticos lata 473ml', 'Energeticos lata 269ml',
             'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao narga',
-            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida',
+            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Fardos',
             'Balas', 'Chiclete', 'Doces de pote', 'Chocolate', 'Pirulito'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         

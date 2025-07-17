@@ -16,7 +16,7 @@ from services.getSession.GetSession import *
 from services.token.TokenService import *
 from dotenv import load_dotenv
 
-Base.metadata.create_all(engine) #Linha para realmente criar o banco de dados se não tivermos um. Vai criar o banco de dados com as informações que temos no engine do database.py
+# Base.metadata.create_all(engine) #Linha para realmente criar o banco de dados se não tivermos um. Vai criar o banco de dados com as informações que temos no engine do database.py
 #Fazer o metodo pra recuperar senha pelo email, e pegar as info não apenas pelo id e pelo nome, mas sim pelos 2 talvez.
 
 app = FastAPI(title="API Adega Santa-Dose")#title="API Santa-Dose" #Title para dar nome à api
@@ -24,10 +24,6 @@ app = FastAPI(title="API Adega Santa-Dose")#title="API Santa-Dose" #Title para d
 load_dotenv()
 
 ORIGINS = os.getenv("ORIGINS")
-
-# origins = [
-    # "http://localhost:5173",
-# ]
 
 app.add_middleware(
     CORSMiddleware,
