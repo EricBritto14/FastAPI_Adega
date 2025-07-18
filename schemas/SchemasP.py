@@ -11,7 +11,6 @@ class Produtos_S(BaseModel):
     quantidade: int
     tamanho: str
     data_validade: str
-    quantidadeUn: int
 
     model_config = {
         "from_attributes": True  # ✅ novo nome
@@ -33,7 +32,6 @@ class AttProdutos(BaseModel):
    valor_compra:float
    valor_venda: float  
    quantidade:int
-   quantidadeUn: Optional[int] = None
    data_validade:str 
 
 class Meses_Valores(BaseModel):
