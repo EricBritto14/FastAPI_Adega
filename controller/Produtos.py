@@ -36,6 +36,10 @@ async def updateItem(nome:str, item:schemasP.AttProdutos, session: Session = Dep
 async def atualizarItemId(id: int, item:schemasP.AttProdutos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     return await atualizarItemIdService(id, item, session, user)
 
+@router.patch("/produtos/atualizar_prod_soltos")
+async def atualizarProdutoSolto(nome: str, tipo: str, item:schemasP.AttProdutosSoltos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    return await atualizarProdutoSoltoService(nome, tipo, item, session, user)
+
 @router.get("/produtos/totalWtipos")
 async def getItemTipoQuantidade(session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
     return await getItemTiposQuantidades(session, user)

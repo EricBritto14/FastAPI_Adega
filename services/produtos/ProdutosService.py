@@ -160,7 +160,7 @@ async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(g
             'Combo vodka', 'Combo gin', 'Combo whisky', 
             'Refrigerante descartavel', 'Refrigerante retornavel', 'Refrigerante 1l', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante lata',
             'Gatorade', 'Energeticos 2l', 'Energeticos lata 473ml', 'Energeticos lata 269ml',
-            'Fardos', 'Sucos', 'Agua',
+            'Fardos 269ml', 'Fardos 350ml', 'Fardos barrigudinhas', 'Sucos', 'Agua',
             'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao narga',
             'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida',
             'Balas', 'Chiclete', 'Doces de pote', 'Chocolate', 'Pirulito'
@@ -237,7 +237,7 @@ async def updateItemService(nome:str, item:schemasP.AttProdutos, session: Sessio
             'Refrigerante descartavel', 'Refrigerante retornavel', 'Refrigerante 1l', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante lata',
             'Gatorade', 'Energeticos 2l', 'Energeticos lata 473ml', 'Energeticos lata 269ml',
             'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao narga',
-            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Fardos', 'Sucos', 'Agua', 
+            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Fardos 269ml', 'Fardos 350ml', 'Fardos barrigudinhas','Sucos', 'Agua', 
             'Balas', 'Chiclete', 'Doces de pote', 'Chocolate', 'Pirulito'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
@@ -249,7 +249,7 @@ async def updateItemService(nome:str, item:schemasP.AttProdutos, session: Sessio
         
         if item.quantidade <= 0:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser menor ou igual que 0!")
-        
+               
         validar_data(itemObject.data_validade)
         
         session.commit() #comitando a mudança
@@ -292,7 +292,7 @@ async def atualizarItemIdService(id: int, item:schemasP.AttProdutos, session: Se
             'Refrigerante descartavel', 'Refrigerante retornavel', 'Refrigerante 1l', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante lata',
             'Gatorade', 'Energeticos 2l', 'Energeticos lata 473ml', 'Energeticos lata 269ml',
             'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao narga',
-            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Fardos', 'Sucos', 'Agua',
+            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Fardos 269ml', 'Fardos 350ml', 'Fardos barrigudinhas','Sucos', 'Agua',
             'Balas', 'Chiclete', 'Doces de pote', 'Chocolate', 'Pirulito'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
@@ -316,6 +316,90 @@ async def atualizarItemIdService(id: int, item:schemasP.AttProdutos, session: Se
     except Exception as e:
         session.rollback()
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
+
+async def atualizarProdutoSoltoService(nome: str, tipo: str, item:schemasP.AttProdutosSoltos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    try:
+        if tipo == "Fardos 269ml":
+            itemObject2 = session.query(modelsP.Produtos_Cad).filter_by(tipo="Cerveja 269mla", nome=nome.upper()).first()
+            print("testeee: ", itemObject2)
+            
+            if not itemObject2:
+                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de tipo e nome:{tipo}, {nome} inexistente!")
+
+            print("Quantidade puxada do produto: ", itemObject2.quantidade)
+            if nome.upper() == "ORIGINAL COM 15":
+                print("oi")
+            elif nome.upper() == "ORIGINAL COM 8":
+                 print("oi")
+            else:
+                novaQuantidade = itemObject2.quantidade - item.quantidade * 15
+
+            print("Nova quantidade: ", novaQuantidade)
+            if novaQuantidade <= 0:
+                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser menor ou igual a 0")
+            
+            itemObject2.quantidade = novaQuantidade
+            
+            session.commit()
+            if itemObject2.quantidade <= 10:
+                return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2, "Atenção {} o produto {} chegou na quantidade mínima 10! Agora está em {}, fica esperto!".format(user.username, id, item.quantidade)  
+            else:
+                return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2    
+        elif tipo == "Fardos 350ml":
+            itemObject2 = session.query(modelsP.Produtos_Cad).filter_by(tipo="Cerveja 350mla", nome=nome.upper()).first()
+            print("testeee: ", itemObject2)
+            
+            if not itemObject2:
+                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de tipo e nome:{tipo}, {nome} inexistente!")
+
+            print("Quantidade puxada do produto: ", itemObject2.quantidade)
+            if nome.upper() == "BRAHMA COM 18":
+                novaQuantidade = itemObject2.quantidade - item.quantidade * 18
+            elif nome.upper() == "IMPERIO COM 15":
+                novaQuantidade = itemObject2.quantidade - item.quantidade * 15
+            elif nome.upper() == "SKOL COM 18":
+                novaQuantidade = itemObject2.quantidade - item.quantidade * 18
+            else:
+                novaQuantidade = itemObject2.quantidade - item.quantidade * 12
+
+            print("Nova quantidade: ", novaQuantidade)
+            if novaQuantidade <= 0:
+                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser menor ou igual a 0")
+            
+            itemObject2.quantidade = novaQuantidade
+            
+            session.commit()
+            if itemObject2.quantidade <= 10:
+                return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2, "Atenção {} o produto {} chegou na quantidade mínima 10! Agora está em {}, fica esperto!".format(user.username, id, item.quantidade)  
+            else:
+                return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2   
+
+        elif tipo == "Fardos barrigudinhas":
+            itemObject2 = session.query(modelsP.Produtos_Cad).filter_by(tipo="Barrigudinhas", nome=nome.upper()).first()
+            print("testeee: ", itemObject2)
+            
+            if not itemObject2:
+                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de tipo e nome:{tipo}, {nome} inexistente!")
+            
+            novaQuantidade = itemObject2.quantidade - item.quantidade * 24
+
+            print("Nova quantidade: ", novaQuantidade)
+            if novaQuantidade <= 0:
+                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser menor ou igual a 0")
+            
+            itemObject2.quantidade = novaQuantidade
+            
+            session.commit()
+            if itemObject2.quantidade <= 10:
+                return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2, "Atenção {} o produto {} chegou na quantidade mínima 10! Agora está em {}, fica esperto!".format(user.username, id, item.quantidade)  
+            else:
+                return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2     
+        else:
+            pass
+    except Exception as e:
+        session.rollback()
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
+
     
 async def deleteItemService(nome:str, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
     try: 
