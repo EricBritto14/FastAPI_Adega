@@ -318,84 +318,123 @@ async def atualizarItemIdService(id: int, item:schemasP.AttProdutos, session: Se
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
 
 async def atualizarProdutoSoltoService(nome: str, tipo: str, item:schemasP.AttProdutosSoltos, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
+    config_fardos = {
+            "Fardos 269ml" : {
+                "tipo": "Cerveja 269mla",
+                "unidades_default" : 15, 
+                "produtos":{
+                    "BUDWEISER COM 8": 8,
+                    "ORIGINAL COM 8": 8,
+                }
+            },
+            "Fardos 350ml" : {
+                "tipo": "Cerveja 350mla",
+                "unidades_default" : 12,
+                "produtos":{
+                    "BRAHMA COM 18": 18,
+                    "IMPERIO COM 15": 15,
+                    "SKOL COM 18": 18,
+                }
+            },
+            "Fardos barrigudinhas":{
+                "tipo" : "Barrigudinhas",
+                "unidades_default": 24,
+                "produtos":{}
+            }
+    }
     try:
-        if tipo == "Fardos 269ml":
-            itemObject2 = session.query(modelsP.Produtos_Cad).filter_by(tipo="Cerveja 269mla", nome=nome.upper()).first()
-            print("testeee: ", itemObject2)
+        config = config_fardos.get(tipo)
+        if not config:
+            # Você pode retornar uma mensagem ou simplesmente não fazer nada
+            return {"message": f"Tipo '{tipo}' não requer atualização de estoque de unidades."}
+        # if tipo == "Fardos 269ml":
+        itemObject2 = session.query(modelsP.Produtos_Cad).filter_by(tipo=config["tipo"], nome=nome.upper()).first()
             
-            if not itemObject2:
-                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de tipo e nome:{tipo}, {nome} inexistente!")
+        if not itemObject2:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de tipo e nome:{tipo}, {nome} inexistente!")
+        
+        unidade_por_fardo = config["produtos"].get(nome.upper(), config["unidades_default"])
 
-            print("Quantidade puxada do produto: ", itemObject2.quantidade)
-            if nome.upper() == "ORIGINAL COM 15":
-                print("oi")
-            elif nome.upper() == "ORIGINAL COM 8":
-                 print("oi")
-            else:
-                novaQuantidade = itemObject2.quantidade - item.quantidade * 15
+        novaQuantidade = itemObject2.quantidade - (item.quantidade * unidade_por_fardo)
 
-            print("Nova quantidade: ", novaQuantidade)
-            if novaQuantidade <= 0:
-                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser menor ou igual a 0")
-            
-            itemObject2.quantidade = novaQuantidade
-            
-            session.commit()
-            if itemObject2.quantidade <= 10:
-                return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2, "Atenção {} o produto {} chegou na quantidade mínima 10! Agora está em {}, fica esperto!".format(user.username, id, item.quantidade)  
-            else:
-                return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2    
-        elif tipo == "Fardos 350ml":
-            itemObject2 = session.query(modelsP.Produtos_Cad).filter_by(tipo="Cerveja 350mla", nome=nome.upper()).first()
-            print("testeee: ", itemObject2)
-            
-            if not itemObject2:
-                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de tipo e nome:{tipo}, {nome} inexistente!")
+        # print("Quantidade puxada do produto: ", itemObject2.quantidade)
+            # if nome.upper() == "BUDWEISER COM 8":
+            #     novaQuantidade = itemObject2.quantidade - item.quantidade * 8
+            # elif nome.upper() == "ORIGINAL COM 8":
+            #      novaQuantidade = itemObject2.quantidade - item.quantidade * 8
+            # else:
+            #     novaQuantidade = itemObject2.quantidade - item.quantidade * 15
 
-            print("Quantidade puxada do produto: ", itemObject2.quantidade)
-            if nome.upper() == "BRAHMA COM 18":
-                novaQuantidade = itemObject2.quantidade - item.quantidade * 18
-            elif nome.upper() == "IMPERIO COM 15":
-                novaQuantidade = itemObject2.quantidade - item.quantidade * 15
-            elif nome.upper() == "SKOL COM 18":
-                novaQuantidade = itemObject2.quantidade - item.quantidade * 18
-            else:
-                novaQuantidade = itemObject2.quantidade - item.quantidade * 12
+        print("Nova quantidade: ", novaQuantidade)
+        if novaQuantidade <= 0:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser menor ou igual a 0")
+            
+        itemObject2.quantidade = novaQuantidade
+        session.commit()
+        session.refresh(itemObject2)
 
-            print("Nova quantidade: ", novaQuantidade)
-            if novaQuantidade <= 0:
-                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser menor ou igual a 0")
-            
-            itemObject2.quantidade = novaQuantidade
-            
-            session.commit()
-            if itemObject2.quantidade <= 10:
-                return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2, "Atenção {} o produto {} chegou na quantidade mínima 10! Agora está em {}, fica esperto!".format(user.username, id, item.quantidade)  
-            else:
-                return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2   
+        response_data = schemasP.Produtos_S.model_validate(itemObject2)
 
-        elif tipo == "Fardos barrigudinhas":
-            itemObject2 = session.query(modelsP.Produtos_Cad).filter_by(tipo="Barrigudinhas", nome=nome.upper()).first()
-            print("testeee: ", itemObject2)
-            
-            if not itemObject2:
-                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de tipo e nome:{tipo}, {nome} inexistente!")
-            
-            novaQuantidade = itemObject2.quantidade - item.quantidade * 24
+        response_body = {
+            "message" : f"Estoque do produto '{itemObject2.nome}' atualizado com sucesso.",
+            "data": response_data.model_dump()
+        }
+        if itemObject2.quantidade <= 10:
+                response_body["warning"] = f"Atenção {user.username}: o produto '{itemObject2.nome}' atingiu o estoque mínimo. Restam {itemObject2.quantidade} unidades."
+        
+        return response_body
 
-            print("Nova quantidade: ", novaQuantidade)
-            if novaQuantidade <= 0:
-                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser menor ou igual a 0")
+        # elif tipo == "Fardos 350ml":
+        #     itemObject2 = session.query(modelsP.Produtos_Cad).filter_by(tipo="Cerveja 350mla", nome=nome.upper()).first()
+        #     print("testeee: ", itemObject2)
             
-            itemObject2.quantidade = novaQuantidade
+        #     if not itemObject2:
+        #         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de tipo e nome:{tipo}, {nome} inexistente!")
+
+        #     print("Quantidade puxada do produto: ", itemObject2.quantidade)
+        #     if nome.upper() == "BRAHMA COM 18":
+        #         novaQuantidade = itemObject2.quantidade - item.quantidade * 18
+        #     elif nome.upper() == "IMPERIO COM 15":
+        #         novaQuantidade = itemObject2.quantidade - item.quantidade * 15
+        #     elif nome.upper() == "SKOL COM 18":
+        #         novaQuantidade = itemObject2.quantidade - item.quantidade * 18
+        #     else:
+        #         novaQuantidade = itemObject2.quantidade - item.quantidade * 12
+
+        #     print("Nova quantidade: ", novaQuantidade)
+        #     if novaQuantidade <= 0:
+        #         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser menor ou igual a 0")
             
-            session.commit()
-            if itemObject2.quantidade <= 10:
-                return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2, "Atenção {} o produto {} chegou na quantidade mínima 10! Agora está em {}, fica esperto!".format(user.username, id, item.quantidade)  
-            else:
-                return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2     
-        else:
-            pass
+        #     itemObject2.quantidade = novaQuantidade
+            
+        #     session.commit()
+        #     if itemObject2.quantidade <= 10:
+        #         return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2, "Atenção {} o produto {} chegou na quantidade mínima 10! Agora está em {}, fica esperto!".format(user.username, id, item.quantidade)  
+        #     else:
+        #         return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2   
+
+        # elif tipo == "Fardos barrigudinhas":
+        #     itemObject2 = session.query(modelsP.Produtos_Cad).filter_by(tipo="Barrigudinhas", nome=nome.upper()).first()
+        #     print("testeee: ", itemObject2)
+            
+        #     if not itemObject2:
+        #         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Produto de tipo e nome:{tipo}, {nome} inexistente!")
+            
+        #     novaQuantidade = itemObject2.quantidade - item.quantidade * 24
+
+        #     print("Nova quantidade: ", novaQuantidade)
+        #     if novaQuantidade <= 0:
+        #         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Quantidade de produto não pode ser menor ou igual a 0")
+            
+        #     itemObject2.quantidade = novaQuantidade
+            
+        #     session.commit()
+        #     if itemObject2.quantidade <= 10:
+        #         return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2, "Atenção {} o produto {} chegou na quantidade mínima 10! Agora está em {}, fica esperto!".format(user.username, id, item.quantidade)  
+        #     else:
+        #         return "Atualizando o produto de id:{}, {}. Para: ".format(id, user.username), itemObject2     
+        # else:
+        #     pass
     except Exception as e:
         session.rollback()
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
