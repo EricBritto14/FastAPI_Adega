@@ -56,6 +56,11 @@ async def getItemss(session: Session = Depends(get_session)):
     usuarios = session.query(Cadastro_Users).all()
     return usuarios
 
+@app.get("/health", status_code=200)
+async def health_check():
+    """Endpoint leve para checagem de saúde e para manter o serviço ativo."""
+    return {"status": "ok"}
+
 @app.post('/token', response_model=Token)
 def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), session: Session = Depends(get_session)):
     return login_for_access_token_service(form_data, session)
