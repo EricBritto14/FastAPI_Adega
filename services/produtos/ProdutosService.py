@@ -160,7 +160,7 @@ async def addItemService(item: schemasP.Produtos_S, session: Session = Depends(g
             'Combo vodka', 'Combo gin', 'Combo whisky', 
             'Refrigerante descartavel', 'Refrigerante retornavel', 'Refrigerante 1l', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante lata',
             'Gatorade', 'Energeticos 2l', 'Energeticos lata 473ml', 'Energeticos lata 269ml',
-            'Fardos 269ml', 'Fardos 350ml', 'Fardos barrigudinhas', 'Sucos', 'Agua',
+            'Fardos 269ml', 'Fardos 350ml', 'Fardos barrigudinhas', 'Sucos', 'Agua', 'Unidades soltas',
             'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao narga',
             'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida',
             'Balas', 'Chiclete', 'Doces de pote', 'Chocolate', 'Pirulito'
@@ -237,7 +237,7 @@ async def updateItemService(nome:str, item:schemasP.AttProdutos, session: Sessio
             'Refrigerante descartavel', 'Refrigerante retornavel', 'Refrigerante 1l', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante lata',
             'Gatorade', 'Energeticos 2l', 'Energeticos lata 473ml', 'Energeticos lata 269ml',
             'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao narga',
-            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Fardos 269ml', 'Fardos 350ml', 'Fardos barrigudinhas','Sucos', 'Agua', 
+            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Fardos 269ml', 'Fardos 350ml', 'Fardos barrigudinhas','Sucos', 'Agua', 'Unidades soltas',
             'Balas', 'Chiclete', 'Doces de pote', 'Chocolate', 'Pirulito'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
@@ -292,7 +292,7 @@ async def atualizarItemIdService(id: int, item:schemasP.AttProdutos, session: Se
             'Refrigerante descartavel', 'Refrigerante retornavel', 'Refrigerante 1l', 'Refrigerante 600ml', 'Refrigerante 200ml', 'Refrigerante lata',
             'Gatorade', 'Energeticos 2l', 'Energeticos lata 473ml', 'Energeticos lata 269ml',
             'Isqueiros', 'Cigarros', 'Palheiros', 'Piteira', 'Tabaco', 'Slick', 'Cuia', 'Sedas', 'Essencias', 'Carvao narga',
-            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Fardos 269ml', 'Fardos 350ml', 'Fardos barrigudinhas','Sucos', 'Agua',
+            'Carvao', 'Gelo', 'Fabitos', 'Batata', 'Torcida', 'Fardos 269ml', 'Fardos 350ml', 'Fardos barrigudinhas','Sucos', 'Agua', 'Unidades soltas',
             'Balas', 'Chiclete', 'Doces de pote', 'Chocolate', 'Pirulito'):
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Tipo de produto não disponível")
         
