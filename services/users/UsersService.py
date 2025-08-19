@@ -146,111 +146,63 @@ async def addItemService(username: str,
         print("Erro:", repr(e))
         raise HTTPException(status_code=500, detail="Erro interno do servidor")
     
-async def updateItemService(nome:str, item:schemas.Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
+async def atualizarByIdService(user_id: int,
+    username: Optional[str],
+    email: Optional[str],
+    is_admin_raw: Optional[str],
+    profile_image: Optional[UploadFile],
+    session: Session):
     try:
-        if not user.is_admin:
-            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN,detail="Você não tem permissão para atualizar")   
-    
-        itemObject = session.query(models.Cadastro_Users).filter_by(username=nome.capitalize()).first() #Pegando o valor que foi passado pelo int, de qual objeto salvo é
-                    # Aqui, todas as outras validações podem ser realizadas
-                    # Se todas as validações passarem, agora podemos hash a senha
-        if not itemObject:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário inexistente!")
-        #Pegando o username digitado para atualizar
-        usernameN = item.username.capitalize()
-        newUsername = session.query(models.Cadastro_Users).filter_by(username = usernameN).first() #Está procurando no banco o novo nome de usuário que o cara quer atualizar, se tiver, vai dar o erro de baixo, se não vai da bom
-        
-        if newUsername != None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Nome de usuário:{} já existente!".format(usernameN))
-        
-        #Pegando o email digitado para atualizar
-        emailN = item.email
-        newEmail = session.query(models.Cadastro_Users).filter_by(email = emailN).first()#Está procurando no banco o novo email que o cara quer atualizar, se tiver, vai dar o erro de baixo, se não vai da bom
-        
-        if newEmail != None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Este email já está sendo usado!")
-        
-        itemObject.username, itemObject.email, itemObject.is_admin, itemObject.senha = item.username.capitalize(), item.email, item.is_admin, valida_senha(item.senha)
-        
-        if not itemObject.email.endswith(('@gmail.com', '@outlook.com', '@hotmail.com')):
-                raise HTTPException(
+            db_user = session.query(models.Cadastro_Users).filter(models.Cadastro_Users.idUsuario == user_id).first()
+
+            if not db_user:
+                 raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Usuário não encontrado")
+            
+            if username is not None:
+                username_real = session.query(models.Cadastro_Users).filter(models.Cadastro_Users.username == username.capitalize(), models.Cadastro_Users.idUsuario != user_id).first();
+
+                if username_real:
+                     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Username já existente, tente outro!")
+                
+                db_user.username = username.capitalize()
+            
+            if email is not None:
+                email_exists = session.query(models.Cadastro_Users).filter(models.Cadastro_Users.email == email, models.Cadastro_Users.idUsuario != user_id).first()
+
+                if email_exists:
+                     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email já existente, tente outro!")
+            
+                if not email.endswith(('@gmail.com', '@hotmail.com', '@outlook.com')):
+                    raise HTTPException(
                         status_code=status.HTTP_400_BAD_REQUEST,
                         detail="Email não válido!"
-                )
+                    )
 
-        session.commit() #comitando a mudança
-        return f"Olá {user.username}, o usuário desejado foi atualizado para:", itemObject
+                db_user.email = email
+            
+            if is_admin_raw is not None:
+                db_user.is_admin = is_admin_raw in ["1", "true", "on"]
 
-    except Exception as e:
-        session.rollback() #Session rollback serve para que se cair na exception, garantir que não faça nada no banco. Então rollback para garantir que não deu nada, antes de dar erro.
-        raise HTTPException(status_code=e.status_code, detail=str(e))
-    
-async def atualizarByIdService(id: int, item:schemas.Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
-    try:
-        if not user.is_admin:
-            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Usuário não autorizado!")
-        
-        itemObjectId = session.query(models.Cadastro_Users).get(id)
-        
-        if not itemObjectId:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário de id:{} inexistente!".format(id))
-        
-        usernameN = item.username.capitalize()
-        newUsername = session.query(models.Cadastro_Users).filter_by(username = usernameN).first()
-        
-        if newUsername != None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário de nome:{} já existente!".format(usernameN))
-        
-        emailN = item.email
-        NEmail = session.query(models.Cadastro_Users).filter_by(email = emailN).first()
-        
-        if NEmail != None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email:{} já está sendo usado!".format(emailN))        
-        
-        itemObjectId.username, itemObjectId.email, itemObjectId.is_admin, itemObjectId.senha = item.username.capitalize(), item.email, item.is_admin, valida_senha(item.senha)
-        
-        if not itemObjectId.email.endswith(('@gmail.com', '@hotmail.com', '@outlook.com')):
-            raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="Email não válido!")
-        
-        session.commit()
-        return f"Olá {user.username}, o usuário desejado foi atualizado para: ", itemObjectId
-        
-        
-    except Exception as e:
-        session.rollback()
-        raise HTTPException(status_code=e.status_code, detail=str(e))
-    
-async def atualizarByIdService(id: int, item:schemas.Att_Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
-    try:
-        if not user.is_admin:
-            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Usuário não autorizado!")
-        
-        itemObjectId = session.query(models.Cadastro_Users).get(id)
-        
-        if not itemObjectId:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário de id:{} inexistente!".format(id))
-        
-        usernameN = item.username.capitalize()
-        newUsername = session.query(models.Cadastro_Users).filter_by(username = usernameN).first()
-        
-        if newUsername != None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Usuário de nome:{} já existente!".format(usernameN))
-        
-        emailN = item.email
-        NEmail = session.query(models.Cadastro_Users).filter_by(email = emailN).first()
-        
-        if NEmail != None:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email:{} já está sendo usado!".format(emailN))        
-        
-        itemObjectId.username, itemObjectId.email, itemObjectId.is_admin = item.username.capitalize(), item.email, item.is_admin
-        
-        if not itemObjectId.email.endswith(('@gmail.com', '@hotmail.com', '@outlook.com')):
-            raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="Email não válido!")
-        
-        session.commit()
-        return f"Olá {user.username}, o usuário desejado foi atualizado para: ", itemObjectId
-        
-        
+            if profile_image:
+                from pathlib import Path
+                import uuid
+
+                filename = f"{uuid.uuid4()}_{profile_image.filename}"
+                upload_folder = Path("static/profile_images")
+                upload_folder.mkdir(parents=True, exist_ok=True)
+                file_path = upload_folder / filename
+
+                with open(file_path, "wb") as buffer:
+                    buffer.write(await profile_image.read())
+
+                db_user.profile_image = f"profile_images/{filename}"
+
+            session.commit()  #comitando a mudança
+            session.refresh(db_user) #Dando um refresh para atualizar o banco
+            return {
+                "mensagem": f"Usuário {db_user.username} atualizado com sucesso!",
+                "usuario": db_user
+            }
     except Exception as e:
         session.rollback()
         raise HTTPException(status_code=e.status_code, detail=str(e))

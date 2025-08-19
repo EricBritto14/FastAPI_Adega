@@ -117,6 +117,10 @@ class Att_Cadastro(BaseModel):
    username: str
    email: str
    is_admin: bool
+   profile_image: str | None
+   
+   class Config:
+        orm_mode = True
 
 class Token(BaseModel): #Realomente necessário para o Login, usado no main.py com o /token
     access_token: str

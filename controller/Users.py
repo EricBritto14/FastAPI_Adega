@@ -41,18 +41,30 @@ async def addItem(username: str = Form(...),
         session=session
     )
 
-#Atualizando valores
-@router.put("/usuarios/atualizar/{nome}")
-async def updateItem(nome:str, item:schemas.Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)): #Aqui se chamaria a classe, e o nome do classe dentro da classe, para pegar os valores e fazer um objeto
-    return await updateItemService(nome, item, session, user)
-
-@router.put("/usuarios/atualizar_by_id/{id}")
-async def atualizarById(id: int, item:schemas.Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
-    return await atualizarByIdService(id, item, session, user) 
-    
 @router.patch("/usuarios/patch_by_id/{id}")
-async def atualizarById(id: int, item:schemas.Att_Cadastro, session: Session = Depends(get_session), user: Cadastro_Users = Depends(get_current_user)):
-    return await atualizarByIdService(id, item, session, user)
+async def atualizarById(id: int,
+    username: Optional[str] = Form(None),
+    email: Optional[str] = Form(None),
+    is_admin_raw: Optional[str] = Form(None),
+    profile_image: Optional[UploadFile] = File(None),
+    session: Session = Depends(get_session),
+    user: Cadastro_Users = Depends(get_current_user)):
+
+    print("--- DADOS RECEBIDOS NA ROTA ---")
+    print(f"ID: {id}")
+    print(f"Username: {username} (Tipo: {type(username)})")
+    print(f"Email: {email} (Tipo: {type(email)})")
+    print(f"Is Admin Raw: {is_admin_raw} (Tipo: {type(is_admin_raw)})")
+    print(f"Profile Image: {profile_image.filename if profile_image else 'Nenhuma'}")
+    print("---------------------------------")
+
+
+    return await atualizarByIdService(user_id=id,
+        username=username,
+        email=email,
+        is_admin_raw=is_admin_raw,
+        profile_image=profile_image,
+        session=session)
 
 #Deletando valores
 @router.delete("/usuarios/delete/{nome}")
